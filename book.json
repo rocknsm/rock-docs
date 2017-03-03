@@ -1,8 +1,5 @@
 {
   "root": ".",
-  "plugins": [
-    "addcssjs"
-  ],
   "structure": {
     "readme": "README.adoc",
     "summary": "SUMMARY.adoc"
