@@ -1,139 +1,134 @@
-= Configuration
+= Getting Started with ROCK 2.0
 
-Edit `/etc/rocknsm/config.yml` to suit your needs. For simple all-in-one installs, the main points to configure are 
+In an effort to get this into hands of people that will break it and or make it useful, I'm sharing this ISO and some notes about how to use it. Note this is a work in progress, and I will build upon these notes to make what will ultimately be the release notes.
+
+Last caveat, there's nothing secret here. Everything on the ISO is available in a repo, including the build scripts. I'm not going to go into how to build this, but a curious little rhino could likely figure it out without too much trouble poking around the source tree.
+
+== TL;DR;
+
+Download the ISO indicated in <<Using the ISO>>, complete the installation and reboot. Upon login, run `/opt/rocknsm/rock/bin/deploy_rock.sh` to accept all the defaults.
+
+Read on for more details and configuration options.
+
+== Ch-cha-cha-changes
+
+> Turn and face the change...
+
+== Installation
+
+=== Using the ISO
+
+Download the ISO from the https://github.com/rocknsm/rock/releases[Releases page]
+
+=== Install in VM Environment
+
+This section is based on using VMware Fusion on a Mac, but these steps provide a general template. I've tested the ISO booting mostly in a VMware VM, which uses BIOS. I've also burned it to a USB thumbdrive (I used the 16 GB USB3 from MicroCenter) and installed it in BIOS mode on my home test sensor.
+
+* Prep Install Media
+** `dd` command via terminal
+```
+diskutil list
+diskutil unmountDisk /dev/disk#
+sudo dd bs=8M if=path/to/rockiso of=/dev/disk#
+```
+
+NOTE: http://etcher.io[etcher.io] is a solid gui-based burning utility
+
+* New VM Setup
+
+** in the top left corner click add > new... then custom machine
+** select the Linux > RedHat Enterprise 64 template
+** create new virtual disk
+** name your VM, save
+
+Lets customize some settings, change based on hardware available.
+
+* Processors & Memory
+** Processors - 4 cores
+** Memory - 8192MB (8GB)
+
+* Hard Disk
+** increase the disk to 20GB
+** customize settings
+** save as name
+
+* Network Adapter
+** By default the vm is created with one interface - this will be for management.
+** lets add a second (listening) interface:
+*** add device (top right), net adapter, add, “private to my mac”
+
+* Boot device
+
+** click CD/DVD (IDE)
+** check the "Connect CD/DVD Drive" box
+** expand advanced options and browse to the latest ROCK iso
+
+* Install
+
+Once the above changes are made, we're ready to install:
+
+* click the "Start Up" button while holding the `esc` key
+* hit `tab` for full config options
+** add the following values, separated by spaces: +
+*** `biosdevname=0` +
+*** `net.ifnames=0` This will ensure you get interface names like `eth0`. If you have physical hardware, I _highly_ recommend that you do not use this function. +
+*** `vga=773` +
+* ENTER, and ROCK install script will install
+* create _*admin*_ user acct
+* REBOOT when install process is complete
+
+TIP: The `root` account is locked by default and the user account you created has `sudo` access.
+
+You're now ready for <<Configuration>>
+
+=== Install from the repo
+
+You can also clone the https://github.com/rocknsm/rock/[ROCK] repository. The instructions for the ISO above use a snapshot of the `master` branch. You can clone this repo and simply run the `/opt/rocknsm/rock/bin/generate_defaults.sh` script with `sudo`. This will generate the file `/etc/rocknsm/config.yml`.
+
+You're now ready for <<Configuration>>
+
+=== Updating
+
+NOTE: VMware Fusion will allow local ssh, while Virtualbox will require port forwarding
+
+Log in with the admin credentials used during the install process, and lets get this box current:
+```
+sudo yum update -y && reboot
+sudo yum install -y epel-release
+sudo yum install -y git ansible
+git clone https://github.com/rocknsm/rock.git
+cd rock
+sudo ./bin/generate_defaults.sh
+```
+
+=== Configuration
+
+
+If you wish to run an offline install (the ISO sets you up for this already) edit `/etc/rocknsm/config.yml` and change the following setting as shown:
 
 ```
-sudo vim /etc/rocknsm/config.yml
+rock_online_install: False
 ```
 
-Generally, most of the options you'll want to change are near the top. The file is fairly well commented. The defaults are auto-generated according to our best guess at your hardware with some simple rules of thumb. That said, you could consider tweaking them according to your performance needs.
+If this value is set to `True`, Ansible will configure your system for the yum repositories listed and pull packages and git repos directly from the URLs given. You could easily point this to local mirrors, if needed.
 
-[options="header"]
-|===
-| Name | Default | Description
+If this value is set to `False`, Ansible will look for the cached files in `/srv/rocknsm`. There is another script called `offline-snapthot.sh` that will create the necessary repository and file structure. Run this from a system that is Internet connected and copy it to your sensors for offline deployment.
 
-| rock_monifs
-| `[eno3, eno4]`
-| These interfaces will be configured in Bro, Suricata, Stenographer and our tuning script for passive collection. The default is actually auto-detected from your hardware. It defaults to selecting all ethernet interfaces on the system that are not the default gateway (i.e. the management interface).
+While you're in there, you can change the auto-detected defaults, such as which interfaces to use, hostname, fqdn, resources to use, etc. You can also disable features altogether at the bottom by simply changing the feature value to `False` as shown below. Don't do this unless you know what you're doing.
 
-| rock_hostname
-| `simplerockbuild`
-| This will be used in all places where the hostname is needed. It will also be placed in `/etc/hosts`
+```
+with_nginx: False <1>
+```
+<1> This disables nginx from installing or being configured. Note that it will not remove it if it is already present.
 
-| rock_fqdn
-| `simplerockbuild.simplerock.lan`
-| This will be set in `/etc/hosts` to provide FQDN lookup within the sensor
+Once you've completed flipping the bits as you see fit, simply run `/opt/rocknsm/rock/bin/deploy_rock.sh`. If everything is well, this should install all the components and give you a success banner.
 
-| bro_cpu
-| Half of available cores, not to exceed 8
-| This will allocate this many CPUs to bro as worker nodes
+== Known Issues
 
-| es_cluster_name
-| `rocknsm`
-| Elasticsearch will be configured to use this as the cluster name.
+There's some listed on GitHub.
 
-| es_node_name
-| _rock_hostname_
-| This will appear in Elasticsearch runtime information as the node name.
-
-| es_mem
-| Half of available memory, rounded down to the nearest gigabyte
-| This is used to configure the heap size for Elasticsearch.
-
-| pulled_pork_oinkcode
-| an oinkcode that we registered
-| If you pulled snort rules from snort.org, you should replace this with your own code. This is used to uniquely identify a user for purposes of rate-limiting. If you use the same one that every install of ROCK uses, you will be rate limited or denied.
-
-| rock_online_install 
-| `True` (unless installed from ISO)
-| Configures yum and other downloads to pull packages from the Internet. If this is set to `False`, you should have already followed to procedures to make an <<working-offline,Offline Snapshot>>
-
-| epel_baseurl
-| _the default url for EPEL_
-| You can change this to point to a local yum mirror for EPEL if you have one.
-
-| epel_gpgurl
-| _the default url for the EPEL gpg key
-| You should change this if your sensor cannot reach the Internet and you have a copy of the EPEL GPG Key on your internal package mirror
-
-| elastic_baseurl
-| _the upstream Elastic yum repository_ 
-| You can change this to point to a local yum mirror for Elastic if you have one
-
-| elastic_gpgurl
-| _the default url for the Elastic GPG key_ 
-| You should change this if your sensor cannot reach the Internet and you have a copy of the Elastic GPG Key on your internal package mirror
-
-| rocknsm_baseurl
-| _the online rocknsm repo_
-| You can change this to point to a local yum mirror for ROCK NSM packages if you have one 
-
-| rocknsm_gpgurl
-| _the default url for the ROCK NSM key_ 
-| You should change this if your sensor cannot reach the Internet and you have a copy of the ROCK NSM GPG Key on your internal package mirror
-
-| rocknsm_local_baseurl
-| `/srv/rocknsm`
-| This is the location for a local offline yum repository and a local file cache for file archives used during the deployment. Even when installing online this is used to store downloaded files.
-
-| bro_rockscripts_repo
-| _our github repo for bro scripts_
-| You could change this to your own fork of our bro scripts or a local git repository.
-
-| pulled_pork_repo
-| https://github.com/shirkdog/pulledpork.git
-| You could change this to your own fork of pulled pork or to a local git repository.
-
-| with_stenographer 
-| `True`
-| Determines whether Stenographer will be installed as the PCAP capture engine.
-
-| with_bro
-| `True`
-| Determines whether Bro will be installed and configured.
-
-| with_suricata
-| `True`
-| Determines whether Suricata will be installed and configured. 
-
-*NOTE*: While you theoretically _could_ install both Suricata and Snort, I guarantee that the automated deployment will not configure this as you were hoping.
-
-| with_snort
-| `False`
-| Determines whether Snort will be installed and configured.
-
-*NOTE*: While you theoretically _could_ install both Snort and Suricata, I guarantee that the automated deployment will not configure this as you were hoping.
-
-| with_pulledpork
-| `True`
-| Deterimines whether Pulled Pork will be installed and configured for your IDS engine of choice (Suricata or Snort)
-
-| with_logstash
-| `True`
-| Determines whether Logstash will be installed and configured for the data pipeline.
-
-NOTE: I highly recommend leaving logstash even if you don't want the full ELK install. We've put a lot of work into processing the Bro logs with Logstash. If You'd like to split the data out to Splunk or some other SEIM, consider taking the feed after Logstash has processed it. See <<tuning, Tuning & Scaling>> for more discussion on options here.
-
-| with_elasticsearch
-| `True`
-| Determines whether Elasticsearch will be installed and configured. See <<tuning, Tuning & Scaling>> for more discussion on options here.
-
-| with_kibana
-| `True`
-| Determines whether Kibana will be installed and configured. See <<tuning, Tuning & Scaling>> for more discussion on options here.
-
-| with_zookeeper
-| `True`
-| Determines whether Zookeeper will be installed and configured. See <<tuning, Tuning & Scaling>> for more discussion on options here.
-
-*NOTE*: Zookeeper is required to run Kafka, so if you install Kafka you should leave this to true, or be willing to manually configure Kafka to point to another Zookeeper.
-
-| with_kafka
-| `True`
-| Determines whether Kafka will be installed and configured. If `False`, the Bro configuration will be adjusted to disable Kafka logging.
-
-| with_nginx
-| `True`
-| Determines whether Nginx will be installed and configured as the Kibana proxy. Nginx provides a control point that can provide for authentication enforcement to access Kibana.
-
-|===
+. Best practice custom partitioning?
+. Insufficient documentation
+. Still doing integration work with FSF
+. Still working on some additional health checks
+. What have you found???

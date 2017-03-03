@@ -77,13 +77,13 @@ Once the above changes are made, we're ready to install:
 * create _*admin*_ user acct
 * REBOOT when install process is complete
 
-TIP: The `root` account is locked by default and `rockadmin` has `sudo` access.
+TIP: The `root` account is locked by default and the user account you created has `sudo` access.
 
 You're now ready for <<Configuration>>
 
 === Install from the repo
 
-You can also clone the https://github.com/rocknsm/rock/[ROCK] repository. The instructions for the ISO above use a snapshot of the `devel` repo. You can clone this repo and simply run the `/opt/rocknsm/rock/ansible/generate_defaults.sh` script with `sudo`. This will generate the file `/etc/rocknsm/config.yml`.
+You can also clone the https://github.com/rocknsm/rock/[ROCK] repository. The instructions for the ISO above use a snapshot of the `master` branch. You can clone this repo and simply run the `/opt/rocknsm/rock/bin/generate_defaults.sh` script with `sudo`. This will generate the file `/etc/rocknsm/config.yml`.
 
 You're now ready for <<Configuration>>
 
@@ -98,7 +98,7 @@ sudo yum install -y epel-release
 sudo yum install -y git ansible
 git clone https://github.com/rocknsm/rock.git
 cd rock
-sudo ./generate_defaults.sh
+sudo ./bin/generate_defaults.sh
 ```
 
 === Configuration
@@ -121,7 +121,7 @@ with_nginx: False <1>
 ```
 <1> This disables nginx from installing or being configured. Note that it will not remove it if it is already present.
 
-Once you've completed flipping the bits as you see fit, simply run `/opt/rocknsm/rock/ansible/deploy_rock.sh`. If everything is well, this should install all the components and give you a success banner.
+Once you've completed flipping the bits as you see fit, simply run `/opt/rocknsm/rock/bin/deploy_rock.sh`. If everything is well, this should install all the components and give you a success banner.
 
 == Known Issues
 
