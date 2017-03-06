@@ -51,7 +51,7 @@ TIP: We assume that any interface that does not have a default route will be use
 WARNING: This so far has been the number one problem with a fresh install for beta testers!! Check your interface configuration!!
 
 * You have mounted your largest storage volume(s) under `/data/` (defined by `rock_data_dir`)
-* Your hostname (FQDN) is defined in the `ansible/inventory/all-in-one.ini` file.
+* Your hostname (FQDN) is defined in the `playbooks/inventory/all-in-one.ini` file.
 * You allow management via SSH from any network (defined by `rock_mgmt_nets`)
 * You wish to use Bro, Suricata, Stenographer (disabled by default) and the whole data pipeline. (See `with_*` options)
 * If installed via ISO, you will perform an offline install, else we assume online (defined by `rock_online_install`)j
