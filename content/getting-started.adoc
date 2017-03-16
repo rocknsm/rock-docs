@@ -1,127 +1,132 @@
-= Getting Started with ROCK 2.0
+= ROCK 2.0 - Getting Started
+Derek Ditch <derek@rocknsm.io>; Jeff Geiger <jeff@rocknsm.io>
+:icons: font
+:experimental:
 
-In an effort to get this into hands of people that will break it and or make it useful, I'm sharing this ISO and some notes about how to use it. Note this is a work in progress, and I will build upon these notes to make what will ultimately be the release notes.
+== Usage
 
-Last caveat, there's nothing secret here. Everything on the ISO is available in a repo, including the build scripts. I'm not going to go into how to build this, but a curious little rhino could likely figure it out without too much trouble poking around the source tree.
+=== Start / Stop / Status
+Accomplished with `rock_stop`, `rock_start`, and `rock_status`.
 
-== TL;DR;
+TIP: These may need to be prefaced with /usr/local/bin/ depending on your PATH.
 
-Download the ISO indicated in <<Using the ISO>>, complete the installation and reboot. Upon login, run `/opt/rocknsm/rock/bin/deploy_rock.sh` to accept all the defaults.
-
-Read on for more details and configuration options.
-
-== Ch-cha-cha-changes
-
-> Turn and face the change...
-
-== Installation
-
-=== Using the ISO
-
-Download the ISO from the https://github.com/rocknsm/rock/releases[Releases page]
-
-=== Install in VM Environment
-
-This section is based on using VMware Fusion on a Mac, but these steps provide a general template. I've tested the ISO booting mostly in a VMware VM, which uses BIOS. I've also burned it to a USB thumbdrive (I used the 16 GB USB3 from MicroCenter) and installed it in BIOS mode on my home test sensor.
-
-* Prep Install Media
-** `dd` command via terminal
+`sudo rock_stop`
 ```
-diskutil list
-diskutil unmountDisk /dev/disk#
-sudo dd bs=8M if=path/to/rockiso of=/dev/disk#
+[root@simplerockbuild ~]# rock_stop
+Stopping Bro...
+stopping worker-1-1 ...
+stopping worker-1-2 ...
+stopping proxy-1 ...
+stopping manager ...
+Stopping Logstash...
+Stopping Kibana...
+Stopping Elasticsearch...
+Stopping Kafka...
+Stopping Zookeeper...
 ```
 
-NOTE: http://etcher.io[etcher.io] is a solid gui-based burning utility
-
-* New VM Setup
-
-** in the top left corner click add > new... then custom machine
-** select the Linux > RedHat Enterprise 64 template
-** create new virtual disk
-** name your VM, save
-
-Lets customize some settings, change based on hardware available.
-
-* Processors & Memory
-** Processors - 4 cores
-** Memory - 8192MB (8GB)
-
-* Hard Disk
-** increase the disk to 20GB
-** customize settings
-** save as name
-
-* Network Adapter
-** By default the vm is created with one interface - this will be for management.
-** lets add a second (listening) interface:
-*** add device (top right), net adapter, add, “private to my mac”
-
-* Boot device
-
-** click CD/DVD (IDE)
-** check the "Connect CD/DVD Drive" box
-** expand advanced options and browse to the latest ROCK iso
-
-* Install
-
-Once the above changes are made, we're ready to install:
-
-* click the "Start Up" button while holding the `esc` key
-* hit `tab` for full config options
-** add the following values, speparated by spaces: +
-*** `biosdevname=0` +
-*** `net.ifnames=0` This will ensure you get interface names like `eth0`. If you have physical hardware, I _highly_ recommend that you do not use this function. +
-*** `vga=773` +
-* ENTER, and ROCK install script will install
-* create _*admin*_ user acct
-* REBOOT when install process is complete
-
-TIP: The `root` account is locked by default and the user account you created has `sudo` access.
-
-You're now ready for <<Configuration>>
-
-=== Install from the repo
-
-You can also clone the https://github.com/rocknsm/rock/[ROCK] repository. The instructions for the ISO above use a snapshot of the `master` branch. You can clone this repo and simply run the `/opt/rocknsm/rock/bin/generate_defaults.sh` script with `sudo`. This will generate the file `/etc/rocknsm/config.yml`.
-
-You're now ready for <<Configuration>>
-
-=== Updating
-
-NOTE: VMware Fusion will allow local ssh, while Virtualbox will require port forwarding
-
-Log in with the admin credentials used during the install process, and lets get this box current:
+`sudo rock_start`
 ```
-sudo yum update -y && reboot
-sudo yum install -y epel-release
-sudo yum install -y git ansible
-git clone https://github.com/rocknsm/rock.git
-cd rock
-sudo ./bin/generate_defaults.sh
+[root@simplerockbuild ~]# rock_start
+Starting Zookeeper...
+Active: active (running) since Wed 2015-12-02 17:12:02 UTC; 5s ago
+Starting Elasticsearch...
+Active: active (running) since Wed 2015-12-02 17:12:07 UTC; 5s ago
+Starting Kafka...
+Active: active (running) since Wed 2015-12-02 17:12:12 UTC; 5s ago
+Starting Logstash...
+Active: active (running) since Wed 2015-12-02 17:12:17 UTC; 5s ago
+Starting Kibana...
+Active: active (running) since Wed 2015-12-02 17:12:22 UTC; 5s ago
+Starting Bro...
+removing old policies in /data/bro/spool/installed-scripts-do-not-touch/site ...
+removing old policies in /data/bro/spool/installed-scripts-do-not-touch/auto ...
+creating policy directories ...
+installing site policies ...
+generating cluster-layout.bro ...
+generating local-networks.bro ...
+generating broctl-config.bro ...
+generating broctl-config.sh ...
+updating nodes ...
+manager scripts are ok.
+proxy-1 scripts are ok.
+worker-1-1 scripts are ok.
+worker-1-2 scripts are ok.
+starting manager ...
+starting proxy-1 ...
+starting worker-1-1 ...
+starting worker-1-2 ...
+Getting process status ...
+Getting peer status ...
+Name Type Host Status Pid Peers Started
+manager manager localhost running 20389 ??? 02 Dec 17:12:34
+proxy-1 proxy localhost running 20438 ??? 02 Dec 17:12:35
+worker-1-1 worker localhost running 20484 ??? 02 Dec 17:12:36
+worker-1-2 worker localhost running 20485 ??? 02 Dec 17:12:36
 ```
 
-=== Configuration
+`sudo rock_status`
+```
+[root@simplerockbuild ~]# /usr/local/bin/rock_status
+✓ Check each monitor interface is live
+✓ Check for interface errors
+✓ Check monitor interface for tx packets
+✓ Check PF_RING settings
+✓ Check that broctl is running
+✓ Check for bro-detected packet loss
+✓ Check that zookeeper is running
+✓ Check that zookeeper is listening
+✓ Check that client can connect to zookeeper
+✓ Check that kafka is running
+✓ Check that kafka is connected to zookeeper
+✓ Check that logstash is running
+✓ Check that elasticsearch is running
+✓ Check that kibana is running
 
+14 tests, 0 failures
+```
 
-If you wish to run an offline install (the ISO sets you up for this already) edit `/etc/rocknsm/config.yml` and change the following setting as shown:
+== Basic Troubleshooting
+=== Functions Check:
+```
+# After the initial build, the ES cluster will be yellow because the marvel index will think it's missing a replica. Run this to fix this issue. This job will run from cron just after midnight every day.
+/usr/local/bin/es_cleanup.sh 2>&1 > /dev/null
+
+# Check to see that the ES cluster says it's green:
+curl -s localhost:9200/_cluster/health | jq '.'
+
+# See how many documents are in the indexes. The count should be non-zero.
+curl -s localhost:9200/_all/_count | jq '.'
+
+# You can fire some traffic across the sensor at this point to see if it's collecting.
+# NOTE: This requires that you upload your own test PCAP to the box.
+sudo tcpreplay -i [your monitor interface] /path/to/a/test.pcap
+
+# After replaying some traffic, or just waiting a bit, the count should be going up.
+curl -s localhost:9200/_all/_count | jq '.'
+
+# You should have plain text bro logs showing up in /data/bro/logs/current/:
+ls -ltr /data/bro/logs/current/
+
+# Kafkacat is your kafka swiss army knife. This command will consume the current queue. You should see a non-zero offset.
+kafkacat -C -b localhost -t bro_raw -e | wc -l
+
+# If you haven't loaded kibana already, it should be running on port 5601. This just verifies while you're still on the command line.
+sudo netstat -planet | grep node
+```
+
+=== Key web interfaces:
+IPADDRESS = The management interface of the box, or "localhost" if you did the vagrant build.
+
+http://IPADDRESS - Kibana
+
+=== Log Timestamps
+
+This section needs more massagery...
 
 ```
-rock_online_install: False
+UTC is generally preferred for logging data as the timestamps from anywhere in the world will have a proper order without calculating offsets. That said, Kibana will present the bro logs according to your timezone (as set in the browser). The bro logs themselves (i.e. in /data/bro/logs/) log in epoch time and will be written in UTC regardless of the system timezone. Bro includes a utility for parsing these on the command line called bro-cut. It can be used to print human-readable timestamps in either the local sensor timezone or UTC. You can also give it a custom strftime format string to specify what you'd like displayed.
 ```
-
-If this value is set to `True`, Ansible will configure your system for the yum repositories listed and pull packages and git repos directly from the URLs given. You could easily point this to local mirrors, if needed.
-
-If this value is set to `False`, Ansible will look for the cached files in `/srv/rocknsm`. There is another script called `offline-snapthot.sh` that will create the necessary repository and file structure. Run this from a system that is Internet connected and copy it to your sensors for offline deployment.
-
-While you're in there, you can change the auto-detected defaults, such as which interfaces to use, hostname, fqdn, resources to use, etc. You can also disable features altogether at the bottom by simply changing the feature value to `False` as shown below. Don't do this unless you know what you're doing.
-
-```
-with_nginx: False <1>
-```
-<1> This disables nginx from installing or being configured. Note that it will not remove it if it is already present.
-
-Once you've completed flipping the bits as you see fit, simply run `/opt/rocknsm/rock/bin/deploy_rock.sh`. If everything is well, this should install all the components and give you a success banner.
 
 == Known Issues
 
@@ -132,3 +137,17 @@ There's some listed on GitHub.
 . Still doing integration work with FSF
 . Still working on some additional health checks
 . What have you found???
+
+== Examples
+
+=== Topology
+* monodraw diagram *TBD*
+
+=== Places to get PCAP
+* list of exercises / training sources *TBD*
+
+=== Bro Replay
+* `bro-r` examples *TBD*
+
+=== ROCK @ Home
+* examples of home implementation *TBD*

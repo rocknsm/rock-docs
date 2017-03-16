@@ -1,4 +1,3 @@
+. link:content/environment-prep.adoc[Environment Prep]
+. link:content/installation.adoc[Installation]
 . link:content/getting-started.adoc[Getting Started]
-. link:content/release-notes.adoc[Release Notes]
-. link:content/configuration.adoc[Configuration]
-
