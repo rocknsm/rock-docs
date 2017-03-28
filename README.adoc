@@ -109,9 +109,9 @@ This architecture is made possible by the efforts of the Missouri National Guard
 
 == Documentation
 
-link:content/environment-prep.adoc [Environment Prep]  +
-link:content/installation.adoc [Installation] +
-link:content/getting-started.adoc [Getting Started] +
+link:content/environment-prep.adoc[Environment Prep]  +
+link:content/installation.adoc[Installation] +
+link:content/getting-started.adoc[Getting Started] +
 
 == Change Log
 
