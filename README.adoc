@@ -1,25 +1,31 @@
-= Response Operation Collections Kit - 2.0
+= Response Operations Collections Kit - 2.X
 Derek Ditch <derek@rocknsm.io>; Jeff Geiger <jeff@rocknsm.io>
 :icons: font
 :experimental:
-
-This is a heart-felt and authentic dialog about how much rock means to us all...
 
 == Description
 
 A lot has changed in the past year or so since we released the initial Chef build. First and foremost, the build now uses Ansible for the automation. Most packages are updated to the latest greatest, and we've swapped in Suricata and the default signature IDS over Snort. Some of the most significant upgrade, from a use standpoint, is the work we've put into Kibana. The data model is slightly different, to the advantage of the analyst.
 
-For more details, see the link:#[Release Notes] once we make them available.
+* need link to introduction
 
-For more on the data model, see link:#[Data Model] once we document that.
+== ToC
 
+link:content/environment-prep.adoc[Environment Prep] +
+link:content/installation.adoc[Installation] +
+link:content/getting-started.adoc[Getting Started] +
+
+== What's New?
+
+=== ISO Install
+
+We now have an ISO that contains everything you need to deploy. The ISO is merely a snapshot of packages available at the time and latest snapshot of various Git repositories.
 
 === Full Packet Capture
 Google's Stenographer is installed and configured in this build. However, it is disabled by default. There are a few reasons for this: First, it can be too much for Vagrant builds on meager hardware. Second, you really need to make sure you've mounted /data over sufficient storage before you start saving full packets. Once you're ready to get nuts, enable and start the service with `systemctl enable stenographer.service` and then `systemctl start stenographer.service`. Stenographer is already stubbed into the `/usr/local/bin/rock_{start,stop,status}` scripts, you just need to uncomment it if you're going to use it.
 
-=== What's New?
+=== Component Updates
 
-==== Updates
 Some of the biggest changes with ROCK 2.0 are upgrading all the software to the latest versions. Here's a list.
 
 [options="header"]
@@ -37,82 +43,11 @@ Some of the biggest changes with ROCK 2.0 are upgrading all the software to the 
 | Ansible | 2.2.0.0 |
 |===
 
+=== Ansible
+
 On top of software updates, we also changed the deployment mechanism to using Ansible as the primary mechanism. We did this for a few reasons: I used it for one of my full-time projects, it's super lightweight and available in EPEL, doesn't require an agent, super easy to understand. I'm hoping that ultimately this makes the platform more approachable to a wider community and better suitable to offline or isolated install environments, which I've frequently encountered for sensor networks.
 
-On that last note, we now have an ISO that _should_ contain everything you need to deploy. The ISO is merely a snapshot of packages available at the time and latest snapshot of various Git repositories.
 
-==== Approach
-
-The Ansible playbook that drives this build strives not to use any external roles or other dependencies. The reasoning behind this is to make the rock playbook a "one-stop" reference for a manual build. This allows users to use the build process as a guide when doing larger scale production roll outs without having to decipher a labyrinth of dependencies.
-
-Templated config files have comment sections added near key config items with useful info. They don't all have it, but they get added as remembered.
-
-== Requirements
-
-If you'd like to cut through the fluff and get going, check out the link:content/installation.adoc[ROCK 2.0 - Installation].
-
-[[hardware-requirements]]
-=== Hardwaree
-_(For anything other than a Vagrant build)_
-
-NOTE: This is a shadow of a recommendation of a guideline. Your mileage may vary. No returns or refunds.
-
-|===
-| Resource | Recommendation
-
-| CPU
-| 4 or more physical cores.
-
-| Memory
-| 16GB (You can get away with 8GB, but it won't collect for long.)
-
-| Storage
-| 256GB, with 200+ of that dedicated to `/data`. Honestly, throw everything you can at it. The higher the IOPS the better.
-
-| Network
-| The system needs at least 2 network interfaces, one for management and one for collection.
-|===
-
-**GOLDEN RULE:** If you throw hardware at it, ROCK will use it. It will require some tuning to do so, but we'll continue documenting that.
-
-[[autodetect-assumptions]]
-=== Autodetect Assumptions
-
-When writing the scripts to generate default values, we had to make some assumptions. The defaults are generated according to these assumptions and should generally work if your sensor aligns with them. That said, these assumptions will give you a working sensor, but may need some love for higher performance. If you cannot meet these assumptions, look at the indicated configuration variables in `/etc/rocknsm/config.yml` for workaround approaches (with impact on performance).
-
-* You have two network interfaces:
-** A management interface with a default route
-** An interface without a default route (defined by `rock_monifs`)
-
-TIP: We assume that any interface that does not have a default route will be used for collection. Each sensor application will be configured accordingly.
-
-WARNING: This so far has been the number one problem with a fresh install for beta testers!! Check your interface configuration!!
-
-* You have mounted your largest storage volume(s) under `/data/` (defined by `rock_data_dir`)
-* Your hostname (FQDN) is defined in the `playbooks/inventory/all-in-one.ini` file.
-* You allow management via SSH from any network (defined by `rock_mgmt_nets`)
-* You wish to use Bro, Suricata, Stenographer (disabled by default) and the whole data pipeline. (See `with_*` options)
-* If installed via ISO, you will perform an offline install, else we assume online (defined by `rock_online_install`)j
-* Bro will use half of your CPU resources, up to 8 CPUs
-
-
-== Admin
-
-* unclear on what the intent is for this section....
-
-== Contributions
-
-* _*coming soon*_
 
 == THANKS
 This architecture is made possible by the efforts of the Missouri National Guard Cyber Team for donating talent and resources to further development.
-
-== Documentation
-
-link:content/environment-prep.adoc[Environment Prep]  +
-link:content/installation.adoc[Installation] +
-link:content/getting-started.adoc[Getting Started] +
-
-== Change Log
-
-* _*coming soon*_
