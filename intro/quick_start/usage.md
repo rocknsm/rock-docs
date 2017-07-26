@@ -1,9 +1,9 @@
-= Usage
-Derek Ditch <derek@rocknsm.io>; Jeff Geiger <jeff@rocknsm.io>
+# Usage
+<!-- Derek Ditch <derek@rocknsm.io>; Jeff Geiger <jeff@rocknsm.io>
 :icons: font
-:experimental:
+:experimental: -->
 
-== Start / Stop / Status
+## Start / Stop / Status
 Accomplished with `rock_stop`, `rock_start`, and `rock_status`.
 
 TIP: These may need to be prefaced with /usr/local/bin/ depending on your PATH.
@@ -85,8 +85,9 @@ worker-1-2 worker localhost running 20485 ??? 02 Dec 17:12:36
 14 tests, 0 failures
 ```
 
-== Basic Troubleshooting
-=== Functions Check:
+## Basic Troubleshooting
+
+### Functions Check:
 ```
 # After the initial build, the ES cluster will be yellow because the marvel index will think it's missing a replica. Run this to fix this issue. This job will run from cron just after midnight every day.
 /usr/local/bin/es_cleanup.sh 2>&1 > /dev/null
@@ -114,12 +115,12 @@ kafkacat -C -b localhost -t bro_raw -e | wc -l
 sudo netstat -planet | grep node
 ```
 
-=== Key web interfaces:
+### Key web interfaces:
 IPADDRESS = The management interface of the box, or "localhost" if you did the vagrant build.
 
 http://IPADDRESS - Kibana
 
-=== Log Timestamps
+### Log Timestamps
 
 This section needs more massagery...
 
@@ -127,7 +128,7 @@ This section needs more massagery...
 UTC is generally preferred for logging data as the timestamps from anywhere in the world will have a proper order without calculating offsets. That said, Kibana will present the bro logs according to your timezone (as set in the browser). The bro logs themselves (i.e. in /data/bro/logs/) log in epoch time and will be written in UTC regardless of the system timezone. Bro includes a utility for parsing these on the command line called bro-cut. It can be used to print human-readable timestamps in either the local sensor timezone or UTC. You can also give it a custom strftime format string to specify what you'd like displayed.
 ```
 
-== Known Issues
+## Known Issues
 
 There's some listed on GitHub.
 
@@ -137,16 +138,16 @@ There's some listed on GitHub.
 . Still working on some additional health checks
 . What have you found???
 
-== Examples
+## Examples
 
-=== Topology
+### Topology
 * monodraw diagram *TBD*
 
-=== Places to get PCAP
+### Places to get PCAP
 * list of exercises / training sources *TBD*
 
-=== Bro Replay
+### Bro Replay
 * `bro-r` examples *TBD*
 
-=== ROCK @ Home
+### ROCK @ Home
 * examples of home implementation *TBD*

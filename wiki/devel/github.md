@@ -1,7 +1,7 @@
-= Install via Github
-Derek Ditch <derek@rocknsm.io>; Jeff Geiger <jeff@rocknsm.io>
+# Install via Github
+<!-- Derek Ditch <derek@rocknsm.io>; Jeff Geiger <jeff@rocknsm.io>
 :icons: font
-:experimental:
+:experimental: -->
 
 If you already have a clean Centos7 install, you can also clone the https://github.com/rocknsm/rock/[ROCK] repository. The instructions for the ISO above uses a snapshot of the `master` branch.
 
@@ -11,13 +11,13 @@ If you already have a clean Centos7 install, you can also clone the https://gith
 
 You can simply run the `/opt/rocknsm/rock/bin/generate_defaults.sh` script with `sudo`. This will generate the file `/etc/rocknsm/config.yml`.
 
-== Generate Defaults
+## Generate Defaults
 
 Run the script: +
 `cd rock/bin` +
 `sudo ./generate_defaults.sh`
 
-== Customize Configs
+## Customize Configs
 
 If you wish to run an offline install (the ISO sets you up for this already) edit `/etc/rocknsm/config.yml` and change the following setting as shown:
 
@@ -36,7 +36,7 @@ with_nginx: False <1>
 ```
 <1> This disables nginx from installing or being configured. Note that it will not remove it if it is already present.
 
-== Deploy ROCK
+## Deploy ROCK
 
 Once you've completed flipping the bits as you see fit, simply run: +
 `sudo /opt/rocknsm/rock/bin/deploy_rock.sh` +

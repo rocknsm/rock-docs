@@ -1,7 +1,7 @@
-= VM Build
-Derek Ditch <derek@rocknsm.io>; Jeff Geiger <jeff@rocknsm.io>
+# VM Build
+<!-- Derek Ditch <derek@rocknsm.io>; Jeff Geiger <jeff@rocknsm.io>
 :icons: font
-:experimental:
+:experimental: -->
 
 The following walkthrough is based on VMware Fusion, but serves as a general template.  And as always - the more resources you give ROCK, the happier it'll be.
 
@@ -50,7 +50,7 @@ Once the above changes are made, it's time to install the OS.  There is also a "
 
 TIP: The `root` account is locked by default and the user account you created has `sudo` access.
 
-=== Updating
+### Updating
 
 NOTE: VMware Fusion will allow local ssh out of the box.  If you're using Virtualbox you'll need to set up local port forwarding.
 

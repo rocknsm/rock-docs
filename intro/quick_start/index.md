@@ -1,14 +1,15 @@
-= Quick Start Guide
+# Quick Start Guide
 Derek Ditch <derek@rocknsm.io>; Jeff Geiger <jeff@rocknsm.io>
 :icons: font
 :experimental:
 
-== Hardware Requirements
+## Hardware Requirements
 
 If you'd like to cut through the fluff and get going, check out the link:content/installation.adoc[ROCK 2.0 - Installation].
 
 [[hardware-requirements]]
-=== Hardwaree
+
+### Hardwaree
 _(For anything other than a Vagrant build)_
 
 NOTE: This is a shadow of a recommendation of a guideline. Your mileage may vary. No returns or refunds.
@@ -31,19 +32,18 @@ NOTE: This is a shadow of a recommendation of a guideline. Your mileage may vary
 
 **GOLDEN RULE:** If you throw hardware at it, ROCK will use it. It will require some tuning to do so, but we'll continue documenting that.
 
-
-
-== Data Model
+## Data Model
 
 
 
 
 
 
-== Sensor Schtuffz
+## Sensor Schtuffz
 
 [[autodetect-assumptions]]
-=== Autodetect Assumptions
+
+### Autodetect Assumptions
 
 When writing the scripts to generate default values, we had to make some assumptions. The defaults are generated according to these assumptions and should generally work if your sensor aligns with them. That said, these assumptions will give you a working sensor, but may need some love for higher performance. If you cannot meet these assumptions, look at the indicated configuration variables in `/etc/rocknsm/config.yml` for workaround approaches (with impact on performance).
 

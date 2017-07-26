@@ -1,9 +1,9 @@
-= Installation
-Derek Ditch <derek@rocknsm.io>; Jeff Geiger <jeff@rocknsm.io>
+# Installation
+<!-- Derek Ditch <derek@rocknsm.io>; Jeff Geiger <jeff@rocknsm.io>
 :icons: font
-:experimental:
+:experimental: -->
 
-== TL;DR
+## TL;DR
 
 Download the ISO indicated in <<Using the ISO>>, complete the installation and reboot. Upon login, run:
 `/opt/rocknsm/rock/bin/deploy_rock.sh`
@@ -11,13 +11,13 @@ This will accept all the default values.
 
 Read on for more details and configuration options.
 
-== Media Prep
+## Media Prep
 
-=== ISO
+### ISO
 
 Download the ISO from the https://github.com/rocknsm/rock/releases[Releases page]
 
-=== Bootable USB
+### Bootable USB
 
 * Prep Install Media
 ** If you live in the terminal, use `dd` to apply the image

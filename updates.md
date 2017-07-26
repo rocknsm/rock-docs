@@ -1,30 +1,22 @@
-= Response Operations Collections Kit - 2.X
-Derek Ditch <derek@rocknsm.io>; Jeff Geiger <jeff@rocknsm.io>
+# Updates - v2.1
+<!-- Derek Ditch <derek@rocknsm.io>; Jeff Geiger <jeff@rocknsm.io>
 :icons: font
-:experimental:
+:experimental: -->
 
-== Description
+We've been hard at work improving ROCK and a lot has changed since we released the initial Chef build.
 
-A lot has changed in the past year or so since we released the initial Chef build. First and foremost, the build now uses Ansible for the automation. Most packages are updated to the latest greatest, and we've swapped in Suricata and the default signature IDS over Snort. Some of the most significant upgrade, from a use standpoint, is the work we've put into Kibana. The data model is slightly different, to the advantage of the analyst.
+### Overview
 
-* need link to introduction
+First and foremost, the build now uses Ansible for the automation. Most packages are updated to the latest greatest, and we've swapped in Suricata and the default signature IDS over Snort. Some of the most significant upgrade, from a use standpoint, is the work we've put into Kibana. The data model is slightly different, to the advantage of the analyst.
 
-== ToC
+### ISO Install
 
-link:content/environment-prep.adoc[Environment Prep] +
-link:content/installation.adoc[Installation] +
-link:content/getting-started.adoc[Getting Started] +
+We now have an ISO that contains everything you need to deploy! The ISO is merely a snapshot of packages available at the time and latest snapshot of various Git repositories.
 
-== What's New?
-
-=== ISO Install
-
-We now have an ISO that contains everything you need to deploy. The ISO is merely a snapshot of packages available at the time and latest snapshot of various Git repositories.
-
-=== Full Packet Capture
+### Full Packet Capture
 Google's Stenographer is installed and configured in this build. However, it is disabled by default. There are a few reasons for this: First, it can be too much for Vagrant builds on meager hardware. Second, you really need to make sure you've mounted /data over sufficient storage before you start saving full packets. Once you're ready to get nuts, enable and start the service with `systemctl enable stenographer.service` and then `systemctl start stenographer.service`. Stenographer is already stubbed into the `/usr/local/bin/rock_{start,stop,status}` scripts, you just need to uncomment it if you're going to use it.
 
-=== Component Updates
+### Component Updates
 
 Some of the biggest changes with ROCK 2.0 are upgrading all the software to the latest versions. Here's a list.
 
@@ -43,11 +35,6 @@ Some of the biggest changes with ROCK 2.0 are upgrading all the software to the 
 | Ansible | 2.2.0.0 |
 |===
 
-=== Ansible
+### Ansible
 
 On top of software updates, we also changed the deployment mechanism to using Ansible as the primary mechanism. We did this for a few reasons: I used it for one of my full-time projects, it's super lightweight and available in EPEL, doesn't require an agent, super easy to understand. I'm hoping that ultimately this makes the platform more approachable to a wider community and better suitable to offline or isolated install environments, which I've frequently encountered for sensor networks.
-
-
-
-== THANKS
-This architecture is made possible by the efforts of the Missouri National Guard Cyber Team for donating talent and resources to further development.
