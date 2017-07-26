@@ -1,4 +1,0 @@
-. link:content/getting-started.adoc[Getting Started]
-. link:content/release-notes.adoc[Release Notes]
-. link:content/configuration.adoc[Configuration]
-
