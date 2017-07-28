@@ -1,7 +1,4 @@
-# VM Build
-<!-- Derek Ditch <derek@rocknsm.io>; Jeff Geiger <jeff@rocknsm.io>
-:icons: font
-:experimental: -->
+# VM Build Guide
 
 The following walkthrough is based on VMware Fusion, but serves as a general template.  And as always - the more resources you give ROCK, the happier it'll be.
 

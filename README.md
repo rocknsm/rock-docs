@@ -1,30 +1,17 @@
 # Response Operations Collections Kit - 2.1
-<!-- Derek Ditch <derek@rocknsm.io>; Jeff Geiger <jeff@rocknsm.io>
-:icons: font
-:experimental: -->
 
-## Mission
+ROCK is an open-source collections platform designed by the members of the Missouri National Guard Cyber Team (MOCYBER).  It's primary focus is to provide a **robust**, **scalable**, and **secure** sensor platform for both enduring security monitoring (NSM) and incident response (IR) missions.  Why choose us over the other names in the NSM game?  Continue on to the overview below.
 
-ROCK is an open-source sensor platform
+## Contents
 
+[OVERVIEW](overview/index.md) - overview of design, components, and dataflow
+[QUICK START](overview/quick_start/index.md) - get installed / running / into the packets
+[WIKI](wiki/index.md) - focusing development / administration /tuning
 
-* toDO insert component diagram
-* 
+## Updates
 
-
-
-
-
-
-
-
-
+ROCK is an evolving project.  We are always striving to integrate the latest in open-source, and continually evaluating whether we are using the right tool for the job.  See the [CHANGELOG](changelog.md) for the latest updates to release 2.1.
 
 ## Thanks
 
 This project is made possible by the efforts of the Missouri National Guard Cyber Team who have donated their talent and resources to further development.
-
-
-link:intro/quickstart.adoc[Environment Prep]
-link:content/installation.adoc[Installation]
-link:content/getting-started.adoc[Getting Started]

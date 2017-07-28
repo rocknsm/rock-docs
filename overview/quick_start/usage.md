@@ -1,7 +1,68 @@
 # Usage
-<!-- Derek Ditch <derek@rocknsm.io>; Jeff Geiger <jeff@rocknsm.io>
-:icons: font
-:experimental: -->
+
+*WIP*
+
+## Generate Defaults
+
+Run the script:
+** `cd rock/bin`
+** `sudo ./generate_defaults.sh`
+
+## Customize Configs
+
+If you wish to run an offline install (the ISO sets you up for this already) edit `/etc/rocknsm/config.yml` and change the following setting as shown:
+
+```
+rock_online_install: False
+```
+
+If this value is set to `True`, Ansible will configure your system for the yum repositories listed and pull packages and git repos directly from the URLs given. You could easily point this to local mirrors, if needed.
+
+If this value is set to `False`, Ansible will look for the cached files in `/srv/rocknsm`. There is another script called `offline-snapthot.sh` that will create the necessary repository and file structure. Run this from a system that is Internet connected and copy it to your sensors for offline deployment.
+
+While you're in there, you can change the auto-detected defaults, such as which interfaces to use, hostname, fqdn, resources to use, etc. You can also disable features altogether at the bottom by simply changing the feature value to `False` as shown below. Don't do this unless you know what you're doing.
+
+```
+with_nginx: False
+```
+This disables nginx from installing or being configured. Note that it will not remove it if it is already present.
+
+## Deploy ROCK
+
+Once you've completed flipping the bits as you see fit, simply run:
+`sudo /opt/rocknsm/rock/bin/deploy_rock.sh`
+If everything is well, this should install all the components and give you a success banner.
+
+## Functions Check
+
+Before we start streaming packets, let's do a basic functions check:
+
+```
+# After the initial build, the ES cluster will be yellow because the marvel index will think it's missing a replica. Run this to fix this issue. This job will run from cron just after midnight every day.
+/usr/local/bin/es_cleanup.sh 2>&1 > /dev/null
+
+# Check to see that the ES cluster says it's green:
+curl -s localhost:9200/_cluster/health | jq '.'
+
+# See how many documents are in the indexes. The count should be non-zero.
+curl -s localhost:9200/_all/_count | jq '.'
+
+# You can fire some traffic across the sensor at this point to see if it's collecting.
+# NOTE: This requires that you upload your own test PCAP to the box.
+sudo tcpreplay -i [your monitor interface] /path/to/a/test.pcap
+
+# After replaying some traffic, or just waiting a bit, the count should be going up.
+curl -s localhost:9200/_all/_count | jq '.'
+
+# You should have plain text bro logs showing up in /data/bro/logs/current/:
+ls -ltr /data/bro/logs/current/
+
+# Kafkacat is your kafka swiss army knife. This command will consume the current queue. You should see a non-zero offset.
+kafkacat -C -b localhost -t bro_raw -e | wc -l
+
+# If you haven't loaded kibana already, it should be running on port 5601. This just verifies while you're still on the command line.
+sudo netstat -planet | grep node
+```
 
 ## Start / Stop / Status
 Accomplished with `rock_stop`, `rock_start`, and `rock_status`.
@@ -85,35 +146,8 @@ worker-1-2 worker localhost running 20485 ??? 02 Dec 17:12:36
 14 tests, 0 failures
 ```
 
-## Basic Troubleshooting
 
-### Functions Check:
-```
-# After the initial build, the ES cluster will be yellow because the marvel index will think it's missing a replica. Run this to fix this issue. This job will run from cron just after midnight every day.
-/usr/local/bin/es_cleanup.sh 2>&1 > /dev/null
 
-# Check to see that the ES cluster says it's green:
-curl -s localhost:9200/_cluster/health | jq '.'
-
-# See how many documents are in the indexes. The count should be non-zero.
-curl -s localhost:9200/_all/_count | jq '.'
-
-# You can fire some traffic across the sensor at this point to see if it's collecting.
-# NOTE: This requires that you upload your own test PCAP to the box.
-sudo tcpreplay -i [your monitor interface] /path/to/a/test.pcap
-
-# After replaying some traffic, or just waiting a bit, the count should be going up.
-curl -s localhost:9200/_all/_count | jq '.'
-
-# You should have plain text bro logs showing up in /data/bro/logs/current/:
-ls -ltr /data/bro/logs/current/
-
-# Kafkacat is your kafka swiss army knife. This command will consume the current queue. You should see a non-zero offset.
-kafkacat -C -b localhost -t bro_raw -e | wc -l
-
-# If you haven't loaded kibana already, it should be running on port 5601. This just verifies while you're still on the command line.
-sudo netstat -planet | grep node
-```
 
 ### Key web interfaces:
 IPADDRESS = The management interface of the box, or "localhost" if you did the vagrant build.
