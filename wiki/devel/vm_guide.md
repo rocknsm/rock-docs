@@ -49,7 +49,7 @@ TIP: The `root` account is locked by default and the user account you created ha
 
 ### Updating
 
-NOTE: VMware Fusion will allow local ssh out of the box.  If you're using Virtualbox you'll need to set up local port forwarding.
+NOTE: VMware Fusion will allow local ssh out of the box.  If you're using Virtualbox you'll need to set up local [ssh port forwarding](https://nsrc.org/workshops/2014/btnog/raw-attachment/wiki/Track2Agenda/ex-virtualbox-portforward-ssh.htm).
 
 Log in with the admin credentials used during the install process, and lets get this box current:
 ```
@@ -58,4 +58,4 @@ sudo yum install -y epel-release
 sudo yum install -y git ansible
 ```
 
-You're now ready for link:content/installation.adoc[Installation]
+Now you're ready to move on to [installation](../../overview/install.md)
