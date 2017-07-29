@@ -21,17 +21,18 @@ Google's Stenographer is installed and configured in this build. However, it is 
 
 Some of the biggest changes with ROCK 2.0 are upgrading all the software to the latest versions. Here's a list.
 
-| Software | Version | Notes
-| CentOS | 7.3 (1611) |
-| Bro    | 2.5 | Plugins for kafka output and af_packet capture
-| Suricata | 3.1.3 | _This is now the default signature-based IDS_
-| Snort | 2.9.8.3 | _This is now an optional replacement for suricata_
-| Stenographer | Git 12106b |
-| Kafka | 0.10.0.0 |
-| Elasticsearch | 5.1.1 |
-| Logstash | 5.1.1 |
-| Kibana | 5.1.1 |
-| Ansible | 2.2.0.0 |
+Software | Version | Notes  |
+---------|---------|------
+CentOS | 7.3 (1611) |
+Bro    | 2.5 | Plugins for kafka output and af_packet capture
+Suricata | 3.1.3 | _This is now the default signature-based IDS_
+Snort | 2.9.8.3 | _This is now an optional replacement for suricata_
+Stenographer | Git 12106b |
+Kafka | 0.10.0.0 |
+Elasticsearch | 5.1.1 |
+Logstash | 5.1.1 |
+Kibana | 5.1.1 |
+Ansible | 2.2.0.0 |
 
 
 ### Ansible

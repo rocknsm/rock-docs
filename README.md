@@ -1,12 +1,14 @@
-# Response Operations Collections Kit - 2.1
+![rock_logo](rock_logo.png)
+
+## Response Operations Collections Kit - 2.1
 
 ROCK is an open-source collections platform designed by the members of the Missouri National Guard Cyber Team (MOCYBER).  It's primary focus is to provide a **robust**, **scalable**, and **secure** sensor platform for both enduring security monitoring (NSM) and incident response (IR) missions.  Why choose us over the other names in the NSM game?  Continue on to the overview below.
 
 ## Contents
 
-[OVERVIEW](overview/index.md) - overview of design, components, and dataflow  
-[QUICK START](overview/quick_start/index.md) - get installed / running / into the packets  
-[WIKI](wiki/index.md) - focusing development / administration /tuning  
+[OVERVIEW](overview/index.md) - overview of design, components, and dataflow
+[QUICK START](overview/quick_start/index.md) - get installed / running / into the packets
+[WIKI](wiki/index.md) - focusing development / administration /tuning
 
 ## Updates
 

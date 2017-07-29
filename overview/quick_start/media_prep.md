@@ -7,7 +7,8 @@ Download the ISO from the https://github.com/rocknsm/rock/releases[Releases page
 ## Bootable USB
 
 * Prep Install Media
-** If you live in the terminal, use `dd` to apply the image
+  * If you live in the terminal, use `dd` to apply the image
+
 ```
 diskutil list
 diskutil unmountDisk /dev/disk#

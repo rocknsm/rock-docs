@@ -8,7 +8,7 @@ What exactly sets ROCK apart from the other products in the space?
 
 * SECURE - with SE Linux ROCK is secure by default.  Ubuntu sux lol blah blah blah needs more input #setenforce1 *WIP*
 
-* SCALABLE - needs more input
+* SCALABLE - needs more input @jeff
 
 *WIP*
 
@@ -20,7 +20,9 @@ What exactly sets ROCK apart from the other products in the space?
 
 * Reliable data storage and indexing (Elasticsearch) to support rapid retrieval and analysis (Kibana) of the data.
 
-## Features
+## Components
+
+![architecture](single_architecture.png)
 
 * Full Packet Capture via [Google Stenographer](https://github.com/google/stenographer).
 

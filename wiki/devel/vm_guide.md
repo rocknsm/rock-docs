@@ -2,12 +2,12 @@
 
 The following walkthrough is based on VMware Fusion, but serves as a general template.  And as always - the more resources you give ROCK, the happier it'll be.
 
-* *New VM Setup*
+## New VM 
 
-** in the top left corner click add > new... then custom machine
-** select the Linux > RedHat Enterprise 64 template
-** create new virtual disk
-** name your VM, save
+* in the top left corner click add > new... then custom machine
+* select the Linux > RedHat Enterprise 64 template
+* create new virtual disk
+* name your VM, save
 
 Lets customize some settings, change based on your hardware.
 
