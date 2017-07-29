@@ -22,7 +22,9 @@ What exactly sets ROCK apart from the other products in the space?
 
 ## Components
 
-![architecture](single_architecture.png)
+<p align="center">
+<img src="single_architecture.png">
+</p>
 
 * Full Packet Capture via [Google Stenographer](https://github.com/google/stenographer).
 

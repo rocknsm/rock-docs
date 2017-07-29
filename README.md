@@ -1,4 +1,6 @@
-![rock_logo](rock_logo.png)
+<p align="center">
+<img src="rock_logo.png">
+</p>
 
 ## Response Operations Collections Kit - 2.1
 
