@@ -1,35 +1,47 @@
-# Installation
+# Installation Guide
+
+TL;DR - Installation is simple and straighforward.
+
+1. apply image
+1. generate defaults
+1. confirm / edit config
+1. deploy
 
 
-## ISO
+## Apply the Image
 
-The ISO file is the preferred method and can be found [here](https://github.com/rocknsm/rock/releases).  Once booted to the ISO, complete the automated install, and reboot.
-
-Upon login, run:
-`/opt/rocknsm/rock/bin/deploy_rock.sh`  This will accept all the default values.
+Installing from the [ISO](https://github.com/rocknsm/rock/releases) is the preferred method to set up ROCK.  If that's for some reason not an option, alternate methods are listed [here](alt_install.md).
 
 NOTE:  If you need details on how to apply the image to your USB or optical disk, see [media prep](media_prep.md).
 
+- once booted to the live image, select the automated install and `ENTER`.
 
-## Github
+- click "User Creation" at the next screen complete the required fields to set up a non-root admin user.
 
-If you already have a clean Centos7 install, you can also clone the latest [ROCK](https://github.com/rocknsm/rock) repo. The instructions for the ISO above uses a snapshot of the `master` branch.
+- click "Finish Installation"
 
-* clone the repo: `git clone https://github.com/rocknsm/rock.git`
+- accept licensing
 
-You can simply run the `/opt/rocknsm/rock/bin/generate_defaults.sh` script with `sudo`. This will generate the file `/etc/rocknsm/config.yml`.
+- *WIP*
+
+## Generate Defaults
+
+## Confirm Config
+
+`/etc/rocknsm/config.yml`
+
+*WIP*
+
+## Deploy
 
 
-## Vagrant Build
 
-The current Vagrantfile is configured to give the VM 8GB of RAM.  If your system can't do that you should buy a new system or adjust the `vm.memory` value.  Anything below 8 is going to run like :poop:. You will also need to have an additional host-only adapter configured named `vboxnet0`.
+`/opt/rocknsm/rock/bin/deploy_rock.sh`
 
-```
-git clone https://github.com/rocknsm/rock.git
-cd rock
-vagrant up
-```
+IMGsuccessbanner
 
 ---
 
 When installation is complete, continue to the [Usage Guide](usage.md).
+
+NOTE: For a detailed guide on how to set up a virtual machine to throw packets at see the [VM Build Guide](../../wiki/devel/vm_guide.md) wiki/dev section.
