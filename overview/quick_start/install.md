@@ -14,29 +14,45 @@ Installing from the [ISO](https://github.com/rocknsm/rock/releases) is the prefe
 
 NOTE:  If you need details on how to apply the image to your USB or optical disk, see [media prep](media_prep.md).
 
-- once booted to the live image, select the automated install and `ENTER`.
+1. once booted to the live image, select the automated install and 'ENTER'.
 
-- click "User Creation" at the next screen complete the required fields to set up a non-root admin user.
+1. click **User Creation** at the next screen complete the required fields to set up a non-root admin user.
 
-- click "Finish Installation"
+1. click **Finish Installation** and wait for reboot
 
-- accept licensing
+1. accept licensing agreement
 
-- *WIP*
+1. update Centos to current by running: `sudo yum update -y && reboot`
+
 
 ## Generate Defaults
 
+After applying updates ROCK needs a default configuration to build upon.  This is done by running the aptly named named script as the admin user you created:
+
+1. `cd /opt/rocknsm/rock`
+
+1. `sudo ./generate_defaults.sh`
+
+1. if this is successful you will see:
+
+**`Defaults generated. Adjust /etc/rocknsm/config.yml as needed.`**
+
+
 ## Confirm Config
+
+One of the defaults generated in the previous step is the configuration file:
 
 `/etc/rocknsm/config.yml`
 
-*WIP*
+This creates key variables like network interface setup, cpu cores used, what components are enabled, and much more.  Take care with these options as this file will be read during the next step, deployment.
 
 ## Deploy
 
+Once your config file is tuned to your situation, it's time to deploy!  This is done by running the deployment script:
 
+1. `cd /opt/rocknsm/rock/bin/`
 
-`/opt/rocknsm/rock/bin/deploy_rock.sh`
+1. `sudo ./deploy_rock.sh`
 
 IMGsuccessbanner
 
