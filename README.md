@@ -2,7 +2,7 @@
 <img src="rock_logo.png">
 </p>
 
-ROCK is an open-source collections platform designed by the members of the Missouri National Guard Cyber Team (MOCYBER).  It's primary focus is to provide a **robust**, **scalable**, and **secure** sensor platform for both enduring security monitoring (NSM) and incident response (IR) missions.  Why choose us over the other names in the NSM game?  Continue to the [overview](oveview/index.md).
+ROCK is an open-source collections platform designed by the members of the Missouri National Guard Cyber Team (MOCYBER).  It's primary focus is to provide a **robust**, **scalable**, and **secure** sensor platform for both enduring security monitoring (NSM) and incident response (IR) missions.  Why choose us over the other names in the NSM game?  Continue to the [overview](overview/index.md).
 
 ## Contents
 
