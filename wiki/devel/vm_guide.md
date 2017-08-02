@@ -66,4 +66,4 @@ Log in with the admin credentials used during the install process, and lets get 
 sudo yum update -y && reboot
 ```
 
-Now you're ready to move on to [Usage Guide](../../overview/usage.md).
+Now you're ready to move on to [Usage Guide](../overview/usage.md).
