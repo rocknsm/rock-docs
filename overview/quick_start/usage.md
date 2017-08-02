@@ -1,35 +1,39 @@
 # Usage Guide
 
-## Functions Check
+## Functions Checks
 
-Before we start streaming packets, let's do a basic functions check:
+After the initial build, the ES cluster will be yellow because the marvel index will think it's missing a replica. Run this to fix this issue. This job will run from cron just after midnight every day:
 
-```
-# After the initial build, the ES cluster will be yellow because the marvel index will think it's missing a replica. Run this to fix this issue. This job will run from cron just after midnight every day.
-/usr/local/bin/es_cleanup.sh 2>&1 > /dev/null
+- `/usr/local/bin/es_cleanup.sh 2>&1 > /dev/null`
 
-# Check to see that the ES cluster says it's green:
-curl -s localhost:9200/_cluster/health | jq '.'
+Check to see that the ES cluster says it's green:
 
-# See how many documents are in the indexes. The count should be non-zero.
-curl -s localhost:9200/_all/_count | jq '.'
+- `curl -s localhost:9200/_cluster/health | jq '.'`
 
-# You can fire some traffic across the sensor at this point to see if it's collecting.
-# NOTE: This requires that you upload your own test PCAP to the box.
-sudo tcpreplay -i [your monitor interface] /path/to/a/test.pcap
+See how many documents are in the indexes. The count should be non-zero:
 
-# After replaying some traffic, or just waiting a bit, the count should be going up.
-curl -s localhost:9200/_all/_count | jq '.'
+- `curl -s localhost:9200/_all/_count | jq '.'`
 
-# You should have plain text bro logs showing up in /data/bro/logs/current/:
-ls -ltr /data/bro/logs/current/
+You can fire some traffic across the sensor at this point to see if it's collecting. NOTE: This requires that you upload your own test PCAP to the box.
 
-# Kafkacat is your kafka swiss army knife. This command will consume the current queue. You should see a non-zero offset.
-kafkacat -C -b localhost -t bro_raw -e | wc -l
+- `sudo tcpreplay -i [your monitor interface] /path/to/a/test.pcap`
 
-# If you haven't loaded kibana already, it should be running on port 5601. This just verifies while you're still on the command line.
-sudo netstat -planet | grep node
-```
+After replaying some traffic, or just waiting a bit, the count should be going up.
+
+- `curl -s localhost:9200/_all/_count | jq '.'`
+
+You should have plain text bro logs showing up in /data/bro/logs/current/:
+
+- `ls -ltr /data/bro/logs/current/`
+
+Kafkacat is your kafka swiss army knife. This command will consume the current queue. You should see a non-zero offset:
+
+- `kafkacat -C -b localhost -t bro_raw -e | wc -l`
+
+If you haven't loaded Kibana already, it should be running on port 5601. This just verifies while you're still on the command line:
+
+- `sudo netstat -planet | grep node`
+
 
 ## Start / Stop / Status
 These functions are accomplished with `rock_stop`, `rock_start`, and `rock_status`.

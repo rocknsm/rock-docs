@@ -39,7 +39,7 @@ After applying updates ROCK needs a default configuration to build upon.  This i
 
 -  if this is successful you will see:
 
-**`Defaults generated. Adjust /etc/rocknsm/config.yml as needed.`**
+"*Defaults generated. Adjust /etc/rocknsm/config.yml as needed.*"
 
 
 ## Customize Configuration
@@ -79,7 +79,7 @@ Once your config file is tuned to your situation, it's time to deploy!  This is 
 If everything is well, this should set up all the components you selected and give you a success banner similar to the example below:
 
 ```
-PLAY RECAP *******************************************************************************
+PLAY RECAP ********************************************************************
 simplerockbuild.simplerock.lan : ok=40   changed=2    unreachable=0    failed=0
 ```
 
