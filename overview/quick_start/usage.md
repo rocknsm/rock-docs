@@ -1,37 +1,4 @@
-# Usage
-
-*WIP*
-
-## Generate Defaults
-
-Run the script:
-** `cd rock/bin`
-** `sudo ./generate_defaults.sh`
-
-## Customize Configs
-
-If you wish to run an offline install (the ISO sets you up for this already) edit `/etc/rocknsm/config.yml` and change the following setting as shown:
-
-```
-rock_online_install: False
-```
-
-If this value is set to `True`, Ansible will configure your system for the yum repositories listed and pull packages and git repos directly from the URLs given. You could easily point this to local mirrors, if needed.
-
-If this value is set to `False`, Ansible will look for the cached files in `/srv/rocknsm`. There is another script called `offline-snapthot.sh` that will create the necessary repository and file structure. Run this from a system that is Internet connected and copy it to your sensors for offline deployment.
-
-While you're in there, you can change the auto-detected defaults, such as which interfaces to use, hostname, fqdn, resources to use, etc. You can also disable features altogether at the bottom by simply changing the feature value to `False` as shown below. Don't do this unless you know what you're doing.
-
-```
-with_nginx: False
-```
-This disables nginx from installing or being configured. Note that it will not remove it if it is already present.
-
-## Deploy ROCK
-
-Once you've completed flipping the bits as you see fit, simply run:
-`sudo /opt/rocknsm/rock/bin/deploy_rock.sh`
-If everything is well, this should install all the components and give you a success banner.
+# Usage Guide
 
 ## Functions Check
 
@@ -65,9 +32,9 @@ sudo netstat -planet | grep node
 ```
 
 ## Start / Stop / Status
-Accomplished with `rock_stop`, `rock_start`, and `rock_status`.
+These functions are accomplished with `rock_stop`, `rock_start`, and `rock_status`.
 
-TIP: These may need to be prefaced with /usr/local/bin/ depending on your PATH.
+> NOTE: these may need to be prefaced with /usr/local/bin/ depending on your PATH.
 
 `sudo rock_stop`
 
@@ -147,41 +114,15 @@ worker-1-2 worker localhost running 20485 ??? 02 Dec 17:12:36
 ```
 
 
-
-
-### Key web interfaces:
-IPADDRESS = The management interface of the box, or "localhost" if you did the vagrant build.
+### Key web interfaces
 
 http://IPADDRESS - Kibana
 
+IPADDRESS - this is the management interface of the box, or "localhost" if you chose to do the vagrant build.
+
+
 ### Log Timestamps
 
-This section needs more massagery...
+UTC is generally preferred for logging data as the timestamps from anywhere in the world will have a proper order without calculating offsets. That said, Kibana will present the bro logs according to your timezone (as set in the browser). The bro logs themselves (i.e. in /data/bro/logs/) log in epoch time and will be written in UTC regardless of the system timezone.
 
-```
-UTC is generally preferred for logging data as the timestamps from anywhere in the world will have a proper order without calculating offsets. That said, Kibana will present the bro logs according to your timezone (as set in the browser). The bro logs themselves (i.e. in /data/bro/logs/) log in epoch time and will be written in UTC regardless of the system timezone. Bro includes a utility for parsing these on the command line called bro-cut. It can be used to print human-readable timestamps in either the local sensor timezone or UTC. You can also give it a custom strftime format string to specify what you'd like displayed.
-```
-
-## Known Issues
-
-There's some listed on GitHub.
-
-. Best practice custom partitioning?
-. Insufficient documentation
-. Still doing integration work with FSF
-. Still working on some additional health checks
-. What have you found???
-
-## Examples
-
-### Topology
-* monodraw diagram *TBD*
-
-### Places to get PCAP
-* list of exercises / training sources *TBD*
-
-### Bro Replay
-* `bro-r` examples *TBD*
-
-### ROCK @ Home
-* examples of home implementation *TBD*
+Bro includes a utility for parsing these on the command line called `bro-cut`. It can be used to print human-readable timestamps in either the local sensor timezone or UTC. You can also give it a custom format string to specify what you'd like displayed.

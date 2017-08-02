@@ -2,61 +2,79 @@
 
 TL;DR - Installation is simple and straighforward.
 
-1. apply image
-1. generate defaults
-1. confirm / edit config
-1. deploy
+-  apply image
+-  generate defaults
+-  confirm / edit config
+-  deploy
 
 
 ## Apply the Image
 
 Installing from the [ISO](https://github.com/rocknsm/rock/releases) is the preferred method to set up ROCK.  If that's for some reason not an option, alternate methods are listed [here](alt_install.md).
 
-NOTE:  If you need details on how to apply the image to your USB or optical disk, see [media prep](media_prep.md).
+> NOTE: if you need details on how to apply the image to your USB or optical disk, see [media prep](media_prep.md).
 
-1. once booted to the live image, select the automated install and 'ENTER'.
+-  once booted to the live image, select the automated install and 'ENTER'.
 
-1. click **User Creation** at the next screen complete the required fields to set up a non-root admin user.
+-  click **User Creation** at the next screen complete the required fields to set up a non-root admin user.
 
 <p align="center">
 <img src="user_creation.png">
 </p>
 
-1. click **Finish Installation** and wait for reboot
+-  click **Finish Installation** and wait for reboot
 
-1. accept licensing agreement
+-  accept licensing agreement: `c` + "*enter*"
 
-1. update Centos to current by running: `sudo yum update -y && reboot`
+-  update Centos to current by running: `sudo yum update -y && reboot`
 
 
 ## Generate Defaults
 
 After applying updates ROCK needs a default configuration to build upon.  This is done by running the aptly named named script as the admin user you created:
 
-1. `cd /opt/rocknsm/rock`
+-  `cd /opt/rocknsm/rock`
 
-1. `sudo ./generate_defaults.sh`
+-  `sudo ./generate_defaults.sh`
 
-1. if this is successful you will see:
+-  if this is successful you will see:
 
 **`Defaults generated. Adjust /etc/rocknsm/config.yml as needed.`**
 
 
-## Confirm Config
+## Customize Configuration
 
-One of the defaults generated in the previous step is the configuration file:
+One of the primary tasks complete by the previous step is the creation of the file `/etc/rocknsm/config.yml`.  This file contains key variables like network interface setup, cpu cores used, what components are enabled, and more.
 
-`/etc/rocknsm/config.yml`
+> TIP: take care with these options as this file will be read during the next step, deployment.
 
-This creates key variables like network interface setup, cpu cores used, what components are enabled, and much more.  Take care with these options as this file will be read during the next step, deployment.
+For example:  if you wish to run an offline install (the ISO sets you up for this already) edit `/etc/rocknsm/config.yml` and change the following (line 30):
+
+```
+rock_online_install: False
+```
+
+If this value is set to `True`, Ansible will configure your system for the yum repositories listed and pull packages and git repos directly from the URLs given. You could easily point this to local mirrors, if needed.
+
+If this value is set to `False`, Ansible will look for the cached files in `/srv/rocknsm`. There is another script called `offline-snapshot.sh` that will create the necessary repository and file structure. Run this from a system that is Internet connected and copy it to your sensors for offline deployment.
+
+While you're in there, you can change the auto-detected defaults, such as which interfaces to use, hostname, fqdn, resources to use, etc. You can also disable features altogether at the bottom by simply changing the feature value to `False` as shown below. Don't do this unless you know what you're doing.
+
+```
+with_nginx: False
+```
+
+This disables nginx from installing or being configured. Note that it will not remove it if it is already present.
+
+
 
 ## Deploy
 
 Once your config file is tuned to your situation, it's time to deploy!  This is done by running the deployment script:
 
-1. `cd /opt/rocknsm/rock/bin/`
+-  `cd /opt/rocknsm/rock/bin/`
 
-1. `sudo ./deploy_rock.sh`
+-  `sudo ./deploy_rock.sh`
 
 If everything is well, this should set up all the components you selected and give you a success banner similar to the example below:
 

@@ -49,7 +49,7 @@ Once the above changes are made, it's time to install the OS.  Lets run the "Aut
 
   * `net.ifnames=0` - this will ensure you get interface names like `eth0`. If you have physical hardware, I _highly_ recommend that you do not use this function
 
-  * `vga=773`
+  * `vga=773` - improves video resolution issues
 
 * **ENTER**, and ROCK install script will install
 * create _**admin**_ user acct
@@ -66,4 +66,4 @@ Log in with the admin credentials used during the install process, and lets get 
 sudo yum update -y && reboot
 ```
 
-Now you're ready to move on to [Usage Guide](../overview/usage.md).
+Now you're ready to move on to [Usage Guide](../../overview/quick_start/usage.md).
