@@ -15,7 +15,7 @@ ROCK is an open-source collections platform designed by the members of the Misso
 
 ## Updates
 
-ROCK is an evolving project.  We are always striving to integrate the latest in open-source, and continually evaluating whether we are using the right tool for the job.  See the [CHANGELOG](changelog.md) for the latest updates to release 2.1.
+ROCK is an evolving project.  We are always striving to integrate the latest in open-source, and continually evaluating whether we are using the right tool for the job.  See the [changelog](changelog.md) for the latest updates to release 2.1.
 
 ## Thanks
 
