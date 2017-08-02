@@ -18,6 +18,10 @@ NOTE:  If you need details on how to apply the image to your USB or optical disk
 
 1. click **User Creation** at the next screen complete the required fields to set up a non-root admin user.
 
+<p align="center">
+<img src="user_creation.png">
+</p>
+
 1. click **Finish Installation** and wait for reboot
 
 1. accept licensing agreement
@@ -54,7 +58,12 @@ Once your config file is tuned to your situation, it's time to deploy!  This is 
 
 1. `sudo ./deploy_rock.sh`
 
-IMGsuccessbanner
+If everything is well, this should set up all the components you selected and give you a success banner similar to the example below:
+
+```
+PLAY RECAP *******************************************************************************
+simplerockbuild.simplerock.lan : ok=40   changed=2    unreachable=0    failed=0
+```
 
 ---
 

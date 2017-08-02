@@ -23,5 +23,3 @@ ROCK is stands on the shoulders of open-source giants.  This wiki serves as a de
 ## Data Flow
 
 So ROCK is ingesting traffic.  This section will detail how the packet stream is processed step-by-step.
-
-*WIP*
