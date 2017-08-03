@@ -24,17 +24,18 @@ A system running ROCK should have at least **2 NICs** and **8GB RAM**, preferrab
 
 ### Clone Repo / Generate Defaults
 
-To download the latest bits, clone the [ROCK](https://github.com/rocknsm/rock) repo:
+Make sure you're in your home directory, then download the latest bits by cloning the latest [ROCK](https://github.com/rocknsm/rock) repo:
 
+* `cd`
 * `git clone https://github.com/rocknsm/rock.git`
 
 After applying updates ROCK needs a default configuration to build upon.  This is done by running the aptly named named script as the admin user you created:
 
--  `cd /opt/rocknsm/rock`
+*  `cd /rock/bin`
 
--  `sudo ./generate_defaults.sh`
+*  `sudo ./generate_defaults.sh`
 
--  when successful you will see: "*Defaults generated. Adjust /etc/rocknsm/config.yml as needed.*"
+*  when successful you will see: "*Defaults generated. Adjust /etc/rocknsm/config.yml as needed.*"
 
 
 ### Customize Configuration
@@ -48,9 +49,10 @@ One of the primary tasks complete by the previous step is the creation of the fi
 
 Once your config file is tuned to your situation, it's time to deploy!  This is done by running the deployment script:
 
--  `cd /opt/rocknsm/rock/bin/`
+*  `cd`
+*  `cd /rock/bin/`
 
--  `sudo ./deploy_rock.sh`
+*  `sudo ./deploy_rock.sh`
 
 If everything is well, this should set up all the components you selected and give you a success banner similar to the example below:
 
@@ -58,13 +60,6 @@ If everything is well, this should set up all the components you selected and gi
 PLAY RECAP ********************************************************************
 simplerockbuild.simplerock.lan : ok=40   changed=2    unreachable=0    failed=0
 ```
-
----
-
-Continue to the [Usage Guide](usage.md).
-
-
-
 
 
 ## Vagrant Build
@@ -79,4 +74,4 @@ vagrant up
 
 ---
 
-When installation is complete, continue to the [Usage Guide](usage.md).
+Continue to the [Usage Guide](usage.md).
