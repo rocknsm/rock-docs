@@ -2,7 +2,7 @@
 
 <!-- WIP - working after [overview](../overview/index.md) section is complete. -->
 
-This wiki is a work in progress.  Stay tuned as tt will provide an in-depth look at topics such as:
+This wiki is a work in progress.  Stay tuned as it will provide an in-depth look at topics such as:
 
 
 ## Architecture
