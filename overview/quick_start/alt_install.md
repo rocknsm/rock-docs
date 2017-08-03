@@ -21,9 +21,6 @@ A system running ROCK should have at least **2 NICs** and **8GB RAM**, preferrab
   * `sudo yum install -y git ansible`
 
 
-* update / reboot
-
-  * `sudo yum update -y && reboot`
 
 ### Clone Repo / Generate Defaults
 
