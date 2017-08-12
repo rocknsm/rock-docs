@@ -29,7 +29,7 @@ Installing from the [ISO](https://github.com/rocknsm/rock/releases) is the prefe
 -  update Centos to current by running: `sudo yum update -y && reboot`
 
 
-## Generate Defaults
+<!-- ## Generate Defaults
 
 After applying updates ROCK needs a default configuration to build upon.  This is done by running the aptly named named script as the admin user you created:
 
@@ -39,12 +39,12 @@ After applying updates ROCK needs a default configuration to build upon.  This i
 
 -  if this is successful you will see:
 
-"*Defaults generated. Adjust /etc/rocknsm/config.yml as needed.*"
+"*Defaults generated. Adjust /etc/rocknsm/config.yml as needed.*" -->
 
 
 ## Customize Configuration
 
-One of the primary tasks complete by the previous step is the creation of the file `/etc/rocknsm/config.yml`.  This file contains key variables like network interface setup, cpu cores used, what components are enabled, and more.
+One of the primary tasks complete during install is the creation of the file `/etc/rocknsm/config.yml`.  This file contains key variables like network interface setup, cpu cores used, what components are enabled, and more.
 
 > TIP: take care with these options as this file will be read during the next step, deployment.
 
@@ -65,7 +65,6 @@ with_nginx: False
 ```
 
 This disables nginx from installing or being configured. Note that it will not remove it if it is already present.
-
 
 
 ## Deploy
