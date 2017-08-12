@@ -16,7 +16,7 @@ Installing from the [ISO](https://github.com/rocknsm/rock/releases) is the prefe
 
 -  once booted to the live image, select the automated install and 'ENTER'.
 
--  click **User Creation** at the next screen complete the required fields to set up a non-root admin user.
+-  click **User Creation** at the next screen complete the required fields to set up a non-root admin user.  If this step is not completed now do not fear, you will be prompted to create this account after first login.
 
 <p align="center">
 <img src="user_creation.png">
