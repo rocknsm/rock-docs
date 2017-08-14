@@ -1,27 +1,40 @@
-# Development Guide
+# ROCK Development Guide
 
 This section is a work in progress.  Stay tuned as it will provide an in-depth look at topics like:
 
 
-## Architecture
+## Administration & Maintenance
+
+#### Architecture
 - [Topology]() - *coming soon*
 
 - [Data Flow]() - *coming soon*
 
-## Support
+#### Troubleshoot
 - [Common Issues]() - *coming soon*
+
+## Performance & Tuning
+
+ - *coming soon*
+
+#### Signatures
+
+ - *coming soon*
+
+#### Bro Scripting
+
+ - *coming soon*
 
 
 ## Training
 
-- [VM Build Guide](devel/vm_guide.md) - configuring a ROCK VM via VMWare Fusion
+- [Hardware Builds](hw_guide.md) - *coming soon*
+
+- [VM Build Guide](vm_guide.md) - configuring a ROCK VM
 
 - [ROCK at Home]() - *coming soon*
 
 - [Working with PCAP](pcap.md) - *coming soon*
-
-
-
 
 <!-- TODO
 ### Topology
@@ -35,29 +48,3 @@ This section is a work in progress.  Stay tuned as it will provide an in-depth l
 
 ### ROCK @ Home
 * examples of home implementation *TBD* -->
-
-# ROCK Development Guide
-
-## Administration & Maintenance
-
-*WIP*
-
-## Performance & Tuning
-
-*WIP*
-
-### Signatures
-
-*WIP*
-
-### Bro Scripting
-
-*WIP*
-
-## Buid Guides
-
-
-
-### [Hardware Builds](hw_guide.md)
-
-### [VM Builds](vm_guide.md)
