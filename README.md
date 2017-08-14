@@ -11,7 +11,7 @@ ROCK is an open-source collections platform designed by the members of the Misso
 
 [QUICK START](quick_start/index.md) - get installed / running / into the packets
 
-[DEV](devel/index.md) - focused on development / administration /tuning
+[DEV](dev/index.md) - focused on development / administration /tuning
 
 
 ## Updates
