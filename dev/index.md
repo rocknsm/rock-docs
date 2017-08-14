@@ -1,8 +1,6 @@
-# Wiki
+# Development Guide
 
-<!-- WIP - working after [overview](../overview/index.md) section is complete. -->
-
-This wiki is a work in progress.  Stay tuned as it will provide an in-depth look at topics such as:
+This section is a work in progress.  Stay tuned as it will provide an in-depth look at topics like:
 
 
 ## Architecture
@@ -14,15 +12,13 @@ This wiki is a work in progress.  Stay tuned as it will provide an in-depth look
 - [Common Issues]() - *coming soon*
 
 
-## Development
+## Training
 
 - [VM Build Guide](devel/vm_guide.md) - configuring a ROCK VM via VMWare Fusion
 
 - [ROCK at Home]() - *coming soon*
 
-
-## Training
-- [Working with PCAP]() - *coming soon*
+- [Working with PCAP](pcap.md) - *coming soon*
 
 
 
@@ -39,3 +35,29 @@ This wiki is a work in progress.  Stay tuned as it will provide an in-depth look
 
 ### ROCK @ Home
 * examples of home implementation *TBD* -->
+
+# ROCK Development Guide
+
+## Administration & Maintenance
+
+*WIP*
+
+## Performance & Tuning
+
+*WIP*
+
+### Signatures
+
+*WIP*
+
+### Bro Scripting
+
+*WIP*
+
+## Buid Guides
+
+
+
+### [Hardware Builds](hw_guide.md)
+
+### [VM Builds](vm_guide.md)

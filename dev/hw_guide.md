@@ -6,7 +6,12 @@
 
 todo - basic network diagram
 
-## Budget Build
+### Server
+
+* dell T7400
 
 
-## Midrange
+### Tap
+
+* TP-Link ($35)
+* Dualcomm (?)

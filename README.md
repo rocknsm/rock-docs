@@ -4,14 +4,15 @@
 
 ROCK is an open-source collections platform designed by the members of the Missouri National Guard Cyber Team (MOCYBER).  It's primary focus is to provide a **robust**, **scalable**, and **secure** sensor platform for both enduring security monitoring (NSM) and incident response (IR) missions.  Why choose us over the other names in the NSM game?  Continue to the [overview](overview/index.md).
 
+
 ## Contents
 
-[OVERVIEW](overview/index.md) - overview of design, components, and dataflow
+[OVERVIEW](overview/index.md) - concept / design, components / dataflow
 
+[QUICK START](quick_start/index.md) - get installed / running / into the packets
 
-[QUICK START](overview/quick_start/index.md) - get installed / running / into the packets
+[DEV](devel/index.md) - focused on development / administration /tuning
 
-[WIKI](wiki/index.md) - focusing development / administration /tuning
 
 ## Updates
 
