@@ -86,4 +86,4 @@ simplerockbuild.simplerock.lan : ok=40   changed=2    unreachable=0    failed=0
 
 Continue to the [Usage Guide](usage.md).
 
-> NOTE: for a detailed guide on how to set up a virtual machine to throw packets at see the [VM Build Guide](../../wiki/devel/vm_guide.md) wiki/dev section.
+> NOTE: for a detailed guide on how to set up a virtual machine to throw packets at see the [VM Build Guide](../dev/vm_guide.md) wiki/dev section.
