@@ -2,7 +2,7 @@
 
 ## ISO
 
-Download the ISO from the https://github.com/rocknsm/rock/releases[Releases page]
+Download the ISO from the [releases](https://github.com/rocknsm/rock/releases) page.
 
 ## Bootable USB
 
