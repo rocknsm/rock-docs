@@ -15,4 +15,4 @@ diskutil unmountDisk /dev/disk#
 sudo dd bs=8M if=path/to/rockiso of=/dev/disk#
 ```
 
-NOTE: If using the terminal is currently a barrier to getting things rolling, http://etcher.io[etcher.io] is an excellent gui-based burning utility.
+NOTE: If using the terminal is currently a barrier to getting things rolling, [etcher.io](http://etcher.io) is an excellent gui-based burning utility.
