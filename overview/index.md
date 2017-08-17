@@ -43,4 +43,4 @@ What exactly sets ROCK apart from the other products in the space?
 
 ---
 
-Continue with the [Quickstart Guide](quick_start/index.md) to get up and running.
+Continue with the [Quickstart Guide](../quick_start/index.md) to get up and running.
