@@ -120,9 +120,9 @@ worker-1-2 worker localhost running 20485 ??? 02 Dec 17:12:36
 
 ### Key web interfaces
 
-http://IPADDRESS - Kibana
+http://localhost - Kibana web interface
 
-IPADDRESS - this is the management interface of the box, or "localhost" if you chose to do the vagrant build.
+_*localhost*_ - this will be the IP of the management interface of the box
 
 
 ### Log Timestamps
