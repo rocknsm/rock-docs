@@ -77,7 +77,9 @@ Once your config file is tuned to your situation, it's time to deploy!  This is 
 
 If everything is well, this should set up all the components you selected and give you a success banner similar to the example below:
 
+{::nomarkdown}
 <iframe src="http://showterm.io/a6fd7bb5a09c1646db39d" width="640" height="480"></iframe>
+{:/}
 
 ---
 
