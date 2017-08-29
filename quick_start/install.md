@@ -77,9 +77,8 @@ Once your config file is tuned to your situation, it's time to deploy!  This is 
 
 If everything is well, this should set up all the components you selected and give you a success banner similar to the example below:
 
-{::nomarkdown}
-<iframe src="http://showterm.io/a6fd7bb5a09c1646db39d" width="640" height="480"></iframe>
-{:/}
+<a href="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl?autoplay=1"><img src="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl" width="836"/></a>
+
 
 ---
 
@@ -90,6 +89,8 @@ Continue to the [Usage Guide](usage.md).
 
 <!--
 
+# SHOWTERM Notes
+
 <iframe src="http://showterm.io/a6fd7bb5a09c1646db39d" width="640" height="480"></iframe>  //deploy.sh
 
 http://showterm.io/017a093d585d07e2b8f78 //rock_status
@@ -99,6 +100,18 @@ http://showterm.io/cb9121ffc7622a36e36de //rock_start
 http://showterm.io/82d9280ceb4c9e2546f29 //rock_stop
 
 
+# ASCIINEMA Notes
+
+https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl //deploy.sh
+
+https://asciinema.org/a/z9qgFqFTr9HoeSMpX2gKWXqng //rock_status
+
+https://asciinema.org/a/QAxK2iiWEw2bFRKUc5JFri3n9 //rock_start
+
+https://asciinema.org/a/ME56ahRQrj3qmrynGzCc47GyM //rock_stop
+
+
+# ORIGINAL
 ```
 PLAY RECAP ********************************************************************
 simplerockbuild.simplerock.lan : ok=40   changed=2    unreachable=0    failed=0
