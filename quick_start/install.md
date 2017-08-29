@@ -4,8 +4,6 @@
 
 # Installation Guide
 
-TL;DR - Installation is simple and straighforward.
-
 -  apply image
 -  generate defaults
 -  confirm / edit config
