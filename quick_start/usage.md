@@ -42,15 +42,21 @@ These functions are accomplished with `rock_stop`, `rock_start`, and `rock_statu
 
 * `sudo rock_start`
 
+<p align="center">
 <a href="https://asciinema.org/a/QAxK2iiWEw2bFRKUc5JFri3n9" target="_blank"><img src="https://asciinema.org/a/QAxK2iiWEw2bFRKUc5JFri3n9.png" width=“469”/></a>
+</p>
 
 * `sudo rock_status`
 
+<p align="center">
 <a href="https://asciinema.org/a/z9qgFqFTr9HoeSMpX2gKWXqng" target="_blank"><img src="https://asciinema.org/a/z9qgFqFTr9HoeSMpX2gKWXqng.png" width=“469”/></a>
+</p>
 
 * `sudo rock_stop`
 
+<p align="center">
 <a href="https://asciinema.org/a/ME56ahRQrj3qmrynGzCc47GyM" target="_blank"><img src="https://asciinema.org/a/ME56ahRQrj3qmrynGzCc47GyM.png" width=“469”/></a>
+</p>
 
 
 ### Key web interfaces
