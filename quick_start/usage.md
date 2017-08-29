@@ -26,14 +26,6 @@ You should have plain text bro logs showing up in /data/bro/logs/current/:
 
 - `ls -ltr /data/bro/logs/current/`
 
-Kafkacat is your kafka swiss army knife. This command will consume the current queue. You should see a non-zero offset:
-
-- `kafkacat -C -b localhost -t bro_raw -e | wc -l`
-
-If you haven't loaded Kibana already, it should be running on port 5601. This just verifies while you're still on the command line:
-
-- `sudo netstat -planet | grep node`
-
 
 ## Start / Stop / Status
 These functions are accomplished with `rock_stop`, `rock_start`, and `rock_status`.
