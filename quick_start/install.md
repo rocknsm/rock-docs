@@ -1,4 +1,37 @@
+<p align="center">
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                       Thank you for installing:                              │
+│                                                                              │
+│                                                                              │
+│                 :::::::..       ...       .,-:::::  :::  .                   │
+│                 ;;;;``;;;;   .;;;;;;;.  ,;;;'````'  ;;; .;;,.                │
+│                  [[[,/[[['  ,[[     [[,[[[          [[[[[/'                  │
+│                  $$$$$$c    $$$,     $$$$$$        _$$$$,                    │
+│                  888b "88bo,"888,_ _,88P`88bo,__,o,"888"88o,                 │
+│                  MMMM   "W"   "YMMMMMP"   "YUMMMMMP"MMM "MMP"                │
+│                          :::.    :::. .::::::. .        :                    │
+│                          `;;;;,  `;;;;;;`    ` ;;,.    ;;;                   │
+│                            [[[[[. '[['[==/[[[[,[[[[, ,[[[[,                  │
+│                            $$$ "Y$c$$  '''    $$$$$$$$$"$$$                  │
+│                            888    Y88 88b    dP888 Y88" 888o                 │
+│                            MMM     YM  "YMmMY" MMM  M'  "MMM                 │
+│                                                                              │
+|                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
 # Installation Guide
+</p>
 
 TL;DR - Installation is simple and straighforward.
 
@@ -77,8 +110,9 @@ Once your config file is tuned to your situation, it's time to deploy!  This is 
 
 If everything is well, this should set up all the components you selected and give you a success banner similar to the example below:
 
-<a href="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl" target="_blank"><img src="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl.png" width="835"/></a>
-
+<p align="center">
+<a href="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl" target="_blank"><img src="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl.png" width="469"/></a>
+</p>
 
 ---
 
@@ -101,6 +135,8 @@ http://showterm.io/82d9280ceb4c9e2546f29 //rock_stop
 
 
 # ASCIINEMA Notes
+
+<a href="" target="_blank"><img src=".png" width="835"/></a>
 
 https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl //deploy.sh
 
