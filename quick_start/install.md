@@ -77,7 +77,7 @@ Once your config file is tuned to your situation, it's time to deploy!  This is 
 
 If everything is well, this should set up all the components you selected and give you a success banner similar to the example below:
 
-<a href="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl?autoplay=1"><img src="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl" width="836"/></a>
+<a href="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl" target="_blank"><img src="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl.png" width="835"/></a>
 
 
 ---
