@@ -2,7 +2,7 @@
 <img src="install_banner.png">
 </p>
 
-# Installation Guide
+# Installation Guide3
 
 -  apply image
 -  generate defaults
@@ -82,6 +82,8 @@ If everything is well, this should set up all the components you selected and gi
 <p align="center">
 <a href="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl" target="_blank"><img src="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl.png" width="469"/></a>
 </p>
+
+> NOTE: If you find the deployment is failing, the script can be run with very verbose output.  This example will write the output to a file for review:  `DEBUG=1 ./deploy_rock.sh | tee /tmp/deploy_rock.log`
 
 ---
 

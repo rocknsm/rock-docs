@@ -29,3 +29,8 @@ When writing the scripts to generate default values, we had to make some assumpt
 * Bro will use half of your CPU resources, up to 8 CPUs
 
 We will continue to add more support information as the userbase grows.
+
+### Deployment Script
+
+If you find the deployment is failing, the script can be run with very verbose output.  This example will write the output to a file for review:
+`DEBUG=1 ./deploy_rock.sh | tee /tmp/deploy_rock.log`
