@@ -6,7 +6,7 @@ What exactly sets ROCK apart from the other products in the space?
 
 * ROBUST - we believe the folks at Red Hat do Linux right.  ROCK is built on Centos7 and provides an easy path to a supported enterprise OS ([RHEL](https://www.redhat.com/en)).
 
-* SECURE - with SELinux, ROCK is secure by default.  [SELinux](https://selinuxproject.org/page/Main_Page) uses context to define security controls to prevent, for instance, a text editor process from talking to the internet.  #setenforce1
+* SECURE - with SELinux, ROCK is secure by default.  [SELinux](https://selinuxproject.org/page/Main_Page) uses context to define security controls to prevent, for instance, a text editor process from talking to the internet.  **#setenforce1**
 
 * SCALABLE - Whether your tapping a SoHo network or a large enterprise, ROCK is designed with scale in mind.
 
