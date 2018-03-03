@@ -11,12 +11,12 @@ ROCK is an open-source collections platform designed by the members of the Misso
 
 [QUICK START](quick_start/index.md) - get installed / running / into the packets
 
-[DEV](dev/index.md) - focused on development / administration /tuning
+[DEV](dev/index.md) - focused on development / administration / tuning
 
 
 ## Updates
 
-ROCK is an evolving project.  We are always striving to integrate the latest in open-source, and continually evaluating whether we are using the right tool for the job.  See the [changelog](changelog.md) for the latest updates to release 2.1.
+ROCK is an evolving project.  We are always striving to integrate the latest in open-source, and continually evaluating whether we are using the right tool for the job.  See the [changelog](changelog.md) for the latest updates.
 
 ## Thanks
 

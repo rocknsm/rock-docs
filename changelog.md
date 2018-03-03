@@ -1,11 +1,11 @@
-# Updates - v2.1
+# Latest Updates
 
 We've been hard at work improving ROCK and a lot has changed since we released the initial Chef build.
 
 
 ### Overview
 
-First and foremost, the build now uses Ansible for the automation. Most packages are updated to the latest greatest, and we've swapped in Suricata and the default signature IDS over Snort. Some of the most significant upgrade, from a use standpoint, is the work we've put into Kibana. The data model is slightly different, to the advantage of the analyst.
+First and foremost, the build now uses Ansible for the automation. Most packages are updated to the latest greatest, and we've swapped in Suricata and the default signature IDS over Snort. From a usage standpoint, one of the more significant upgrades is the work we've put into Kibana. The data model is slightly different to the advantage of the analyst.
 
 
 ### ISO Install
@@ -14,7 +14,16 @@ We now have an ISO that contains everything you need to deploy! The ISO is merel
 
 
 ### Full Packet Capture
-Google's Stenographer is installed and configured in this build. However, it is disabled by default. There are a few reasons for this: First, it can be too much for Vagrant builds on meager hardware. Second, you really need to make sure you've mounted /data over sufficient storage before you start saving full packets. Once you're ready to get nuts, enable and start the service with `systemctl enable stenographer.service` and then `systemctl start stenographer.service`. Stenographer is already stubbed into the `/usr/local/bin/rock_{start,stop,status}` scripts, you just need to uncomment it if you're going to use it.
+Google Stenographer is installed and configured in this build. However, it is disabled by default. There are a few reasons for this:  
+* it can be a bit too much for builds on meager hardware.  
+* you need to make sure you've mounted `/data` over sufficient storage before you start saving full pcap.  
+
+Once you're ready to get nuts, enable and start the service:  
+
+`systemctl enable stenographer.service`  
+`systemctl start stenographer.service`  
+
+Stenographer is already stubbed into the `/usr/local/bin/rock_{start,stop,status}` scripts, so just uncomment it if you're going to use it.
 
 
 ### Component Updates
@@ -37,4 +46,11 @@ Ansible | 2.2.0.0 |
 
 ### Ansible
 
-On top of software updates, we also changed the deployment mechanism to using Ansible as the primary mechanism. We did this for a few reasons: I used it for one of my full-time projects, it's super lightweight and available in EPEL, doesn't require an agent, super easy to understand. I'm hoping that ultimately this makes the platform more approachable to a wider community and better suitable to offline or isolated install environments, which I've frequently encountered for sensor networks.
+On top of software updates, we've chosen to use Ansible as the primary deployment mechanism.  We did this for a few reasons:  
+
+* it's lightweight
+* doesn't require an agent
+* available in EPEL
+* easy to understand
+
+We're ultimately goal is to make this platform more approachable to a wider community and better suitable to offline or isolated install environments, which we've encountered frequently for sensor networks.
