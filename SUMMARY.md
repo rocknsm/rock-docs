@@ -12,4 +12,4 @@
 
 ---
 
-[changelog](changelog.md)
+* [changelog](changelog.md)
