@@ -8,6 +8,7 @@
     * [troubleshooting](quick_start/support.md)
 
 * [Dev](dev/index.md)
+    * [vm build guide](dev/vm_guide.md)
 
 ---
 
