@@ -21,7 +21,7 @@ Read the full details in the [changelog](changelog.md).
 
 [OVERVIEW](overview/index.md) - concept / design, components / dataflow
 
-[BUILD](build/index.md) - get installed / deployed / in the packets
+[BUILD](build/index.md) - get installed / deployed / basic usage
 
 [MAINTAIN](maintain/index.md) - administer / tune / troubleshoot
 

@@ -2,16 +2,17 @@
 
 What exactly sets ROCK apart from the other products in the space?
 
-## Foundation
+
+### Foundation
 
 * ROBUST - we believe the folks at Red Hat do Linux right.  ROCK is built on Centos7 and provides an easy path to a supported enterprise OS ([RHEL](https://www.redhat.com/en)).
 
-* SECURE - with SELinux, ROCK is secure by default.  [SELinux](https://selinuxproject.org/page/Main_Page) uses context to define security controls to prevent, for instance, a text editor process from talking to the internet.  **#setenforce1**
+* SECURE - with SELinux, ROCK is secure by default.  [SELinux](https://selinuxproject.org/page/Main_Page) uses context to define security controls to prevent, for instance, a text editor process from talking to the internet.  [#setenforce1](https://twitter.com/search?q=%23setenforce1&src=typd)
 
 * SCALABLE - Whether you're tapping a SoHo network or a large enterprise, ROCK is designed with scale in mind.
 
 
-## Capability
+### Capability
 
 * Passive data acquisition via AF_PACKET, feeding systems for metadata (Bro), signature detection (Suricata or Snort), and full packet capture (Stenographer).
 
@@ -19,28 +20,41 @@ What exactly sets ROCK apart from the other products in the space?
 
 * Reliable data storage and indexing (Elasticsearch) to support rapid retrieval and analysis (Kibana) of the data.
 
-## Components
+
+### Components
 
 <p align="center">
-<img src="single_architecture.png">
+<img src="rock-diagram-new.png">
 </p>
 
-* Full Packet Capture via [Google Stenographer](https://github.com/google/stenographer).
+* Full Packet Capture via [Google Stenographer](https://github.com/google/stenographer)
 
-* Protocol Analysis and Metadata via [Bro](https://www.bro.org/).
+* Protocol Analysis and Metadata via [Bro](https://www.bro.org/)
 
-* Signature Based Alerting via [Suricata](https://suricata-ids.org/) or [Snort](https://snort.org/).
+* Signature Based Alerting via [Suricata](https://suricata-ids.org/) (configurable to use [Snort](https://snort.org/))
 
 * Recursive File Scanning via [FSF](https://github.com/EmersonElectricCo/fsf).
 
-* Message Queuing and Distribution via [Apache Kafka](http://kafka.apache.org/).
+* Output from Suricata and FSF are moved to message queue via [Filebeat](https://www.elastic.co/products/beats/filebeat)
 
-* Message Transport via [Logstash](https://www.elastic.co/products/logstash).
+* Message Queuing and Distribution via [Apache Kafka](http://kafka.apache.org/)
 
-* Data Storage, Indexing, and Search via [Elasticsearch](https://www.elastic.co/).
+* Message Transport via [Logstash](https://www.elastic.co/products/logstash)
 
-* Data UI and Visualization via [Kibana](https://www.elastic.co/products/kibana).
+* Data Storage, Indexing, and Search via [Elasticsearch](https://www.elastic.co/)
+
+
+### Analyst Toolkit
+
+* [Kibana](https://www.elastic.co/products/kibana) provides data UI and visualization
+
+* [Docket](maintain/docket.md) allow for quick pivoting to `PCAP` files  :wrench:**new for 2.1**
+
+
+### Dataflow
+
+Now that we've established a general understanding of the core components and what they provide, let's look at how data flows through the sensor.  
 
 ---
 
-Continue with the [Quickstart Guide](../quick_start/index.md) to get up and running.
+Continue to [dataflow](./dataflow.md)  

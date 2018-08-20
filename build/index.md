@@ -1,17 +1,17 @@
-# Quick Start Guide
+# Build
 
 ## Hardware Requirements
 
-**GOLDEN RULE:** If you throw hardware at it, ROCK will use it. It will require some tuning to do so, but we'll continue documenting that.  Throw everything you can at it. The higher the IOPS the better.
+The analysis of live network data is a resource intensive task.  The bottom line is this: **if you throw hardware at ROCK it will use it, and use it well**. The higher the IOPS the better.  Here's a starting point to get you moving:    
 
 |   RESOURCE  |     RECOMMENDATION |
 | ----------- | ------------------ |
 | CPU         | 4 or more physical cores |
-| Memory      | 16GB (8GB is doable but won't collect for long) |
-| Storage     | 256GB, with 200+ of that dedicated to `/data` |
-| Network     | 2 interfaces, one for management and one for collection |
+| Memory      | 16GB (8GB is doable, 16 is better) |
+| Storage     | 256GB, with 200+ of that dedicated to `/data`, SSD preferred |
+| Network     | 2 gigabit interfaces, one for management and one for collection |
 
-NOTE: A more in-depth hardware guide can be found in the [development](../dev/index.md) section.
+NOTE: We've put together a [video series](https://www.youtube.com/channel/UCUD0VHMKqPkdnJshsngZq9Q) that goes into some good detail on hardware choices for both sensor and network equipment. A more in-depth hardware guide can also be found in the [development](../dev/index.md) section.  
 
 
 ## Installation
