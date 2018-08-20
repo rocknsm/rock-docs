@@ -10,7 +10,7 @@
 We've been working on a lot of changes and ROCK 2.1 is here! Here's a quick look at some of the latest additions:
 
 - [x] Docket - click to PCAP utility
-- [x] @todo
+- [x] official move to `.iso` distro model
 - [x] @todo
 - [x] @todo
 

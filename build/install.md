@@ -2,49 +2,95 @@
 <img src="install_banner.png">
 </p>
 
-# Installation Guide3
+# Installation Guide
 
--  apply image
--  generate defaults
--  confirm / edit config
--  deploy
+#### Agenda
+- [overview](#overview)
+- [getting the bits](#getting-media)
+- [apply image](#applying-the-image)
+- [first boot](#first-boot)
+- [review config](#review-configuration)
+- [deploy](#deploy)
+
+
+## Overview
+
+If there’s one thing that should be carried away from the installation section, it's this:
+
+> RockNSM has been designed to be used as a distro. It's not a package or a suite of tools. It’s built from the ground up purposefully.  THE ONLY SUPPORTED INSTALL IS THE OFFICIAL ISO.
+
+Yes, one can clone the project and run the Ansible on some bespoke CentOS build and may have great success. But you've voided the warranty.  Providing a clean product that makes supporting submitted issues is important to us.  The ISO addresses most use cases.
+
+
+## Getting Media
+
+As just mentioned, there's an automated build available here:  
+[link](@todo)
+<!-- https://github.com/rocknsm/rock/releases -->
 
 
 ## Apply the Image
 
-Installing from the [ISO](https://github.com/rocknsm/rock/releases) is the preferred method to set up ROCK.  If that's for some reason not an option, alternate methods are listed [here](alt_install.md).
+Now it's time to create a bootable USB drive with that fresh ROCK build.  Let's look at few options.   
 
-> NOTE: if you need details on how to apply the image to your USB or optical disk, see [media prep](media_prep.md).
+#### CLI
 
--  once booted to the live image, select the automated install and 'ENTER'.
+If you live in the terminal, use `dd` to apply the image.  These instructions are for using a terminal in macOS.  If you're in a different environment, google is your friend.  
 
--  click **User Creation** at the next screen complete the required fields to set up a non-root admin user.  If this step is not completed now do not fear, you will be prompted to create this account after first login.
+> NOTE: Be **careful** when using these commands by **ensuring** you're writing to the correct disk / partition:
+
+1. once you've inserted a USB get the drive ID:  
+`diskutil list`  
+
+2. unmount the target drive so you can write to it:  
+`diskutil unmountDisk /dev/disk#`  
+
+3. write the image to drive:  
+`sudo dd bs=8M if=path/to/rockiso of=/dev/disk#`  
+
+#### Via GUI
+
+macOS:  if using the terminal is currently a barrier to getting things rolling, [etcher.io](http://etcher.io) is an excellent GUI burning utility.  
+
+Windows:  there are several great tools to apply a bootable image in MS land, but we recommend [rufus](https://rufus.akeo.ie/).  
+
+
+## First Boot
+
+ROCK will work with both legacy BIOS and UEFI boot settings.  Once booted to the USB, you are presented with 2 primary options:
 
 <p align="center">
-<img src="user_creation.png">
+<img src="rock-initialboot.jpg">
 </p>
 
--  click **Finish Installation** and wait for reboot
+##### Automated
 
--  accept licensing agreement: `c` + "*enter*"
+The automated build strives to make some of the harder decisions for users by skipping over many options to get you up and running.
 
--  update Centos to current by running: `sudo yum update -y && reboot`
+##### Custom
+
+The Custom option uses the same settings as Automated, but pauses at the install screen that will allow advanced users to customize how to configure your sensors storage.  This is especially helpful when you're working with multiple drives.  
+
+For this guide select the **Automated** install and `ENTER`.
+
+### User Creation
+
+<p align="center">
+<img src="rock-user.jpg">
+</p>
+
+ROCK is configured with the root user disabled.  We recommend that you leave it that way.  Once you've kicked off the install, click **User Creation** at the next screen and complete the required fields to set up a (non-root) admin user.  
+
+> If this step is not completed now do not fear, you will be prompted to create this account after first login.
+
+- click **Finish Installation** and wait for reboot
+
+- accept licensing agreement: `c` + "*enter*"
+
+- update Centos to current by running: `sudo yum update -y && reboot`
 
 
-<!-- ## Generate Defaults
-
-After applying updates ROCK needs a default configuration to build upon.  This is done by running the aptly named named script as the admin user you created:
-
--  `cd /opt/rocknsm/rock`
-
--  `sudo ./generate_defaults.sh`
-
--  if this is successful you will see:
-
-"*Defaults generated. Adjust /etc/rocknsm/config.yml as needed.*" -->
-
-
-## Customize Configuration
+## Review Configuration
 
 One of the primary tasks complete during install is the creation of the file `/etc/rocknsm/config.yml`.  This file contains key variables like network interface setup, cpu cores used, what components are enabled, and more.
 
@@ -71,7 +117,7 @@ This disables nginx from installing or being configured. Note that it will not r
 
 ## Deploy
 
-Once your config file is tuned to your situation, it's time to deploy!  This is done by running the deployment script:
+Once your `config.yml` file is tuned to your situation, it's time to deploy!  This is done by running the deployment script:
 
 -  `cd /opt/rocknsm/rock/bin/`
 
