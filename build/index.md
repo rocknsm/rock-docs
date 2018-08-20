@@ -25,3 +25,7 @@ NOTE: We've put together a [video series](https://www.youtube.com/channel/UCUD0V
 ## Support
 
 [TROUBLESHOOTING](support.md) - guide to dealing with some of the most common issues.
+
+---
+
+Continue to [installation](install.md)  
