@@ -1,8 +1,10 @@
 # Alternate Install Options
 
+this page is depricated and will be deleted @todo
+
 ## Github
 
-A system running ROCK should have at least **2 NICs** and **8GB RAM**, preferrably more.  With a clean OS (RHEL or CentOS 7) ready, let's install some dependencies.
+A system running ROCK should have at least **2 NICs** and **8GB RAM**, preferably more.  With a clean OS (RHEL or CentOS 7) ready, let's install some dependencies.
 
 ### Dependencies
 

@@ -28,6 +28,11 @@ You should have plain text bro logs showing up in /data/bro/logs/current/:
 
 
 ## Start / Stop / Status
+
+@todo Modify the `rock_*` tasks to be `rockctl {start|stop|status}`
+They're still there, for now, but `rockctl` is the "One True Path":tm:.
+
+
 These functions are accomplished with `rock_stop`, `rock_start`, and `rock_status`.
 
 > NOTE: these may need to be prefaced with /usr/local/bin/ depending on your _$PATH_.
