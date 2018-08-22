@@ -26,9 +26,11 @@ We've also been hard at work creating video content.
 
 ## Contents
 
-[OVERVIEW](overview/index.md) - concept / design, components / dataflow
+[OVERVIEW](overview/index.md) - concept / design, components / dataflow  
 
-[BUILD](build/index.md) - get installed / deployed / basic usage
+[BUILD](build/index.md) - installation / configuration / deployment  
+
+[OPERATE](operate/index.md) - basic usage / operation 
 
 [MAINTAIN](maintain/index.md) - administer / tune / troubleshoot
 
