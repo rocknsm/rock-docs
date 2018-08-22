@@ -267,4 +267,4 @@ If everything is well, this should set up all the components you selected and gi
 
 Continue to the [Usage Guide](usage.md).
 
-> NOTE: for a detailed guide on how to set up a virtual machine to throw packets at see the [VM Build Guide](../dev/vm_guide.md) wiki/dev section.
+> NOTE: for a detailed guide on how to set up a virtual machine to throw packets at, see the [VM Build Guide](./vm_guide.md).
