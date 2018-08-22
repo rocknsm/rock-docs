@@ -276,6 +276,19 @@ If everything is well, this should set up all the components you selected and gi
 <a href="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl" target="_blank"><img src="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl.png" width="469"/></a>
 </p>  
 
+#### Nginx Setup
+
+We strive to do the little things right so rather than having our Kibana instance available to everyone in the free world, it's sitting behind an Nginx reverse proxy:  
+```
+                           KIBANA = localhost:5601
+
+                            -- reverse proxy --
+
+                                 NGINX:443
+```
+
+It's also secured by a passphrase.  The credentials are generated and then stored in the `~` directory of the user you created during the initial installation.  Enter this user:password combo and you're in Kibana.
+
 ---
 
 Continue to the [Usage Guide](../operate/index.md).
