@@ -24,8 +24,7 @@ Yes, one can clone the project and run the Ansible on some bespoke CentOS build 
 
 ## Getting Media
 
-The lastest ROCK build is available here: [ROCK 2.1](@todo)
-<!-- https://github.com/rocknsm/rock/releases -->
+The lastest ROCK build is available here: [ROCK 2.1](http://download.rocknsm.io/)  
 
 
 ## Apply the Image
@@ -249,6 +248,20 @@ For instance, collecting raw PCAP is resource and storage intensive.  If you're 
   ...
 83 enable_stenographer: False
 ```
+
+#### Generate Defaults
+
+So what happens when you've completely mucked things up in your config and need to get back to basic default settings?  There's a script for that called `generate_defaults.sh` located in `/opt/rocknsm/rock/bin/`.  
+
+```
+[admin@localhost ~]$ ls /opt/rocknsm/rock/bin
+generate_defaults.sh
+deploy_rock.sh
+```
+
+This script will regenerate a fresh default `config.yml` for you and get you out of jail.  If you need to reset things you can execute this script by running:  
+
+`sudo ./deploy_rock.sh`
 
 
 ## Deploy
