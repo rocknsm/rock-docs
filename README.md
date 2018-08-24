@@ -7,21 +7,30 @@
 
 ## Latest
 
-We've been working on a lot of changes and ROCK 2.1 is here! Here's a quick look at some of the latest additions:
+We've been working on a lot of changes and ROCK 2.1 is here! You can read the full details in the [changelog](changelog.md), but here's a quick overview of some of the latest additions:
 
+#### 2.1 Changes
 - [x] Docket - click to PCAP utility
 - [x] official move to `.iso` distro model
-- [x] @todo
-- [x] @todo
+- [ ] @todo
+- [ ] @todo
+- [ ] @todo
+- [ ] @todo
 
-Read the full details in the [changelog](changelog.md).
+#### Video Guides
+
+We've also been hard at work creating video content.
+- [ROCK Introduction](https://youtu.be/tcEpI_vpeWc) - what ROCK is and how everything works together
+- [ROCK@home](https://youtu.be/w8h1ft8QTFk) - 3 part series on the lowest barrier to entry: tapping your home network
 
 
 ## Contents
 
-[OVERVIEW](overview/index.md) - concept / design, components / dataflow
+[OVERVIEW](overview/index.md) - concept / design, components / dataflow  
 
-[BUILD](build/index.md) - get installed / deployed / basic usage
+[BUILD](build/index.md) - installation / configuration / deployment  
+
+[OPERATE](operate/index.md) - basic usage / operation 
 
 [MAINTAIN](maintain/index.md) - administer / tune / troubleshoot
 
