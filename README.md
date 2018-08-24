@@ -34,6 +34,8 @@ We've also been hard at work creating video content.
 
 [MAINTAIN](maintain/index.md) - administer / tune / troubleshoot
 
+[SERVICES](services/index.md) - individual service management
+
 [DEV](dev/index.md) - development / testing / customization
 
 
