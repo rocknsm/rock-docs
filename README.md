@@ -9,15 +9,25 @@
 
 We've been working on a lot of changes and ROCK 2.1 is here! You can read the full details in the [changelog](changelog.md), but here's a quick overview of some of the latest additions:
 
-#### 2.1 Changes
-- [x] Docket - click to PCAP utility
-- [x] official move to `.iso` distro model
-- [ ] @todo
-- [ ] @todo
-- [ ] @todo
-- [ ] @todo
+##### New Features  
+- Docket, a REST API and web UI to query multiple stenographer instances
+- Added Suricata-Update to manage Suricata signatures
+- GPG signing of packages and repo metadata
+- Added functional tests using [testinfra](https://testinfra.readthedocs.io/en/latest/)
+- Initial support of [Elastic Common Schema](https://github.com/elastic/ecs)
+- Includes full Elastic (with permission) stack including features formerly known as X-Pack
 
-#### Video Guides
+##### Upgrades  
+- Elastic Stack is updated to 6.x
+- Elastic dashboards, mappings, and Logstash config moved to module-like construct
+- Suricata is updated to 4.x
+- Bro is updated to 2.5.4
+
+##### Deprecated - will be removed in the next release
+- Snort
+- Pulled Pork
+
+### Video Guides
 
 We've also been hard at work creating video content.
 - [ROCK Introduction](https://youtu.be/tcEpI_vpeWc) - what ROCK is and how everything works together
