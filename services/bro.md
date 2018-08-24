@@ -21,8 +21,6 @@ sudo systemctl restart bro
 
 ### File System Paths
 
-Below are the default file system paths. These can be customized by editing `/etc/rocknsm/rock/config.yml`.
-
 * Data
   * `/data/bro/logs/current/{stream_name.log}`
 * Application Logs
