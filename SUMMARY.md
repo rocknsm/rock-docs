@@ -3,13 +3,24 @@
 * [Overview](overview/index.md)
 
 * [Quickstart](quick_start/index.md)
-    * [installation](quick_start/install.md)
-    * [usage](quick_start/usage.md)
-    * [troubleshooting](quick_start/support.md)
+    * [Installation](quick_start/install.md)
+    * [Usage](quick_start/usage.md)
+    * [Troubleshooting](quick_start/support.md)
+
+* [Services](services/index.md)
+    * [Bro](bro.md)
+    * [Elasticsearch](elasticsearch.md)
+    * [Filebeat](filebeat.md)
+    * [FSF](fsf.md)
+    * [Kafka](kafka.md)
+    * [Kibana](kibana.md)
+    * [Logstash](logstash.md)
+    * [Stenographer](stenographer.md)
+    * [Suricata](suricata.md)
 
 * [Dev](dev/index.md)
-    * [vm build guide](dev/vm_guide.md)
+    * [VM Build Guide](dev/vm_guide.md)
 
 ---
 
-* [changelog](changelog.md)
+* [Changelog](changelog.md)
