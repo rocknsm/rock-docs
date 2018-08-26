@@ -19,6 +19,8 @@ sudo systemctl restart elasticsearch
 
 ### File System Paths
 
+* Home
+  * `/usr/share/elasticsearch`
 * Data
   * `/data/elasticsearch/`
 * Application Logs
