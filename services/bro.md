@@ -21,6 +21,8 @@ sudo systemctl restart bro
 
 ### File System Paths
 
+* Home
+  * `/opt/bro/`
 * Data
   * `/data/bro/logs/current/{stream_name.log}`
 * Application Logs
