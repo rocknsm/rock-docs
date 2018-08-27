@@ -51,4 +51,4 @@ We've also been hard at work creating video content.
 
 ## Credit
 
-This project is made possible by the efforts of the [Missouri National Guard Cyber Team](http://mocyber.io/) who have donated their talent and resources to further development.
+This project is made possible by the efforts of an ever-growing list of amazing people. Take a look around our project to see all our contributors.
