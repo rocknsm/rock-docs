@@ -4,7 +4,7 @@
     * [dataflow](./overview/dataflow.md)
 
 * [Build](./build/index.md)
-    * [Install](install.md)
+    * [Install](./build/install.md)
     * [Usage](./build/usage.md)
     * [Support](./build/support.md)
     * [VM Guide](./build/vm_guide.md)
