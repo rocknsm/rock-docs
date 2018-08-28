@@ -11,8 +11,8 @@
 
 * [Operate](./operate/index.md)
 
-* [Maintain](./maintain/index.md)
-    * [Docket](./maintain/docket.md)
+<!-- * [Maintain](./maintain/index.md)
+    * [Docket](./maintain/docket.md) -->
 
 * [Services](./services/index.md)
     * [Bro](./services/bro.md)
@@ -25,9 +25,9 @@
     * [Stenographer](./services/stenographer.md)
     * [Suricata](./services/suricata.md)
 
-* [Dev](./dev/index.md)
+<!-- * [Dev](./dev/index.md)
     * [Hardware Guide](./dev/hw_guide.md)
-    * [PCAP](./dev/pcap.md)
+    * [PCAP](./dev/pcap.md) -->
 
 ---
 
