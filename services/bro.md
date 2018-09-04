@@ -17,12 +17,16 @@ sudo systemctl stop bro
 sudo systemctl restart bro
 ```
 
-**Note:** Do not use broctl for management. This has the potential to cause a lot of heartburn with directory permissions if executed improperly.
+**Note:** Do not use broctl for management. This has the potential to cause a lot of heartburn with directory permissions if executed improperly. If you _must_ use `broctl`, be sure to execute it as the `bro` user and `bro` group.
+
+```
+sudo -u bro -g bro /usr/bin/broctl
+```
 
 ### File System Paths
 
 * Home
-  * `/opt/bro/`
+  * `/usr/share/bro/`
 * Data
   * `/data/bro/logs/current/{stream_name.log}`
 * Application Logs
