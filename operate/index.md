@@ -59,7 +59,7 @@ These functions are accomplished with `rock_stop`, `rock_start`, and `rock_statu
 ### Key web interfaces
 
 https://localhost - Kibana web interface - After deploy, the created creds are in the home directory of the user created upon install as `KIBANA_CREDS.README`<br />
-https://localhost:8443 - Docker - (If enabled) The web interface for pulling PCAP from the sensor
+https://localhost:8443 - Docket - (If enabled) The web interface for pulling PCAP from the sensor
 
 > localhost = IP of the management interface of the box
 
