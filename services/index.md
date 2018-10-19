@@ -7,6 +7,7 @@ This portion of the guide covers basic administration of these services as it re
 
 
 * **[Bro](bro.md)**
+* **[Docket](docket.md)** :wrench: **new in 2.1**
 * **[Elasticsearch](elasticsearch.md)**
 * **[Filebeat](filebeat.md)**
 * **[FSF](fsf.md)**
