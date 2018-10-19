@@ -55,18 +55,13 @@ Windows:  there are several great tools to apply a bootable image in MS land, bu
 
 ## Install
 
-#### Network Setup
-Before beginning the install process it's best to connect the interface you've selected to be the **management interface**.  Here's the order of events:  
-
-1. ROCK will initially look for an interface with a default gateway and treat that interface as MGMT
-1. All remaining interfaces will be treated as MONITOR
-
 #### First Boot
-ROCK works with both legacy BIOS and UEFI booting.  Once booted from the USB, you are presented with 2 primary paths:
 
 <p align="center">
 <img src="rock-initialboot.jpg">
 </p>
+
+ROCK works with both legacy BIOS and UEFI booting.  Once booted from the USB, you are presented with 2 primary paths:  
 
 #### Automated vs. Custom install
 
@@ -74,7 +69,30 @@ The automated build strives to make some of the harder decisions for users by sk
 
 The Custom option uses the same settings as Automated, but pauses at the anaconda screen that will allow advanced users to customize how to configure local storage.  This is especially helpful when you're working with multiple disks.  
 
-For this guide select the **Automated** install and `ENTER`.
+For this guide select the **Automated** install and `ENTER`.  
+
+#### DATE & TIME
+
+UTC is generally preferred for logging data as the timestamps from anywhere in the world will have a proper order without calculating offsets. That said, Kibana will present the Bro logs according to your timezone (as set in the browser). The bro logs themselves (i.e. in /data/bro/logs/) log in epoch time and will be written in UTC regardless of the system timezone.
+
+<p align="center">
+<img src="date-time.jpg">
+</p>
+
+Bro includes a utility for parsing these on the command line called `bro-cut`. It can be used to print human-readable timestamps in either the local sensor timezone or UTC. You can also give it a custom format string to specify what you'd like displayed.
+
+#### Network Setup
+
+Before beginning the install process it's best to connect the interface you've selected to be the **management interface**.  Here's the order of events:  
+
+1. ROCK will initially look for an interface with a default gateway and treat that interface as MGMT
+1. All remaining interfaces will be treated as MONITOR
+
+Ensure that the interface you intend to use for MGMT has been turned on and has an IP:  
+
+<p align="center">
+<img src="network.jpg">
+</p>
 
 #### User Creation
 
