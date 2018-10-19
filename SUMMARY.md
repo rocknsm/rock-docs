@@ -16,7 +16,7 @@
 
 * [Services](./services/index.md)
     * [Bro](./services/bro.md)
-    * [Docket](docket.md) :wrench: **new in 2.1**
+    * [Docket](./services/docket.md) :wrench: **new in 2.1**
     * [Elasticsearch](./services/elasticsearch.md)
     * [Filebeat](./services/filebeat.md)
     * [FSF](./services/fsf.md)
