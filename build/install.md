@@ -107,7 +107,7 @@ The primary configuration file for ROCK is `/etc/rocknsm/config.yml`.  This file
 
 # interfaces that should be configured for sensor applications
 rock_monifs:
-    - enp0s8
+    - enp0s3
 
 # Secifies the hostname of the sensor
 rock_hostname: simplerockbuild
@@ -212,15 +212,15 @@ This box has 2 NICS: `enp0s3` was plugged in during install and received IP from
     link/ether 08:00:27:06:54:e5 brd ff:ff:ff:ff:ff:ff
     inet 192.168.1.207/24 brd 192.168.1.255 scope global noprefixroute dynamic enp0s3
     ...
-3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+3: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 08:00:27:ca:f0:bb brd ff:ff:ff:ff:ff:ff
 ```
 
-Lines 7 - 9 of `/etc/rocknsm/config.yml` show that the other interface (`enp0s8`) is listed as MONITOR interface.
+Lines 7 - 9 of `/etc/rocknsm/config.yml` show that the other interface (`enp0s3`) is listed as MONITOR interface.
 ```yml
 7 # interfaces that should be configured for sensor applications
 8 rock_monifs:
-9     - enp0s8
+9     - enp0s3
 ```
 
 #### Online / Offline Install
