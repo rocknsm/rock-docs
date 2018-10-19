@@ -1,5 +1,15 @@
 # Usage Guide
 
+### Key web interfaces
+
+https://localhost - Kibana web interface - After deploy, the created creds are in the home directory of the user created upon install as `KIBANA_CREDS.README`<br />  
+
+https://localhost:8443 - Docket - web interface for pulling PCAP from the sensor (must be enabled in config)
+
+> localhost = IP of the management interface of the box  
+
+<!-- TODO add image -->
+
 ## Functions Checks
 
 After the initial build, the ES cluster will be yellow because the marvel index will think it's missing a replica. Run this to fix this issue. This job will run from cron just after midnight every day:
@@ -20,9 +30,7 @@ You can fire some traffic across the sensor at this point to see if it's collect
 
 After replaying some traffic, or just waiting a bit, the count should be going up.
 
-- `curl -s localhost:9200/_all/_count | jq '.'`
-
-You should have plain text bro logs showing up in /data/bro/logs/current/:
+You should have plain text bro logs showing up in /data/bro/logsM/current/:
 
 - `ls -ltr /data/bro/logs/current/`
 
@@ -54,18 +62,3 @@ These functions are accomplished with `rock_stop`, `rock_start`, and `rock_statu
 <p align="center">
 <a href="https://asciinema.org/a/ME56ahRQrj3qmrynGzCc47GyM" target="_blank"><img src="https://asciinema.org/a/ME56ahRQrj3qmrynGzCc47GyM.png" width="469"/></a>
 </p>
-
-
-### Key web interfaces
-
-https://localhost - Kibana web interface - After deploy, the created creds are in the home directory of the user created upon install as `KIBANA_CREDS.README`<br />
-https://localhost:8443 - Docker - (If enabled) The web interface for pulling PCAP from the sensor
-
-> localhost = IP of the management interface of the box
-
-
-### Log Timestamps
-
-UTC is generally preferred for logging data as the timestamps from anywhere in the world will have a proper order without calculating offsets. That said, Kibana will present the bro logs according to your timezone (as set in the browser). The bro logs themselves (i.e. in /data/bro/logs/) log in epoch time and will be written in UTC regardless of the system timezone.
-
-Bro includes a utility for parsing these on the command line called `bro-cut`. It can be used to print human-readable timestamps in either the local sensor timezone or UTC. You can also give it a custom format string to specify what you'd like displayed.
