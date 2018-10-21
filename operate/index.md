@@ -2,6 +2,15 @@
 
 ## Functions Checks
 
+To verify that you're collecting on the right interface:
+```
+less /etc/suricata/rocknsm-overrides.yaml
+...
+af-packet:
+  - interface: <capture interface>
+...
+```
+
 After the initial build, the ES cluster will be yellow because the marvel index will think it's missing a replica. Run this to fix this issue. This job will run from cron just after midnight every day:
 
 - `/usr/local/bin/es_cleanup.sh 2>&1 > /dev/null`
@@ -40,21 +49,55 @@ These functions are accomplished with `rock_stop`, `rock_start`, and `rock_statu
 * `sudo rock_start`
 
 <p align="center">
-<a href="https://asciinema.org/a/QAxK2iiWEw2bFRKUc5JFri3n9" target="_blank"><img src="https://asciinema.org/a/QAxK2iiWEw2bFRKUc5JFri3n9.png" width="469"/></a>
+<a href="https://asciinema.org/a/QAxK2iiWEw2bFRKUc5JFri3n9"><img src="https://asciinema.org/a/QAxK2iiWEw2bFRKUc5JFri3n9.png" width="469"/></a>
 </p>
 
 * `sudo rock_status`
 
 <p align="center">
-<a href="https://asciinema.org/a/z9qgFqFTr9HoeSMpX2gKWXqng" target="_blank"><img src="https://asciinema.org/a/z9qgFqFTr9HoeSMpX2gKWXqng.png" width="469"/></a>
+<a href="https://asciinema.org/a/z9qgFqFTr9HoeSMpX2gKWXqng"><img src="https://asciinema.org/a/z9qgFqFTr9HoeSMpX2gKWXqng.png" width="469"/></a>
 </p>
 
 * `sudo rock_stop`
 
 <p align="center">
-<a href="https://asciinema.org/a/ME56ahRQrj3qmrynGzCc47GyM" target="_blank"><img src="https://asciinema.org/a/ME56ahRQrj3qmrynGzCc47GyM.png" width="469"/></a>
+<a href="https://asciinema.org/a/ME56ahRQrj3qmrynGzCc47GyM"><img src="https://asciinema.org/a/ME56ahRQrj3qmrynGzCc47GyM.png" width="469"/></a>
 </p>
 
+
+### Configuring Bro
+`/etc/bro/networks.cfg` is where you will verify the correct networks are listed for Bro. If you are monitoring networks not listed, or would like to carve them up differently, you can do that here as well.
+```
+sudo vi /etc/bro/networks.cfg
+#LOCAL NETS
+10.0.0.0/8      RFC1918
+172.16.0.0/12   RFC1918
+192.168.0.0/16  RFC1918
+
+##########
+## ROCK ##
+##########
+# Add networks for the networks you are monitoring into this file if they're not RFC1918
+##########
+```
+
+### Configuring Suricata
+`/etc/suricata/suricata.yml` is where you will verify the correct networks are listed for Suricata. You'll do this on the `HOME_NET` line.
+```
+sudo vi /etc/suricata/suricata.yml
+...
+HOME_NET: "[192.168.0.0/16,10.0.0.0/8,172.16.0.0/12]"
+...
+```
+Likely, you're going to want to make sure that Bro and Suricata are looking at the same networks, so if you made a change when configuring Bro (`/etc/bro/networks.cfg`), you'll want to ensure that you mirror those changes here.
+
+### Configuring Stenographer
+`/etc/stenographer/config` is where you're configure Stenographer for packet capture. Likely, you'll need to update this with `/etc/stenographer/config.<interface_name>`:
+```
+cat /etc/stenographer/config
+# if this is not the correct interface, you can simply update it
+sudo cp /etc/stenographer/config.<interface_name> /etc/stenographer/config
+```
 
 ### Key web interfaces
 
@@ -62,7 +105,6 @@ https://localhost - Kibana web interface - After deploy, the created creds are i
 https://localhost:8443 - Docket - (If enabled) The web interface for pulling PCAP from the sensor
 
 > localhost = IP of the management interface of the box
-
 
 ### Log Timestamps
 
