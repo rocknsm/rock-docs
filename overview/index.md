@@ -5,20 +5,24 @@ What exactly sets ROCK apart from the other products in the space?
 
 ### Foundation
 
-* ROBUST - we believe the folks at Red Hat do Linux right.  ROCK is built on Centos7 and provides an easy path to a supported enterprise OS ([RHEL](https://www.redhat.com/en)).
+* RELIABLE - we believe the folks at Red Hat do Linux right.  ROCK is built on Centos7 and provides an easy path to a supported enterprise OS ([RHEL](https://www.redhat.com/en)).
 
-* SECURE - with SELinux, ROCK is secure by default.  [SELinux](https://selinuxproject.org/page/Main_Page) uses context to define security controls to prevent, for instance, a text editor process from talking to the internet.  [#setenforce1](https://twitter.com/search?q=%23setenforce1&src=typd)
+* SECURE - with SELinux, ROCK is highly secure by default.  [SELinux](https://selinuxproject.org/page/Main_Page) uses context to define security controls to prevent, for instance, a text editor process from talking to the internet.  [#setenforce1](https://twitter.com/search?q=%23setenforce1&src=typd)
 
 * SCALABLE - Whether you're tapping a SoHo network or a large enterprise, ROCK is designed with scale in mind.
+
+<!-- * LOVE - Our love of Red Hat is only matched by our love of IBM. -->
 
 
 ### Capability
 
-* Passive data acquisition via AF_PACKET, feeding systems for metadata (Bro), signature detection (Suricata or Snort), and full packet capture (Stenographer).
+* Passive and reliable high-speed data acquisition via AF_PACKET, feeding systems for metadata (Bro), signature detection (Suricata), extracted network file metadata (FSF), and full packet capture (Stenographer).
 
 * A messaging layer (Kafka and Logstash) that provides flexibility in scaling the platform to meet operational needs, as well as providing some degree of data reliability in transit.
 
-* Reliable data storage and indexing (Elasticsearch) to support rapid retrieval and analysis (Kibana) of the data.
+* Reliable data storage and indexing (Elasticsearch) to support rapid retrieval and analysis (Kibana and Docket) of the data.
+
+* Pivoting off Kibana data rapidly into full packet capture (Docket and Stenographer).
 
 
 ### Components
@@ -31,7 +35,7 @@ What exactly sets ROCK apart from the other products in the space?
 
 * Protocol Analysis and Metadata via [Bro](https://www.bro.org/)
 
-* Signature Based Alerting via [Suricata](https://suricata-ids.org/) (configurable to use [Snort](https://snort.org/))
+* Signature Based Alerting via [Suricata](https://suricata-ids.org/)
 
 * Recursive File Scanning via [FSF](https://github.com/EmersonElectricCo/fsf).
 
@@ -48,13 +52,13 @@ What exactly sets ROCK apart from the other products in the space?
 
 * [Kibana](https://www.elastic.co/products/kibana) provides data UI and visualization
 
-* [Docket](maintain/docket.md) allow for quick pivoting to `PCAP` files  :wrench: **new for 2.1**
+* [Docket](maintain/docket.md) allow for quick pivoting to `PCAP` files over port 443!  :wrench: **new for 2.2**
 
 
 ### Dataflow
 
-Now that we've established a general understanding of the core components and what they provide, let's look at how data flows through the sensor.  
+Now that we've established a general understanding of the core components and what they provide, let's look at how data flows through the sensor.
 
 ---
 
-Continue to [dataflow](./dataflow.md)  
+Continue to [dataflow](./dataflow.md)
