@@ -17,7 +17,9 @@ sudo systemctl stop bro
 sudo systemctl restart bro
 ```
 
-**Note:** Do not use broctl for management. This has the potential to cause a lot of heartburn with directory permissions if executed improperly. If you _must_ use `broctl`, be sure to execute it as the `bro` user and `bro` group.
+The `broctl` command is now an alias. Using this alias prevents dangerous permission changes caused by running the real broctl binary with sudo.  The only safe way otherwise to run `broctl` is to execute it as the `bro` user and `bro` group as such:
+
+<!-- **Note:** Do not use broctl for management. This has the potential to cause a lot of heartburn with directory permissions if executed improperly. If you _must_ use `broctl`, be sure to execute it as the `bro` user and `bro` group. -->
 
 ```
 sudo -u bro -g bro /usr/bin/broctl
