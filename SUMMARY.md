@@ -16,15 +16,15 @@
 
 * [Services](./services/index.md)
     * [Bro](./services/bro.md)
-    * [Docket](./services/docket.md) :wrench: **new in 2.1**
+    * [Docket](./services/docket.md) :wrench: **new in 2.2** - **with more 443!**
     * [Elasticsearch](./services/elasticsearch.md)
-    * [Filebeat](./services/filebeat.md)
-    * [FSF](./services/fsf.md)
-    * [Kafka](./services/kafka.md)
+    <!-- * [Filebeat](./services/filebeat.md) -->
+    <!-- * [FSF](./services/fsf.md) -->
+    <!-- * [Kafka](./services/kafka.md) -->
     * [Kibana](./services/kibana.md)
-    * [Logstash](./services/logstash.md)
-    * [Stenographer](./services/stenographer.md)
-    * [Suricata](./services/suricata.md)
+    <!-- * [Logstash](./services/logstash.md) -->
+    <!-- * [Stenographer](./services/stenographer.md) -->
+    <!-- * [Suricata](./services/suricata.md) -->
 
 <!-- * [Dev](./dev/index.md)
     * [Hardware Guide](./dev/hw_guide.md)
