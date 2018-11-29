@@ -9,13 +9,12 @@ This portion of the guide covers basic administration of these services as it re
 * **[Bro](bro.md)**
 * **[Docket](docket.md)** :wrench: **new in 2.1**
 * **[Elasticsearch](elasticsearch.md)**
-* **[Filebeat](filebeat.md)**
-* **[FSF](fsf.md)**
-* **[Kafka](kafka.md)**
+<!-- * **[Filebeat](filebeat.md)** -->
+<!-- * **[FSF](fsf.md)** -->
+<!-- * **[Kafka](kafka.md)** -->
 * **[Kibana](kibana.md)**
-* **[Logstash](logstash.md)**
-* **[Stenographer](stenographer.md)**
-* **[Suricata](suricata.md)**
+<!-- * **[Logstash](logstash.md)** -->
+<!-- * **[Stenographer](stenographer.md)** -->
 
 You can also use `rockctl` to manage full suite of installed services:
 
