@@ -38,6 +38,7 @@ We've been working on a lot of changes and ROCK 2.2 is here! You can read the fu
   - Elasticsearch SQL
 
 ##### Upgrades
+- CentOS is updated to 7.5 (1804)
 - Elastic Stack is updated to 6.4.2
 - Elastic dashboards, mappings, and Logstash config moved to module-like construct
 - Suricata is updated to 4.0.5
