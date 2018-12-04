@@ -122,5 +122,6 @@ You will be presented with a text dialog of read the licensing agreement and eit
 Once you do that, the screen will pop over to the ROCK spash screen with network information, including your IP address on the right side of the screen, recommend you make a note of this.
 
 At the localhost login enter the name of the user you created, then the password.  If the password does not work, you can simply follow CentOS password reset procedures.
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sec-terminal_menu_editing_during_boot#sec-Recovering_Root_Password
 
 # Stay tuned for part two! 
