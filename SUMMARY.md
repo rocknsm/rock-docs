@@ -8,7 +8,7 @@
     * [Usage](./build/usage.md)
     * [Support](./build/support.md)
     * [VM Guide](./build/vm_guide.md)
-    * [A ROCK 2.2 Installation Walkthrough](./build/a_build_walkthrough.md)
+    * [A ROCK 2.2 Installation Walkthrough Part 1](./build/a_build_walkthrough.md)
 
 * [Operate](./operate/index.md)
 
