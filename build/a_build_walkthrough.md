@@ -67,11 +67,11 @@ For the ROCKNSM 2.2-1810 Installation, leave everything default except:
 
 This will take you to the Manual Partitioning screen.  Click on the link Click here to create them automatically.
 
-With a 20 GB drive, You will get three partitions of:
-* /boot
-   * 1024 MiB
+With a 20 GB drive, You will get three partitions autosized as such: 
 * /
    * 17 GiB
+* /boot
+   * 1024 MiB
 * swap
    * 2048 MiB
 
@@ -84,6 +84,7 @@ Click on Done in the Manual Partitioning screen. Click on Accept Changes.
 ## Security Policy
 
 For Security Policy - you do not need to select a specific security policy, "No profile selected" is OK to be left selected.  SELinux will be in enforcing mode - enforcing is what we want.
+* Learn more: https://access.redhat.com/blogs/766093/posts/3557091
 
 ## Begin Installation
 
