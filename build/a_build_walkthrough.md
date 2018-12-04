@@ -83,7 +83,7 @@ Click on Done in the Manual Partitioning screen. Click on Accept Changes.
 
 ## Security Policy
 
-For Security Policy - you do not need to select a specific security policy, "No profile selected" is OK to be left selected.  SELinux will be in enforcing mode with No profile - a good thing.
+For Security Policy - you do not need to select a specific security policy, "No profile selected" is OK to be left selected.  SELinux will be in enforcing mode - enforcing is what we want.
 
 ## Begin Installation
 
