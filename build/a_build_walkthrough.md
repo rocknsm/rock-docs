@@ -1,4 +1,4 @@
-# A Build Walkthrough of ROCK 2.2
+# A Build Walkthrough of ROCK 2.2, Part 1
 
 In this case, we are using VMWare Fusion 11 to build ROCK 2.2.
 
@@ -58,16 +58,16 @@ At this point, you are ready to start the VM.
 
 Click in the window and select Custom Install
 
-For the ROCKNSM 2.2-1810 Installation, leave everything defatul except:
+For the ROCKNSM 2.2-1810 Installation, leave everything default except:
 * Scroll down to Installation Destination
-* Selet I will configure partitioning
+* Select I will configure partitioning
 * Click on Done
 
 ## Manual Partitioning
 
-This will take you to the Manual Partitioning screen.  Click on the link Click here to create them automaticlly.
+This will take you to the Manual Partitioning screen.  Click on the link Click here to create them automatically.
 
-With a 20 GB drive, You will get threee partitions of:
+With a 20 GB drive, You will get three partitions of:
 * /boot
    * 1024 MiB
 * /
@@ -75,9 +75,9 @@ With a 20 GB drive, You will get threee partitions of:
 * swap
    * 2048 MiB
 
-With this smaller partition of 20 GB, CentOS wwill not create a default /home directory.  This is fine, but if it did create one, it will allocate maximal space to the home partition.  If you desire a home directory, make it small, 1-5 GB.
+With this smaller partition of 20 GB, CentOS will not create a default /home directory.  This is fine, but if it did create one, it will allocate maximal space to the home partition.  If you desire a home directory, make it small, 1-5 GB.
 
-Be aware that with only 8 GB of RAM given to the VM, the system will run close to swapping memory to the swap partition.  If this system is continuously monitoring traffic, such as from a small business, or home network, it will most likely run out of memory and start using the swap partition.  Ultimatly, this will result in a range of effects, from data loss, to the system becoming unstable and crashing.
+Be aware that with only 8 GB of RAM given to the VM, the system will run close to swapping memory to the swap partition.  If this system is continuously monitoring traffic, such as from a small business, or home network, it will most likely run out of memory and start using the swap partition.  Ultimately, this will result in a range of effects, from data loss, to the system becoming unstable and crashing.
 
 Click on Done in the Manual Partitioning screen. Click on Accept Changes.
 
@@ -119,7 +119,7 @@ You will be presented with a text dialog of read the licensing agreement and eit
 
 * type in 'c' to continue.
 
-Once you do that, the screen will pop over to the ROCK spash screen with network information, including your IP address on the right side of the screen, recommend you make a note of this.
+Once you do that, the screen will pop over to the ROCK splash screen with network information, including your IP address on the right side of the screen, recommend you make a note of this.
 
 At the localhost login enter the name of the user you created, then the password.  If the password does not work, you can simply follow CentOS password reset procedures:
 * https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sec-terminal_menu_editing_during_boot#sec-Recovering_Root_Password
