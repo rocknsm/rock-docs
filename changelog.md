@@ -34,7 +34,7 @@ CentOS | 7.5 (1804) |
 Bro    | 2.5.5-debug | Plugins for kafka output and af_packet capture
 Suricata | 4.0.5 |
 Stenographer | Git 12106b |
-Kafka | 0.10.0.0 |
+Kafka | 0.10.0.0 | kafka_2.11-0.10.0.0.jar
 Elasticsearch | 6.4.2 |
 Logstash | 6.4.2 |
 Kibana | 6.4.2 |
