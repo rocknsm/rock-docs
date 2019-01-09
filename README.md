@@ -7,7 +7,7 @@
 
 ## Latest
 
-We've been working on a lot of changes and ROCK 2.1 is here! You can read the full details in the [changelog](changelog.md), but here's a quick overview of some of the latest additions:
+We've been working on a lot of changes and ROCK 2.2 is here! You can read the full details in the [changelog](changelog.md), but here's a quick overview of some of the latest additions:
 
 ##### New Features  
 - Docket, a REST API and web UI to query multiple stenographer instances
