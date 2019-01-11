@@ -7,9 +7,9 @@
 #### Agenda
 - [overview](#overview)
 - [getting the bits](#getting-media)
-- [apply image](#applying-the-image)
+- [apply image](#apply-the-image)
 - [install](#install)
-- [configure](#initial-configuration)
+- [configure](#configure)
 - [deploy](#deploy)
 
 
@@ -24,12 +24,12 @@ Yes, one can clone the project and run the Ansible on some bespoke CentOS build 
 
 ## Getting Media
 
-The lastest ROCK build is available here: [ROCK 2.1](http://download.rocknsm.io/)  
+The lastest ROCK build is available here: (https://download.rocknsm.io/)  
 
 
 ## Apply the Image
 
-Now it's time to create a bootable USB drive with that fresh ROCK build.  Let's look at few options.   
+Now it's time to create a bootable USB drive with the fresh ROCK build.  Let's look at few options.   
 
 #### CLI
 
@@ -67,13 +67,19 @@ ROCK works with both legacy BIOS and UEFI booting.  Once booted from the USB, yo
 
 The automated build strives to make some of the harder decisions for users by skipping over many options to get you up and running.  
 
-The Custom option uses the same settings as Automated, but pauses at the anaconda screen that will allow advanced users to customize how to configure local storage.  This is especially helpful when you're working with multiple disks.  
+The Custom option uses the same settings as Automated, but pauses at the install(anaconda) screen that will allow advanced users to customize how to configure local storage.
+Custom option is especially helpful when you're working with multiple disks and or a large amount of storage on a single disk.
+
+**If you have a large amount of storage on any of your disks**, then it is highly recommended to use custom install. This is because the default RHEL partioning will use the majority of the storage for the /home partion.
+
+For more information to help you on the Custom install, in relation to the partioning process, you can see the [RHEL guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/installation_guide/sect-disk-partitioning-setup-x86#sect-custom-partitioning-x86). Also, it may be a bit more self explanatory for you if you click “automatic partitions” then modify accordingly.
+
 
 For this guide select the **Automated** install and `ENTER`.  
 
 #### DATE & TIME
 
-UTC is generally preferred for logging data as the timestamps from anywhere in the world will have a proper order without calculating offsets. That said, Kibana will present the Bro logs according to your timezone (as set in the browser). The bro logs themselves (i.e. in /data/bro/logs/) log in epoch time and will be written in UTC regardless of the system timezone.
+UTC is generally preferred for logging data as the timestamps from anywhere in the world will have a proper order without calculating offsets and daylight savings. That said, Kibana will present the Bro logs according to your timezone (as set in the browser). The bro logs themselves (i.e. in /data/bro/logs/) log in epoch time and will be written in UTC regardless of the system timezone.
 
 <p align="center">
 <img src="date-time.jpg">
@@ -286,7 +292,7 @@ This script will regenerate a fresh default `config.yml` for you and get you out
 
 Once your `config.yml` file is tuned to suit your environment, it's finally time to **deploy this thing**.  This is done by running the deployment script located in `/opt/rocknsm/rock/bin/`.
 
-Kick off the Ansible deploy script:  `sudo ./deploy_rock.sh`  
+Kick off the Ansible deploy script:  `sudo /opt/rocknsm/rock/bin/deploy_rock.sh`  
 
 If everything is well, this should set up all the components you selected and give you a success banner similar to the example below:
 
