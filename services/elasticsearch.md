@@ -1,8 +1,9 @@
 # Elasticsearch
 
 ## Overview
-Elasticsearch is our data storage and retrieval system. Events are stored as JSON
-within Elasticsearch, where you can run queries and aggregations against them.
+Elasticsearch is our data storage and retrieval system. Events are stored as JSON within Elasticsearch, where you can run queries and aggregations against them.
+
+ROCK sends all logs preformatted in JSON, complete with human readable timestamps. This does two things. First, Elasticsearch compression is effctively increased since there is not two copies of the data, raw and JSON.  The preformatted timestamps and JSON log data greatly increase the logging and error rate while increasing reliability of the logging infrastructure. 
 
 ## Management
 
