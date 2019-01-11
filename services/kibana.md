@@ -4,6 +4,13 @@
 Kibana is what we use as a graphical interface for retrieving data from
 [Elasticseach](elasticsearch.md).
 
+## Basic Usage
+Once Kibana is running, open a web browser and enter
+
+Kibana is available by pointing your browser to `https://<MGMT-IP>/`
+
+Credentials will be in the home directory of the user after ROCK configuration.
+
 ## Management
 
 ### Service
