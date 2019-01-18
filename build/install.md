@@ -113,10 +113,6 @@ ROCK is configured with the root user disabled.  We recommend that you leave it 
 - click **Finish Installation** and wait for reboot
 - accept license agreement: `c` + `ENTER`
 
-#### Update
-
-The last step before configuring sensor settings is to update the base OS to current: `sudo yum update -y && reboot`  
-
 
 ## Configure
 
