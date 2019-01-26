@@ -70,7 +70,7 @@ The automated build strives to make some of the harder decisions for users by sk
 The Custom option uses the same settings as Automated, but pauses at the install(anaconda) screen that will allow advanced users to customize how to configure local storage.
 Custom option is especially helpful when you're working with multiple disks and or a large amount of storage on a single disk.
 
-**If you have a large amount of storage on any of your disks**, then it is highly recommended to use custom install. This is because the default RHEL partioning will use the majority of the storage for the /home partion.
+**If you have a large amount of storage on any of your disks**, then it is highly recommended to use custom install. This is because the default RHEL (and even other linux distributions) partioning will use the majority of the storage for the /home partion.
 
 For more information to help you on the Custom install, in relation to the partioning process, you can see the [RHEL guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/installation_guide/sect-disk-partitioning-setup-x86#sect-custom-partitioning-x86). Also, it may be a bit more self explanatory for you if you click “automatic partitions” then modify accordingly.
 
