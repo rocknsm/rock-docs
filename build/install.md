@@ -179,10 +179,13 @@ pulled_pork_repo: https://github.com/shirkdog/pulledpork.git
 #### Retention Configuration ####
 elastic_close_interval: 15
 elastic_delete_interval: 60
+# Kafka retention is in Hour
 kafka_retention: 168
-suricata_retention: 3
+# Log Retemtion in Days
 bro_log_retention: 0
 bro_stats_retention: 0
+suricata_retention: 3
+fsf_retention: 3
 
 ### Advanced Feature Selection ######
 # Don't flip these unless you know what you're doing
@@ -268,6 +271,14 @@ For instance, collecting raw PCAP is resource and storage intensive.  If you're 
   ...
 83 enable_stenographer: False
 ```
+
+**_Also,**_ in relation to storage/retention, is the section starting at `line 54` (Retention Configuration). This section relates to how long logs are stored in Kafka, if (raw) Bro logs are ever deleted (default is no aka `0`, and other application retention timers.
+
+Some common configuration changes (however environmental specific requirements/needs may vary)
+are as follows:
+- Changing `kafka_retention` to `48` hours.
+- Changing `bro_log_rentenion` to `30` days.
+- Changing `bro_stats_rentenion` to `14` days.
 
 #### Generate Defaults
 
