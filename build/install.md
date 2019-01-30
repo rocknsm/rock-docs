@@ -82,7 +82,7 @@ For this guide select the **Automated** install and `ENTER`.
 UTC is generally preferred for logging data as the timestamps from anywhere in the world will have a proper order without calculating offsets and daylight savings. That said, Kibana will present the Bro logs according to your timezone (as set in the browser). The bro logs themselves (i.e. in /data/bro/logs/) log in epoch time and will be written in UTC regardless of the system timezone.
 
 <p align="center">
-<img src="date-time.jpg">
+<img src="date-time.png">
 </p>
 
 Bro includes a utility for parsing these on the command line called `bro-cut`. It can be used to print human-readable timestamps in either the local sensor timezone or UTC. You can also give it a custom format string to specify what you'd like displayed.
