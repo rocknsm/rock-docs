@@ -97,7 +97,7 @@ Before beginning the install process it's best to connect the interface you've s
 Ensure that the interface you intend to use for MGMT has been turned on and has an IP:  
 
 <p align="center">
-<img src="network.jpg">
+<img src="network.png">
 </p>
 
 #### User Creation
