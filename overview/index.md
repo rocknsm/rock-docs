@@ -52,7 +52,7 @@ What exactly sets ROCK apart from the other products in the space?
 
 * [Kibana](https://www.elastic.co/products/kibana) provides data UI and visualization
 
-* [Docket](maintain/docket.md) allow for quick pivoting to `PCAP` files over port 443!  :wrench: **new for 2.2**
+* [Docket](maintain/docket.md) allow for quick pivoting to `PCAP` files **new for 2.2**
 
 
 ### Dataflow
