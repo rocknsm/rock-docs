@@ -8,7 +8,7 @@ https://<sensorip>/app/docket/
 <br>
 
 <p align="center">
-<img src="docket.png">
+<img src="../docket.png">
 </p>
 
 
@@ -33,7 +33,7 @@ To access Docket point to `https://<sensorip>/app/docket/`. Please note the **tr
 #### Submit Request
 
 <p align="center">
-<img src="docket-submit.png">
+<img src="../docket-submit.png">
 </p>
 
 Once into the UI simply add your search criteria and click "Submit".  
@@ -42,7 +42,7 @@ Once into the UI simply add your search criteria and click "Submit".
 #### Get PCAP
 
 <p align="center">
-<img src="docket-getpcap.png">
+<img src="../docket-getpcap.png">
 </p>
 
 Once the job is processed, click "Get PCAP" to download to your box locally.
