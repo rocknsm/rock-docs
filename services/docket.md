@@ -1,44 +1,87 @@
 # Docket
 
-## Overview
+Docket is a web UI that makes it easy for analysts to filter mountains of PCAP down to specific chunks in order to find the [baddies](https://v637g.app.goo.gl/qkGzskQTs5goPdBH6).
 
-Docket is the new feature in ROCK 2.2 that we're very excited about, and look forward to feedback from the analysts who spend their time filtering data to find the [baddies](https://v637g.app.goo.gl/qkGzskQTs5goPdBH6).
+<p align="center">
+`https://<sensorip>/app/docket/`
+</p>
+<br>
 
-#### PCAP vs. Logs
+<p align="center">
+<img src="docket.png">
+</p>
 
-PCAP is great, but perhaps too great.  There's so much detail that it can be overwhelming to sort through.  A great alternate to "following the TCP stream" through an ocean of packets is to use a tool like Bro that can analyze protocols and write logs of what actually happens in the traffic.  The NSM community has needed a solution for quite a while that can merge these two different approaches and complement one other.  Something that balances the verbosity of PCAP and the focus of event-based logs.
 
-**Enter Docket**: Docket gives an analyst the ability to make very targeted requests to carve out exactly what they want to see in PCAP form by simply providing any of the following fields:
+## The Why
 
-- multiple intersting IPs
-- time range
-- port(s)
+PCAP is great, but doesn't scale well.  There's so much detail that it can be overwhelming to sort through.  A great alternate to "following the TCP stream" through an ocean of packets is to use a tool like Docket that allows for easy filtering on key points such as:
 
-### Configuration Overview
+- timeframe
+- hosts
+- networks
+- ports
+- more ...
 
-<!-- Docket is being initially served by [lighttpd](https://www.lighttpd.net/) and configured to listen for connection over port `8443`. -->
-Docket is being initially served by [lighttpd](https://www.lighttpd.net/) and now, configured to listen for connection over the native SSL/TLS port `443`.
+The NSM community has needed a solution like Docket for a while, and we're excited to see how it empowers the analysis process.
 
-### Basic Usage - New
 
-Docket is now available by pointing your browser to `https://<MGMT-IP>/app/docket/`
+## Basic Usage
 
-**It is important to ensure there is a trailing slash at the end of the URL, otherwise Docket will not load, appearing to have some sort of failure.**
+To access Docket point to `https://<sensorip>/app/docket/` (note the trailing slash).  
+
+
+#### Submit Request
+
+<p align="center">
+<img src="docket-submit.png">
+</p>
+
+Once into the UI simply add your search criteria and click "Submit".  
+
+
+#### Get PCAP
+
+<p align="center">
+<img src="docket-getpcap.png">
+</p>
+
+Once the job is processed, click "Get PCAP" to download to your box locally.
+
 
 ## Management
 
-#### Service
+#### Services
 
-Required services:
-- `lighttpd`
-- `docket`
-- `stenographer`
-- `stenographer@<monitor-int-name>`
+Docket requires the following services to function:  
 
-example command:
-`sudo systemctl status lighttpd docket stenographer*`
+- `lighttpd` - TLS connection
+- `stenographer` - tool to write / query pcap
+- `stenographer@<int>` - process for each monitor interface
 
-#### Filesystem Paths
+Current status can be checked with the following commands:  
 
-python socket: `/run/docket/`
-requested pcap storage: `/var/spool`
+`sudo systemctl status lighttpd`  
+
+`sudo rockctl status`  
+
+
+#### Notable Directories
+
+Here are some important filesystem paths that will be useful for any necessary troubleshooting efforts:  
+
+##### PCAP Storage
+
+User requested PCAP jobs are saved in:  
+
+`/var/spool/docket`  
+
+In a multi-user environment this directory can fill up depending on how much space has been allocated to the `/var` partition.  Keep this path clean to prevent issues.  
+
+##### Python Socket
+
+`/run/docket/`  
+
+
+---
+
+Continue to [Elasticsearch](./elasticsearch.md)  
