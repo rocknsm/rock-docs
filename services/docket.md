@@ -3,7 +3,7 @@
 Docket is a web UI that makes it easy for analysts to filter mountains of PCAP down to specific chunks in order to find the [baddies](https://v637g.app.goo.gl/qkGzskQTs5goPdBH6).
 
 <p align="center">
-`https://<sensorip>/app/docket/`
+https://<sensorip>/app/docket/
 </p>
 <br>
 
@@ -27,7 +27,7 @@ The NSM community has needed a solution like Docket for a while, and we're excit
 
 ## Basic Usage
 
-To access Docket point to `https://<sensorip>/app/docket/` (note the trailing slash).  
+To access Docket point to `https://<sensorip>/app/docket/`. Please note the **trailing slash**.  (This is due to Kibana being served from the same proxy and gets greedy with the URL path).  
 
 
 #### Submit Request
