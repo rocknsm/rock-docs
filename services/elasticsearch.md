@@ -44,3 +44,7 @@ accomplished with `curl` commands, such as: `$ curl <sensorip>:9200/_cat/indices
   * `/data/elasticsearch/`
 * application logs:
   * `/var/log/elasticsearch/`
+
+---
+
+Continue to [Filebeat](./filebeat.md)  
