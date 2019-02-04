@@ -34,3 +34,7 @@ sudo -u bro -g bro /usr/bin/broctl
   * `/data/bro/logs/current/{stdout.log, stderr.log}`
 
 **Note:** By default, Bro will write ASCII logs to the data path above AND write JSON directly to Kafka. In general, you will be accessing the Bro data from [Elasticsearch](elasticsearch.md) via [Kibana](kibana.md).
+
+---
+
+Continue to [Docket](./docket.md)  
