@@ -23,7 +23,7 @@ manage services on modern systems is `systemctl`. With ROCK we've provided a
 wrapper to control services called `rockctl`. Rockctl can be used to perform the
 following operations:
 
-```perl
+```shell
 $ sudo rockctl  status          # display status of ROCK services
                 start           # start all ROCK services
                 stop            # stop all ROCK services
@@ -32,8 +32,8 @@ $ sudo rockctl  status          # display status of ROCK services
 
 Here is an example output of `rockctl status`:  
 
-```
-[admin@rock ~]# sudo rockctl status
+```shell
+[admin@rock ~]$ sudo rockctl status
 
 
 ZOOKEEPER:
@@ -76,3 +76,7 @@ ROCK services:
 * [Suricata](suricata.md)
 
 You can also use `rockctl` to manage full suite of installed services:
+
+---
+
+Continue to [Bro](./bro.md)
