@@ -38,3 +38,8 @@ sudo systemctl restart kibana
   * Stored in **.kibana** index in [Elasticseach](elasticsearch.md)
 * Application Logs:
   * `journalctl -u kibana`
+
+
+---
+
+Continue to [Logstash](./logstash.md)  
