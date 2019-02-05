@@ -5,12 +5,12 @@
 # Installation Guide
 
 #### Agenda
-- [overview](#overview)
-- [getting the bits](#getting-media)
-- [apply image](#apply-the-image)
-- [install](#install)
-- [configure](#configure)
-- [deploy](#deploy)
+- [Overview](#overview)
+- [Getting the Bits](#getting-media)
+- [Applying the Image](#apply-the-image)
+- [Install](#install)
+- [Configure](#configure)
+- [Deploy](#deploy)
 
 
 ## Overview
@@ -19,7 +19,7 @@ If there’s one thing that should be carried away from the installation section
 
 > RockNSM has been designed to be used as a distro. It's not a package or a suite of tools. It’s built from the ground up purposefully.  THE ONLY SUPPORTED INSTALL IS THE OFFICIAL ISO.
 
-Yes, one can clone the project and run the Ansible on some bespoke CentOS build and may have great success. But you've voided the warranty.  Providing a clean product that makes supporting submitted issues is important to us.  The ISO addresses most use cases.
+Yes, one can clone the project and run the Ansible on some bespoke CentOS build, and you may have great success... but you've **voided the warranty**.  Providing a clean product that makes supporting submitted issues is important to us.  The ISO addresses most use cases.
 
 
 ## Getting Media
@@ -55,31 +55,69 @@ Windows:  there are several great tools to apply a bootable image in MS land, bu
 
 ## Install
 
-#### First Boot
-
 <p align="center">
 <img src="rock-initialboot.jpg">
 </p>
 
-ROCK works with both legacy BIOS and UEFI booting.  Once booted from the USB, you are presented with 2 primary paths:  
+### Install Types
 
-#### Automated vs. Custom install
+ROCK works with both legacy BIOS and UEFI booting.  Once booted from the USB, you are presented with 2 primary installation paths:  
 
-The automated build strives to make some of the harder decisions for users by skipping over many options to get you up and running.  
+* Automated
+* Custom
 
-The Custom option uses the same settings as Automated, but pauses at the install(anaconda) screen that will allow advanced users to customize how to configure local storage.
-Custom option is especially helpful when you're working with multiple disks and or a large amount of storage on a single disk.
+### Automated - Installation
 
-**If you have a large amount of storage on any of your disks**, then it is highly recommended to use custom install. This is because the default RHEL (and even other linux distributions) partioning will use the majority of the storage for the /home partion.
-
-For more information to help you on the Custom install, in relation to the partioning process, you can see the [RHEL guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/installation_guide/sect-disk-partitioning-setup-x86#sect-custom-partitioning-x86). Also, it may be a bit more self explanatory for you if you click “automatic partitions” then modify accordingly.
+The "Automated" option is intended to serve as a _**starting point**_ that allow you to get into things.  It utilizes the Centos Anaconda installer to make some of the harder decisions for users by skipping over many options to get you up and running. It makes a best guess at how to use resources.
 
 
-For this guide select the **Automated** install and `ENTER`.  
+### Custom - Installation
+
+The "Custom" allows more advanced users to customize their configuration. This is especially helpful when you're working with multiple disks and/or a large amount of storage on a single disk. Custom is encouraged for a production environment in order to get more granular in choosing how disk space is allocated.
+
+If your target machine to use as a ROCK sensor has multiple disks to use it is **highly recommended** to select "Custom install". This is because the default RHEL (and even other linux distributions) partioning will use the majority of the storage for the `/home` partion.
+
+
+### Custom - Disk Allocation
+
+Configuring disk and storage is a deep topic on it's own, but let's talke about a few examples to get started:  
+
+#### Stenographer
+
+A common gotcha occurs when you want full packet capture (via [Stenographer](../services/stenographer.md)), but it isn't given a separate partition.  Stenographer is great at managing it's own disk space (starts to overwrite oldest data at 90% capacity), but that doesn't cut it when it's sharing the same mount point as Bro, Suricata , and other tools that generate data in ROCK.
+
+Best practice would be to create a `/data/stenographer` partition in order to prevent limited operations. For example, Elasticsearch will (rightfully) lock indexes up to a read-only state in order to keep things from crashing hard.
+
+#### Separating System Logs
+
+Another useful partition to create is `/var/log` to separate system log files from the rest of the system.
+
+#### Partitioning Example
+
+Below is a good starting point when partitioning
+
+|   MOUNT POINT   |        USAGE      |   SIZE   |
+| ---------- | ----------------- | -------- |
+| **SYSTEM** | **SYSTEM** | **SYSTEM** |
+| /          | root filesystem   | 15 GiB   |
+| /boot      | legacy boot files | 512 MiB  |
+| /boot/efi  | uefi boot files   | 512 MiB  |
+| swap       | memory shortage   | ~8 GiB+ |
+| **DATA** | **DATA** | **DATA** |
+| /var/log           | system log files | ~15 GiB |
+| /home              | user home dirs | ~20 GiB |
+| /data              | data partition | ~ GiB |
+| /data/stenographer | steno partition | ~ GiB |
+<br>
+
+For more information to assist with the partioning process, you can see the [RHEL guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/installation_guide/sect-disk-partitioning-setup-x86#sect-custom-partitioning-x86). Also, it may be a bit more self explanatory for you if you click “automatic partitions” then modify accordingly.
+
+> For the purposes of simplicity this guide will demonstrate an **Automated** install.  If you have multiple disks to configure use the _Custom_ option.  
+
 
 #### DATE & TIME
 
-UTC is generally preferred for logging data as the timestamps from anywhere in the world will have a proper order without calculating offsets and daylight savings. That said, Kibana will present the Bro logs according to your timezone (as set in the browser). The bro logs themselves (i.e. in /data/bro/logs/) log in epoch time and will be written in UTC regardless of the system timezone.
+`UTC` is generally preferred for logging data as the timestamps from anywhere in the world will have a proper order without calculating offsets and daylight savings. That said, Kibana will present the Bro logs according to your timezone (as set in the browser). The bro logs themselves (i.e. in /data/bro/logs/) log in [epoch time](https://en.wikipedia.org/wiki/Unix_time) and will be written in UTC regardless of the system timezone.
 
 <p align="center">
 <img src="date-time.png">
