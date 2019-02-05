@@ -12,7 +12,7 @@ https://<sensorip>/app/docket/
 </p>
 
 
-## Why
+## Overview
 
 PCAP is great, but doesn't scale well.  There's so much detail that it can be overwhelming to sort through.  A great alternate to "following the TCP stream" through an ocean of packets is to use a tool like Docket that allows for easy filtering on key points such as:
 
