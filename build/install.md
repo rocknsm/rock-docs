@@ -331,7 +331,7 @@ Kick off the Ansible deploy script:  `sudo /opt/rocknsm/rock/bin/deploy_rock.sh`
 If everything is well, this should set up all the components you selected and give you a success banner similar to the example below:
 
 <p align="center">
-<a href="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl" target="_blank"><img src="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl.png" width="469"/></a>
+<a href="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl" target="\_blank"><img src="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl.png" width="469"/></a>
 </p>  
 
 ## Initial Kibana Access
