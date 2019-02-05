@@ -7,11 +7,13 @@ The analysis of live network data is a resource intensive task.  The bottom line
 |   RESOURCE  |     RECOMMENDATION |
 | ----------- | ------------------ |
 | CPU         | 4 or more physical cores |
-| Memory      | 16GB (8GB is doable, 16 is better) |
+| Memory      | 16GB ( 8GB to start, more the better ) |
 | Storage     | 256GB, with 200+ of that dedicated to `/data`, SSD preferred |
 | Network     | 2 gigabit interfaces, one for management and one for collection |
+<br>
+NOTE: Check out the [ROCK@home Video Series](https://www.youtube.com/channel/UCUD0VHMKqPkdnJshsngZq9Q) that goes into detail on many things about deploying ROCK to include hardware choices for both sensor and network equipment.
 
-NOTE: We've put together a [video series](https://www.youtube.com/channel/UCUD0VHMKqPkdnJshsngZq9Q) that goes into some good detail on hardware choices for both sensor and network equipment. A more in-depth hardware guide can also be found in the [development](../dev/index.md) section.  
+<!-- A more in-depth hardware guide can also be found in the [development](../dev/index.md) section.   -->
 
 
 ## Installation
