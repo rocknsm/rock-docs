@@ -30,4 +30,4 @@ NOTE: Check out the [ROCK@home Video Series](https://www.youtube.com/channel/UCU
 
 ---
 
-Continue to [installation](install.md)  
+Continue to [Installation](./install.md)  
