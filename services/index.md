@@ -5,15 +5,23 @@ section of the [Overview](overview/index.md). This portion of the guide covers
 basic administration of these services that are part of RockNSM.
 
 
-### Published URLs
+### Published URLs and Ports
 
 ROCK uses the `lighttpd` webserver to perform vhost redirects to it's web
 interfaces. It's configured to listen for (IPV4 only) connections over
 port `443` for the following:  
 
-* [Kibana](kibana.md) is accessible at: `https://<sensorip>/app/kibana`  
+##### URLs
 
+* [Kibana](kibana.md) is accessible at: `https://<sensorip>/app/kibana`  
 * [Docket](docket.md) is accessible at: `https://<sensorip>/app/docket/`  
+
+
+##### Ports
+
+* Elasticsearch: `:9200`
+* Kibana: `:5601`
+
 
 
 ### Managing Services
