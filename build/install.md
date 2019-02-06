@@ -59,6 +59,11 @@ Windows:  there are several great tools to apply a bootable image in MS land, bu
 <img src="rock-initialboot.jpg">
 </p>
 
+
+### Network Connection
+
+During install, ROCK will see the network interface with an ip address / gateway and designate it as the _**management**_ port. So plug in the interface you want to use to remotely manage your sensor.
+
 ### Install Types
 
 ROCK works with both legacy BIOS and UEFI booting.  Once booted from the USB, you are presented with 2 primary installation paths:  
