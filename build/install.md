@@ -44,7 +44,7 @@ If you live in the terminal, use `dd` to apply the image.  These instructions ar
 `diskutil unmount /dev/disk#`  
 
 3. write the image to drive:  
-`sudo dd bs=8M if=path/to/rockiso of=/dev/disk#`  
+`sudo dd bs=8m if=path/to/rockiso of=/dev/disk#`  
 
 #### Via GUI
 
