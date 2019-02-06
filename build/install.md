@@ -307,6 +307,20 @@ For instance, collecting raw PCAP is resource and storage intensive.  If you're 
 83 enable_stenographer: False
 ```
 
+
+## Deploy
+
+Once your `config.yml` file is tuned to suit your environment, it's finally time to **deploy this thing**.  This is done by running the deployment script located in `/opt/rocknsm/rock/bin/`.
+
+Kick off the Ansible deploy script:  `sudo /opt/rocknsm/rock/bin/deploy_rock.sh`  
+
+If everything is well, this should set up all the components you selected and give you a success banner similar to the example below:
+
+<p align="center">
+<a href="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl" target="\_blank"><img src="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl.png" width="469"/></a>
+</p>  
+
+
 #### Generate Defaults
 
 So what happens when you've completely mucked things up in your config and need to get back to basic default settings?  There's a script for that called `generate_defaults.sh` located in `/opt/rocknsm/rock/bin/`.  
@@ -321,18 +335,6 @@ This script will regenerate a fresh default `config.yml` for you and get you out
 
 `sudo ./deploy_rock.sh`
 
-
-## Deploy
-
-Once your `config.yml` file is tuned to suit your environment, it's finally time to **deploy this thing**.  This is done by running the deployment script located in `/opt/rocknsm/rock/bin/`.
-
-Kick off the Ansible deploy script:  `sudo /opt/rocknsm/rock/bin/deploy_rock.sh`  
-
-If everything is well, this should set up all the components you selected and give you a success banner similar to the example below:
-
-<p align="center">
-<a href="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl" target="\_blank"><img src="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl.png" width="469"/></a>
-</p>  
 
 ## Initial Kibana Access
 
