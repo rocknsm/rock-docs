@@ -41,7 +41,7 @@ If you live in the terminal, use `dd` to apply the image.  These instructions ar
 `diskutil list`  
 
 2. unmount the target drive so you can write to it:  
-`diskutil unmountDisk /dev/disk#`  
+`diskutil unmount /dev/disk#`  
 
 3. write the image to drive:  
 `sudo dd bs=8M if=path/to/rockiso of=/dev/disk#`  
