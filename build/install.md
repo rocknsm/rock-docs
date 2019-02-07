@@ -359,4 +359,4 @@ We strive to do the little things right, so rather than having Kibana available 
 
 Continue to the [Usage Guide](../operate/index.md).
 
-> NOTE: for a detailed guide on how to set up a virtual machine to throw packets at, see the [VM Build Guide](./vm_guide.md).
+<!-- > NOTE: for a detailed guide on how to set up a virtual machine to throw packets at, see the [VM Build Guide](./vm_guide.md). -->
