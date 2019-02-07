@@ -159,152 +159,157 @@ ROCK is configured with the root user disabled.  We recommend that you leave it 
 
 ## Configure
 
-The primary configuration file for ROCK is `/etc/rocknsm/config.yml`.  This file contains key variables like network interface setup, cpu cores utilized, and more.  Here's the default config file after initial install:  
+The primary configuration file for ROCK is `/etc/rocknsm/config.yml`.  This file contains key variables like network interface setup, cpu cores assignment, and more.  There are a lot of options to tune here, so take time to famililiarize.  Let's break down this file into it's major sections:  
 
-```yml
----
-# These are all the current variables that could affect
-# the configuration of ROCKNSM. Take care when modifying
-# these. The defaults should be used unless you really
-# know what you are doing!
+#### Network Interfaces
 
-# interfaces that should be configured for sensor applications
+As mentioned previously, ROCK takes the interface with a default gateway and will uses as MGMT.  Beginning at line 8, `config.yml` displays the remaining interfaces that will be used to **MONITOR** traffic.
+```
+# The "rock_monifs:" listed below are the interfaces that were not detected
+# as having an active IP address. Upon running the deploy script, these
+# interfaces will be configured for monitoring (listening) operations.
+# NOTE: management interfaces should *not* be listed here:
+
 rock_monifs:
-    - enp0s3
-
-# Secifies the hostname of the sensor
-rock_hostname: simplerockbuild
-# the FQDN
-rock_fqdn: simplerockbuild.simplerock.lan
-# the number of CPUs that bro will use
-bro_cpu: 1
-# name of elasticsearch cluster
-es_cluster_name: rocknsm
-# name of node in elasticsearch cluster
-es_node_name: simplerockbuild
-# how much memory to use for elasticsearch
-es_mem: 1
-# (optional) personal configured key for pulled pork to pull latest sigs from snort.org
-pulled_pork_oinkcode: 796f26a2188c4c953ced38ff3ec899d8ae543350
-
-########## Offline/Enterprise Network Options ##############
-
-# configure if this system may reach out to the internet
-# (configured repos below) during configuration
-rock_online_install: False
-# (online) enable RockNSM testing repos
-rock_enable_testing: False
-# (online) the URL for the EPEL repo mirror
-epel_baseurl: http://download.fedoraproject.org/pub/epel/$releasever/$basearch/
-# (online) the URL for the EPEL GPG key
-epel_gpgurl: https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
-# (online) the URL for the elastic repo mirror
-elastic_baseurl: https://artifacts.elastic.co/packages/6.x/yum
-# (online) the URL for the elastic GPG key
-elastic_gpgurl: https://artifacts.elastic.co/GPG-KEY-elasticsearch
-# (online) the URL for the rocknsm repo mirror
-rocknsm_baseurl: https://packagecloud.io/rocknsm/2_1/el/7/$basearch
-# (online) the URL for the rocknsm GPG key
-rocknsm_gpgurl: https://packagecloud.io/rocknsm/2_1/gpgkey
-
-# (offline) the filesytem path for a local repo if doing an "offline" install
-rocknsm_local_baseurl: file:///srv/rocknsm
-# (offline) disable the gpgcheck features for local repos, contingent on a kickstart
-# test checking for /srv/rocknsm/repodata/repomd.xml.asc
-rock_offline_gpgcheck: 1
-
-# the git repo from which to checkout rocknsm customization scripts for bro
-bro_rockscripts_repo: https://github.com/rocknsm/rock-scripts.git
-
-# the git repo from which pulled pork should be installed
-pulled_pork_repo: https://github.com/shirkdog/pulledpork.git
-
-#### Retention Configuration ####
-elastic_close_interval: 15
-elastic_delete_interval: 60
-kafka_retention: 168
-suricata_retention: 3
-bro_log_retention: 0
-bro_stats_retention: 0
-
-### Advanced Feature Selection ######
-# Don't flip these unless you know what you're doing
-with_stenographer: True
-with_docket: True
-with_bro: True
-with_suricata: True
-with_snort: False
-with_pulledpork: False
-with_logstash: True
-with_elasticsearch: True
-with_kibana: True
-with_zookeeper: True
-with_kafka: True
-with_nginx: True
-with_lighttpd: True
-with_fsf: True
-
-# Specify if a service is enabled on startup
-enable_stenographer: False
-enable_docket: False
-enable_bro: True
-enable_suricata: True
-enable_snort: False
-enable_pulledpork: False
-enable_logstash: True
-enable_elasticsearch: True
-enable_kibana: True
-enable_zookeeper: True
-enable_kafka: True
-enable_nginx: True
-enable_lighttpd: True
-enable_fsf: False
+  - <interface>
+  - <interface>
 ```
 
-All these tunable options are commented to describe the function of each section, but here are some key points to note starting out:  
+##### Example Usecase
 
-#### Monitor Interface
-
-As mentioned previously, ROCK takes the interface with a default gateway and will uses as MGMT.  Line 8 in `config.yml` displays the remaining interfaces that will be used to MONITOR traffic.  Here's a snippet from an example VM with 2 NICS:
-
-This box has 2 NICS: `enp0s3` was plugged in during install and received IP from DHCP server.  This is used as MGMT.  
 ```
-[admin@localhost ~]$ ip a
+[admin@rock ~]$ ip a
+
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
 2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-    link/ether 08:00:27:06:54:e5 brd ff:ff:ff:ff:ff:ff
+    link/ether ...
     inet 192.168.1.207/24 brd 192.168.1.255 scope global noprefixroute dynamic enp0s3
     ...
-3: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-    link/ether 08:00:27:ca:f0:bb brd ff:ff:ff:ff:ff:ff
+3: enp0s4: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether ...
 ```
+
+Let's run through the above basic example to illustrate. The demo box has 2 NICs:
+1. `enp0s3` - is plugged in for install and deployment with an ip address from local dhcp. This will be used to **manage** the sensor
+2. `enp0s4` - will be disconnected (unused) during install and deployment and be listed as a `rock_monif` in the config file
 
 Lines 7 - 9 of `/etc/rocknsm/config.yml` show that the other interface (`enp0s3`) is listed as MONITOR interface.
 ```yml
-7 # interfaces that should be configured for sensor applications
-8 rock_monifs:
-9     - enp0s3
+# interfaces that should be configured for sensor applications
+rock_monifs:
+    - enp0s3
 ```
 
-#### Online / Offline Install
+#### Sensor Resource Configuration
+```
+# Set the hostname of the sensor:
+rock_hostname:
 
-We've taken into consideration that your sensor won't always have internet access.  The ISO's default value is set for the offline use case:  
+# Set the Fully Qualified Domain Name:
+rock_fqdn:
+
+# Set the number of CPUs assigned to Bro:
+bro_cpu:
+
+# Set the Elasticsearch cluster name:
+es_cluster_name:
+
+# Set the Elasticsearch cluster node name:
+es_node_name:
+
+# Set the value of Elasticsearch memory:
+es_mem:
+```
+
+
+#### Installation Source Configuration
+
+We've taken into consideration that your sensor won't always have internet access.  The ISO's default value is set to offline:  
 
 ```yml
-28 # configure if this system may reach out to the internet
-29 # (configured repos below) during configuration
-30 rock_online_install: False
+53  # The primary installation variable defines the ROCK installation method:
+54  # ONLINE:   used if the system may reach out to the internet
+55  # OFFLINE:  used if the system may *NOT* reach out to the internet
+56  # The default value "False" will deploy using OFFLINE (local) repos.
+57  # A value of "True" will perform an install using ONLINE mirrors.
+58
+59  rock_online_install: {{ rock_online_install }}
 ```
 
 If your sensor does have access to get to online repos just set `rock_online_install: True`, Ansible will configure your system for the yum repositories listed and pull packages and git repos directly from the URLs shown. You can easily point this to local mirrors if needed.  
 
 <!-- If this value is set to `False`, Ansible will look for the cached files in `/srv/rocknsm`. There is another script called `offline-snapshot.sh` that will create the necessary repository and file structure. Run this from a system that is Internet connected and copy it to your sensors for offline deployment. -->
 
-#### Lots More...
 
-There are a lot of options to tune here, so take time to famililiarize a be make sure to check out the last two sections starting at `line 65`.  Here you are given boolean options to choose what components of ROCK are **_installed_** and **_enabled_** out of the box.  
+#### Data Retention Configuration
 
-For instance, collecting raw PCAP is resource and storage intensive.  If you're machine may not be able to handle that and just want to focus on network logs, then set:  
+This section controls how long NSM data stay on the sensor:
+```
+# Set the interval in which Elasticsearch indexes are closed:
+elastic_close_interval:
+
+# Set the interval in which Elasticsearch indexes are deleted:
+elastic_delete_interval:
+
+# Set value for Kafka retention (in hours):
+kafka_retention:
+
+# Set value for Bro log retention (in days):
+bro_log_retention:
+
+# Set value for Bro statistics log retention (in days):
+bro_stats_retention:
+
+# Set how often logrotate will roll Suricata log (in days):
+suricata_retention:
+
+# Set value for FSF log retention (in days):
+fsf_retention:
+```
+
+#### ROCK Component Options
+
+This is a critical section that provides boolean options to choose what components of ROCK are **_installed_** and **_enabled_** during deployment.  
+
+```yml
+# The following "with_" statements define what components of RockNSM are
+# installed when running the deploy script:
+
+with_stenographer: True
+with_docket: True
+with_bro: True
+with_suricata: True
+with_snort: True
+with_suricata_update: True
+with_logstash: True
+with_elasticsearch: True
+with_kibana: True
+with_zookeeper: True
+with_kafka: True
+with_lighttpd: True
+with_fsf: True
+
+# The following "enable_" statements define what RockNSM component services
+# are enabled (start automatically on system boot):
+
+enable_stenographer: True
+enable_docket: True
+enable_bro: True
+enable_suricata: True
+enable_snort: True
+enable_suricata_update: True
+enable_logstash: True
+enable_elasticsearch: True
+enable_kibana: True
+enable_zookeeper: True
+enable_kafka: True
+enable_lighttpd: True
+enable_fsf: True
+```
+
+##### Example Usecase
+
+An good example for changing this section would involve [Stenographer](../services/stenographer.md). Collecting raw PCAP is resource and _**storage**_ intensive.  You're machine may not be able to handle that and if you just wanted to focus on network logs, then you would set both options in the config file to **disable** both installing and enabling Steno:  
 
 ```yml
 67 with_stenographer: False
@@ -313,7 +318,7 @@ For instance, collecting raw PCAP is resource and storage intensive.  If you're 
 ```
 
 
-## Deploy
+## Deployment
 
 Once your `config.yml` file is tuned to suit your environment, it's finally time to **deploy this thing**.  This is done by running the deployment script located in `/opt/rocknsm/rock/bin/`.
 
