@@ -24,7 +24,7 @@ Yes, one can clone the project and run the Ansible on some bespoke CentOS build,
 
 ## Getting Media
 
-The lastest ROCK build is available here: (https://download.rocknsm.io/)  
+The lastest ROCK build is available at [download.rocknsm.io](https://download.rocknsm.io/isos/stable/).
 
 
 ## Apply the Image
@@ -53,16 +53,16 @@ macOS:  if using the terminal is currently a barrier to getting things rolling, 
 Windows:  there are several great tools to apply a bootable image in MS land, but we recommend [rufus](https://rufus.akeo.ie/).  
 
 
-## Install
+## Installation
 
 <p align="center">
 <img src="rock-initialboot.jpg">
 </p>
 
 
-### Network Connection
+#### Network Connection
 
-During install, ROCK will see the network interface with an ip address / gateway and designate it as the _**management**_ port. So plug in the interface you want to use to remotely manage your sensor.
+During install, ROCK will see the network interface with an ip address and default gateway and designate it as the _**management**_ port. So plug into the interface you want to use to remotely manage your sensor.
 
 ### Install Types
 
@@ -71,33 +71,33 @@ ROCK works with both legacy BIOS and UEFI booting.  Once booted from the USB, yo
 * Automated
 * Custom
 
-### Automated - Installation
+#### Automated
 
 The "Automated" option is intended to serve as a _**starting point**_ that allow you to get into things.  It utilizes the Centos Anaconda installer to make some of the harder decisions for users by skipping over many options to get you up and running. It makes a best guess at how to use resources.
 
 
-### Custom - Installation
+#### Custom
 
 The "Custom" allows more advanced users to customize their configuration. This is especially helpful when you're working with multiple disks and/or a large amount of storage on a single disk. Custom is encouraged for a production environment in order to get more granular in choosing how disk space is allocated.
 
 If your target machine to use as a ROCK sensor has multiple disks to use it is **highly recommended** to select "Custom install". This is because the default RHEL (and even other linux distributions) partioning will use the majority of the storage for the `/home` partion.
 
 
-### Custom - Disk Allocation
+##### Custom - Disk Allocation
 
 Configuring disk and storage is a deep topic on it's own, but let's talke about a few examples to get started:  
 
-#### Stenographer
+##### Stenographer
 
 A common gotcha occurs when you want full packet capture (via [Stenographer](../services/stenographer.md)), but it isn't given a separate partition.  Stenographer is great at managing it's own disk space (starts to overwrite oldest data at 90% capacity), but that doesn't cut it when it's sharing the same mount point as Bro, Suricata , and other tools that generate data in ROCK.
 
 Best practice would be to create a `/data/stenographer` partition in order to prevent limited operations. For example, Elasticsearch will (rightfully) lock indexes up to a read-only state in order to keep things from crashing hard.
 
-#### Separating System Logs
+##### Separating System Logs
 
 Another useful partition to create is `/var/log` to separate system log files from the rest of the system.
 
-#### Partitioning Example
+##### Partitioning Example
 
 Below is a good starting point when partitioning
 
@@ -117,10 +117,12 @@ Below is a good starting point when partitioning
 
 For more information to assist with the partioning process, you can see the [RHEL guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/installation_guide/sect-disk-partitioning-setup-x86#sect-custom-partitioning-x86). Also, it may be a bit more self explanatory for you if you click “automatic partitions” then modify accordingly.
 
+<br>
 > For the purposes of simplicity this guide will demonstrate an **Automated** install.  If you have multiple disks to configure use the _Custom_ option.  
 
+<br>
 
-#### DATE & TIME
+##### DATE & TIME
 
 `UTC` is generally preferred for logging data as the timestamps from anywhere in the world will have a proper order without calculating offsets and daylight savings. That said, Kibana will present the Bro logs according to your timezone (as set in the browser). The bro logs themselves (i.e. in /data/bro/logs/) log in [epoch time](https://en.wikipedia.org/wiki/Unix_time) and will be written in UTC regardless of the system timezone.
 
@@ -130,12 +132,13 @@ For more information to assist with the partioning process, you can see the [RHE
 
 Bro includes a utility for parsing these on the command line called `bro-cut`. It can be used to print human-readable timestamps in either the local sensor timezone or UTC. You can also give it a custom format string to specify what you'd like displayed.
 
-#### Network Setup
+
+##### Network & Hostname
 
 Before beginning the install process it's best to connect the interface you've selected to be the **management interface**.  Here's the order of events:  
 
-1. ROCK will initially look for an interface with a default gateway and treat that interface as MGMT
-1. All remaining interfaces will be treated as MONITOR
+1. ROCK will initially look for an interface with a default gateway and treat that interface as the MGMT INTERFACE
+1. All remaining interfaces will be treated as MONITOR INTERFACES
 
 Ensure that the interface you intend to use for MGMT has been turned on and has an IP:  
 
@@ -143,7 +146,7 @@ Ensure that the interface you intend to use for MGMT has been turned on and has 
 <img src="network.png">
 </p>
 
-#### User Creation
+##### User Creation
 
 ROCK is configured with the root user disabled.  We recommend that you leave it that way.  Once you've kicked off the install, click **User Creation** at the next screen (shown above) and complete the required fields to set up a non-root admin user.  
 
@@ -159,10 +162,10 @@ ROCK is configured with the root user disabled.  We recommend that you leave it 
 
 ## Configure
 
-The primary configuration file for ROCK is `/etc/rocknsm/config.yml`.  This file contains key variables like network interface setup, cpu cores assignment, and more.  There are a lot of options to tune here, so take time to famililiarize.  Let's break down this file into it's major sections:  
+The primary configuration file for ROCK is [/etc/rocknsm/config.yml](https://github.com/rocknsm/rock/blob/master/playbooks/templates/rock_config.yml.j2).  This file contains key variables like network interface setup, cpu cores assignment, and much more.  There are a lot of options to tune here, so take time to familiarize.  Let's break down this file into it's major sections:  
 
-#### Network Interfaces
 
+##### Network Interfaces
 As mentioned previously, ROCK takes the interface with a default gateway and will uses as MGMT.  Beginning at line 8, `config.yml` displays the remaining interfaces that will be used to **MONITOR** traffic.
 ```
 # The "rock_monifs:" listed below are the interfaces that were not detected
@@ -175,8 +178,7 @@ rock_monifs:
   - <interface>
 ```
 
-##### Example Usecase
-
+##### Realworld Example
 ```
 [admin@rock ~]$ ip a
 
@@ -189,6 +191,7 @@ rock_monifs:
     link/ether ...
 ```
 
+
 Let's run through the above basic example to illustrate. The demo box has 2 NICs:
 1. `enp0s3` - is plugged in for install and deployment with an ip address from local dhcp. This will be used to **manage** the sensor
 2. `enp0s4` - will be disconnected (unused) during install and deployment and be listed as a `rock_monif` in the config file
@@ -200,7 +203,8 @@ rock_monifs:
     - enp0s3
 ```
 
-#### Sensor Resource Configuration
+
+##### Sensor Resource Configuration
 ```
 # Set the hostname of the sensor:
 rock_hostname:
@@ -222,8 +226,7 @@ es_mem:
 ```
 
 
-#### Installation Source Configuration
-
+##### Installation Source Configuration
 We've taken into consideration that your sensor won't always have internet access.  The ISO's default value is set to offline:  
 
 ```yml
@@ -233,12 +236,14 @@ We've taken into consideration that your sensor won't always have internet acces
 56  # The default value "False" will deploy using OFFLINE (local) repos.
 57  # A value of "True" will perform an install using ONLINE mirrors.
 58
-59  rock_online_install: {{ rock_online_install }}
+59  rock_online_install: True
 ```
 
 If your sensor does have access to get to online repos just set `rock_online_install: True`, Ansible will configure your system for the yum repositories listed and pull packages and git repos directly from the URLs shown. You can easily point this to local mirrors if needed.  
 
-<!-- If this value is set to `False`, Ansible will look for the cached files in `/srv/rocknsm`. There is another script called `offline-snapshot.sh` that will create the necessary repository and file structure. Run this from a system that is Internet connected and copy it to your sensors for offline deployment. -->
+If this value is set to `False`, Ansible will look at the cached files in `/srv/rocknsm`.
+
+<!-- There is another script called `offline-snapshot.sh` that will create the necessary repository and file structure. Run this from a system that is Internet connected and copy it to your sensors for offline deployment. -->
 
 
 #### Data Retention Configuration
@@ -267,8 +272,8 @@ suricata_retention:
 fsf_retention:
 ```
 
-#### ROCK Component Options
 
+##### ROCK Component Options
 This is a critical section that provides boolean options to choose what components of ROCK are **_installed_** and **_enabled_** during deployment.  
 
 ```yml
@@ -307,24 +312,38 @@ enable_lighttpd: True
 enable_fsf: True
 ```
 
-##### Example Usecase
-
-An good example for changing this section would involve [Stenographer](../services/stenographer.md). Collecting raw PCAP is resource and _**storage**_ intensive.  You're machine may not be able to handle that and if you just wanted to focus on network logs, then you would set both options in the config file to **disable** both installing and enabling Steno:  
+A good example for changing this section would involve [Stenographer](../services/stenographer.md). Collecting raw PCAP is resource and _**storage intensive**_.  You're machine may not be able to handle that and if you just wanted to focus on network logs, then you would set both options in the config file to **disable** both installing and enabling Steno:  
 
 ```yml
 67 with_stenographer: False
   ...
+  ...
+  ...
 83 enable_stenographer: False
 ```
+
+##### Setting the Hostname
+
+An important changd TODO
+hosts.ini
+
+
 
 
 ## Deployment
 
-Once your `config.yml` file is tuned to suit your environment, it's finally time to **deploy this thing**.  This is done by running the deployment script located in `/opt/rocknsm/rock/bin/`.
+Once your `config.yml` file is tuned to suit your environment, it's finally time to **deploy this thing**.  This is done by running the deployment script, which is in the install user's path (`/usr/sbin/`):  
 
-Kick off the Ansible deploy script:  `sudo /opt/rocknsm/rock/bin/deploy_rock.sh`  
+```
+/usr/sbin/
+├── ...
+├── deploy_rock.sh.sh
+├── ...
+```
 
-If everything is well, this should set up all the components you selected and give you a success banner similar to the example below:
+To kick off the deployment script run:  `sudo deploy_rock.sh`  
+
+If everything is well, this should set up all the components you selected and give you a success banner similar to the example below:  
 
 <p align="center">
 <a href="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl" target="\_blank"><img src="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl.png" width="469"/></a>
@@ -351,9 +370,9 @@ This script will regenerate a fresh default `config.yml` for you and get you out
 We strive to do the little things right, so rather than having Kibana available to everyone in the free world it's sitting behind an Nginx reverse proxy. It's also secured by a [passphrase](https://xkcd.com/936/).  The credentials are generated and then stored in the home directory of the user you created during the initial installation e.g. `/home/admin`.
 
 1. `cat` and copy the contents of `~/KIBANA_CREDS.README`
-1. browse to (https://)<MGMT-IP>
+1. browse to https://<MANAGEMENT-IP>
 1. enter this user / password combo
-1. profit
+1. profit!
 
 ---
 
