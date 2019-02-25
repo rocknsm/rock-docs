@@ -10,7 +10,7 @@
 
 ---
 
-[RockNSM](https://rocknsm.io) is an open-source collections platform designed by the members of the Missouri National Guard Cyber Team (MOCYBER).  It's primary focus is to provide a **reliable**, **scalable**, and **secure** sensor platform for Network Security Monitoring (NSM), network hunting, incident response (IR) missions.  Why choose us over the other names in the NSM game?  Continue to the [OVERVIEW](overview/index.md).
+[RockNSM](https://rocknsm.io) is an open-source collections platform designed by the members of the Missouri National Guard Cyber Team (MOCYBER).  It's primary focus is to provide a **reliable**, **scalable**, and **secure** sensor platform for Network Security Monitoring (NSM), network hunting, incident response (IR) missions.  Why choose us over the other names in the NSM game?  If you'd like to jump right into things, head over to [Install Guide](build/install.md).
 
 ## Latest
 
