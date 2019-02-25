@@ -14,34 +14,38 @@
 
 ## Latest
 
-We've been working on a lot of changes and ROCK 2.2 is here! You can read the full details in the [changelog](changelog.md), but here's a quick overview of some of the latest additions:
+We are pleased to announce that ROCK 2.3 is here! The RockNSM team has been hard at work lately trying to get into a more regular cadence for releases. While RockNSM 2.2 was a relatively small release, 2.3 comes with a lot of changes. You can read the full details in the [changelog](changelog.md), but here's a quick overview of some of the latest additions:
 
-##### New Features
-- rockctl command to quickly check or change services
-- Docket, a REST API and web UI to query multiple stenographer instances, now using TCP port 443
-- Kibana is now running on TCP port 443
-- Added Suricata-Update to manage Suricata signatures
-- GPG signing of packages and repo metadata
-- Added functional tests using [testinfra](https://testinfra.readthedocs.io/en/latest/)
-- Initial support of [Elastic Common Schema](https://github.com/elastic/ecs)
-- Elastic new Features
-  - Canvas
-  - Elastic Maps Service, fullscreen, heatmaps, and more
-- Includes full Elastic Stack (with permission) including features formerly known as X-Pack:
-  - Graph
-  - Machine Learning
-  - Reporting
-  - Security
-  - Monitoring
-  - Alerting
-  - Elasticsearch SQL
 
-##### Upgrades
-- CentOS is updated to 7.5 (1804)
-- Elastic Stack is updated to 6.4.2
-- Elastic dashboards, mappings, and Logstash config moved to module-like construct
-- Suricata is updated to 4.0.5
-- Bro is updated to 2.5.4
+- [x] 61 closed issues (including a lot of outdated items) 
+- [x] Bro 2.6, Suricata 4.2, Elastic 6.6, plus the latest JA3 and ET rules
+- [x] Query PCAP directly from Kibana via Docket
+- [x] Multi-node support 🙌
+- [x] Artifact restructuring
+- [x] Support for Elastic 7 pre-release
+
+
+##### Closed Issues
+This comes back to having full-time staff that are able to dedicate time to the project. We are working hard to close out legacy issues, which will make new issues much easier to triage.
+
+
+##### Package Updates
+This update brings Bro 2.6.1, which enables some additional protocol analyzers and a lot more event hooks. You can see the full list of changes here: https://docs.zeek.org/en/stable/install/release-notes.html#bro-2-6
+Suricata has been updated to 4.2 and includes the full Suricata protocol analyzer suite, which has some additional coverage for ICS/SCADA stuff beyond what Bro provides. 
+
+
+##### Multi-node Support
+This is a big change that we are very excited to release! When ROCK was originally conceived, its primary purpose was for Network Security Monitoring (NSM) practitioners to be able to hone their craft on a commodity home lab. While that is still a very relevant use case, we have seen a lot of demand for the ability to easily deploy ROCK into an enterprise environment in a scalable manner. Look for another blog in the near future to walk through the multi-node changes in more detail.
+
+
+##### Artifact Restructuring
+In recent versions of ROCK, we had been storing most of the installation items under /opt/rocknsm/rock. With 2.3, we have moved everything into the more appropriate POSIX compliant file paths. 
+See https://github.com/rocknsm/rock/pull/344 for more details.
+
+
+##### Elastic 7 Support
+We have been performing some early testing with the pre-release versions of Elastic 7, and are excited to share that ROCK 2.3 includes support for running on the pre-release version if you would like to do some of your own testing. 
+
 
 ## Video Guides
 
