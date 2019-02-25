@@ -13,20 +13,18 @@ The analysis of live network data is a resource intensive task.  The bottom line
 <br>
 NOTE: Check out the [ROCK@home Video Series](https://www.youtube.com/channel/UCUD0VHMKqPkdnJshsngZq9Q) that goes into detail on many things about deploying ROCK to include hardware choices for both sensor and network equipment.
 
-<!-- A more in-depth hardware guide can also be found in the [development](../dev/index.md) section.   -->
-
 
 ## Installation
 
-[INSTALL](install.md) - walkthrough installing ROCK on your platform of choice.
+[Install](./install.md) - walkthrough installing ROCK on your platform of choice.
 
 ## Usage
 
-[USAGE](usage.md) - configuring interfaces and managing functions.
+[Usage](usage.md) - configuring interfaces and managing functions.
 
 ## Support
 
-[TROUBLESHOOTING](support.md) - guide to dealing with some of the most common issues.
+[Troubleshooting](support.md) - guide to dealing with some of the most common issues.
 
 ---
 
