@@ -115,7 +115,7 @@ Below is a good starting point when partitioning
 | /data/stenographer | steno partition | ~ GiB |
 <br>
 
-For more information to assist with the partioning process, you can see the [RHEL guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/installation_guide/sect-disk-partitioning-setup-x86#sect-custom-partitioning-x86). Also, it may be a bit more self explanatory for you if you click “automatic partitions” then modify accordingly.
+For more information to assist with the partitioning process, you can see the [RHEL guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/installation_guide/sect-disk-partitioning-setup-x86#sect-custom-partitioning-x86). Also, it may be a bit more self explanatory for you if you click “automatic partitions” then modify accordingly.
 
 <br>
 > For the purposes of simplicity this guide will demonstrate an **Automated** install.  If you have multiple disks to configure use the _Custom_ option.  
@@ -137,10 +137,12 @@ Bro includes a utility for parsing these on the command line called `bro-cut`. I
 
 Before beginning the install process it's best to connect the interface you've selected to be the **management interface**.  Here's the order of events:  
 
-1. ROCK will initially look for an interface with a default gateway and treat that interface as the MGMT INTERFACE
-1. All remaining interfaces will be treated as MONITOR INTERFACES
+- ROCK will initially look for an interface with a default gateway and treat that interface as the MGMT INTERFACE
+- All remaining interfaces will be treated as MONITOR INTERFACES
 
-Ensure that the interface you intend to use for MGMT has been turned on and has an IP:  
+1. Ensure that the interface you intend to use for MGMT has been turned on and has an ip address
+2. Set the hostname of the sensor in the bottom left corner
+  - this hostname will populate the Ansible inventory file in `/etc/rocknsm/hosts.ini`  
 
 <p align="center">
 <img src="network.png">
@@ -322,17 +324,10 @@ A good example for changing this section would involve [Stenographer](../service
 83 enable_stenographer: False
 ```
 
-##### Setting the Hostname
-
-An important changd TODO
-hosts.ini
-
-
-
 
 ## Deployment
 
-Once your `config.yml` file is tuned to suit your environment, it's finally time to **deploy this thing**.  This is done by running the deployment script, which is in the install user's path (`/usr/sbin/`):  
+Once `config.yml` has been tuned to suit your environment, it's finally time to **deploy this thing**.  This is done by running the deployment script, which is in the install user's path (`/usr/sbin/`):  
 
 ```
 /usr/sbin/
@@ -343,7 +338,7 @@ Once your `config.yml` file is tuned to suit your environment, it's finally time
 
 To kick off the deployment script run:  `sudo deploy_rock.sh`  
 
-If everything is well, this should set up all the components you selected and give you a success banner similar to the example below:  
+Once the deployment is completed with the components you chose you'll be congratulated with a success banner.  
 
 <p align="center">
 <a href="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl" target="\_blank"><img src="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl.png" width="469"/></a>
@@ -352,18 +347,13 @@ If everything is well, this should set up all the components you selected and gi
 
 #### Generate Defaults
 
-So what happens when you've completely mucked things up in your config and need to get back to basic default settings?  There's a script for that called `generate_defaults.sh` located in `/opt/rocknsm/rock/bin/`.  
+> What do I do when I've completely messed things up and need to start over?
 
-```
-[admin@localhost ~]$ ls /opt/rocknsm/rock/bin
-generate_defaults.sh
-deploy_rock.sh
-```
+Great question.  There's a simple solution for when the base config file needs to be reset back to default settings. There's a script called `generate_defaults.sh` also located in your `$PATH`:  
 
-This script will regenerate a fresh default `config.yml` for you and get you out of jail.  If you need to reset things you can execute this script by running:  
+`sudo generate_defaults.sh`  
 
-`sudo ./deploy_rock.sh`
-
+Simply execute this to (re)generate a fresh default `config.yml` for you and get you out of jail.  
 
 ## Initial Kibana Access
 
