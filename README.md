@@ -53,8 +53,8 @@ We've also been hard at work creating video content.
   - what ROCK is and how everything works together
 - [ROCK@home](https://youtu.be/w8h1ft8QTFk)
   - 3 part series on the lowest barrier to entry: tapping your home network
-- [BSidesKC 2018 - Bradford Dabbs - Threat Hunting with RockNSM](https://www.youtube.com/watch?v=-Mp1pUXvKuw)
-  - RockNSM is a passive network collection platform built by the Missouri Cyber Team to facilitate better incident response operations. This talk will discuss the benefits of a passive first approach and how RockNSM can be used to facilitate it.
+- [BSidesKC 2018 - Threat Hunting with RockNSM](https://www.youtube.com/watch?v=-Mp1pUXvKuw)
+  - RockNSM is a passive network collection platform built by the Missouri Cyber Team to facilitate better incident response operations. This talk by Bradford Dabbs discusses the benefits of a passive first approach and how RockNSM can be used to facilitate it.  
 
 ## Contents
 
