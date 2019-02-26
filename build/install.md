@@ -48,9 +48,15 @@ If you live in the terminal, use `dd` to apply the image.  These instructions ar
 
 #### Via GUI
 
-macOS:  if using the terminal is currently a barrier to getting things rolling, [etcher.io](http://etcher.io) is an excellent GUI burning utility.  
+If you don't want to apply the image in the terminal, there are plenty of great tools to do this with a graphical interface:
 
-Windows:  there are several great tools to apply a bootable image in MS land, but we recommend [rufus](https://rufus.akeo.ie/).  
+**Cross-platform**
+-  [Etcher](http://etcher.io) - our go-to standard
+- [YUMI](https://www.pendrivelinux.com/yumi-multiboot-usb-creator/) - create multibooting disk
+-  [SD Card Formatter](https://www.sdcard.org/downloads/formatter_4/) - works well
+
+**Windows**
+- [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/)
 
 
 ## Installation
