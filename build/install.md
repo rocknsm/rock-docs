@@ -138,6 +138,13 @@ For more information to assist with the partitioning process, you can see the [R
 
 Bro includes a utility for parsing these on the command line called `bro-cut`. It can be used to print human-readable timestamps in either the local sensor timezone or UTC. You can also give it a custom format string to specify what you'd like displayed.
 
+##### Caveat: Environments without NTP access
+If RockNSM does not have access to an NTP server, you must ensure that your system time is set to the current UTC time.  If your system clock is set to local time, you will notice an incorrect time offset in your data.  To resolve/prevent this, set the clock to the correct UTC time:
+```
+sudo timedatectl set-ntp false
+sudo timedatectl set-time '2019-03-02 00:35:02'
+sudo timedatectl set-ntp true
+```
 
 ##### Network & Hostname
 
