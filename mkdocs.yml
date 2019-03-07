@@ -2,7 +2,7 @@
 site_name: 'RockNSM'
 site_description: 'Official ROCK Documentation'
 site_author: 'RockNSM'
-#site_url: '#'
+#site_url: 'https://rocknsm.github.io/rock-docs/'
 
 # Repository
 repo_name: 'rocknsm/rock-docs'
