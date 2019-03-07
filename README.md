@@ -13,7 +13,7 @@ Enter the full documentation at [https://rocknsm.github.io/rock-docs/](https://r
 
 
 ## Latest
-We are pleased to announce that ROCK 2.3 is here! The RockNSM team has been hard at work lately trying to get into a more regular cadence for releases. While RockNSM 2.2 was a relatively small release, 2.3 comes with a lot of changes. You can read the full details in the [releases page](docs/reference/latest.md), but here's a quick overview of some of the latest additions:
+We are pleased to announce that ROCK 2.3 is here! The RockNSM team has been hard at work lately trying to get into a more regular cadence for releases. While RockNSM 2.2 was a relatively small release, 2.3 comes with a lot of changes. You can read the full details in the [releases page](https://rocknsm.github.io/rock-docs/reference/latest/), but here's a quick overview of some of the latest additions:
 
 - [x] Support for Elastic 7 pre-release
 - [x] Bro 2.6, Suricata 4.2, Elastic 6.6, plus the latest JA3 and ET rules
