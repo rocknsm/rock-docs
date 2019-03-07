@@ -1,0 +1,87 @@
+# Project information
+site_name: 'RockNSM'
+site_description: 'Official ROCK Documentation'
+site_author: 'RockNSM'
+#site_url: '#'
+
+# Repository
+repo_name: 'rocknsm/rock-docs'
+repo_url: 'https://github.com/rocknsm/rock-docs'
+
+# Copyright
+copyright: 'Copyright &copy; 2019 RockNSM'
+
+# Configuration
+theme:
+  name: 'material'
+  language: 'en'
+  # feature:
+  #   tabs: true
+  palette:
+    primary: 'Blue Grey'
+    accent: 'indigo'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  logo: 'img/rock.png'
+  #favicon: 'img/favicon.ico'
+
+
+# Customization
+extra:
+  #manifest: 'manifest.webmanifest'
+  social:
+    - type: 'github'
+      link: 'https://github.com/rocknsm'
+    - type: 'twitter'
+      link: 'https://twitter.com/rocknsm'
+
+# Google Analytics
+#google_analytics:
+#  - '#'
+#  - 'auto'
+
+# Extensions
+markdown_extensions:
+ - admonition
+ - codehilite:
+     guess_lang: false
+ - toc:
+     permalink: true
+
+# Page tree
+nav:
+  - Welcome: index.md
+  - About:
+    - about/what_is_it.md
+    - about/backstory.md
+    - about/dataflow.md
+  - Install:
+    - Requirements: install/requirements.md
+    - Media: install/media.md
+    - Installation: install/install.md
+    #- Example VM Install: vm_install.md
+  - Configure: configure/index.md
+  - Deployment: deployment/index.md
+  - Usage:
+    - Basic Operation: usage/index.md
+    - Support: usage/support.md
+  - Services:
+    - Overview: services/index.md
+    - Bro: services/bro.md
+    - Stenographer: services/stenographer.md
+    - Suricata: services/suricata.md
+    - FSF: services/fsf.md
+    - Filebeat: services/filebeat.md
+    - Kafka: services/kafka.md
+    - Logstash: services/logstash.md
+    - Elasticsearch: services/elasticsearch.md
+    - Kibana: services/kibana.md
+    - Docket: services/docket.md
+  - Reference:
+    - Latest Release: reference/latest.md
+    - Tutorials and Videos: reference/tutorials.md
+    - Changelog: reference/changelog.md
+    - Liscense: reference/liscense.md
+    - Contribution: reference/contribution.md
+    - Commercial Support: references/support.md
