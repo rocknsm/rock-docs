@@ -42,7 +42,3 @@ See the [releases](reference/latest.md) page for the latest info on ROCK 2.3.
 [Services](services/index.md) - component directory and management info
 
 [Reference](reference/tutorials.md) - concept / design, components / dataflow
-<br>
-<br>
----
-Continue to [What is ROCK?](about/what_is_it.md)  
