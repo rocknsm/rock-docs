@@ -87,6 +87,22 @@ Clone ROCK NSM Repo
 
 Deploy ROCK
 
+* Rock pull from the Github repo will not have a host.ini file so we have to build one.
+  ```
+  sudo mkdir /etc/rocknsm
+  ```
+* Create the file
+  ```
+  sudo vi /etc/rocknsm/hosts.ini
+  ```
+
+* Add this config for a single unit deployment or add additional configs for a multi node deployment here
+
+  ```
+  [rock]
+    simplerockbuild.simplerock.lan ansible_host=127.0.0.1 ansible_connection=local
+  ```
+
 * Navigate to the rock bin directory
   ```
   cd rock/bin
