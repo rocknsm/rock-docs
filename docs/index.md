@@ -20,6 +20,10 @@ adversary.
 <br>
 ---
 
+## Quickstart
+
+If you're already familiar with building sensors you can jump straight into things in the [Quickstart Guide](./quickstart.md).
+
 ## Latest
 
 See the [releases](reference/latest.md) page for the latest info on ROCK 2.3.
