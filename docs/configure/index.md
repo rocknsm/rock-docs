@@ -14,8 +14,8 @@ With that said, let's get into the 2 main configuration files found in `/etc/roc
 ## Hosts File
 
 The first file you may want to edit is `/etc/rocknsm/hosts.ini`. This
-file is an [Ansible inventory](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html) file that defines the target machines when
-running a playbook.  
+file is an [Ansible inventory](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
+file that defines the target machines when running a playbook.  
 
 If you edit this file in a simple standalone sensor, you're essentially changing
 the hostname of your sensor.  
@@ -155,7 +155,7 @@ suricata_retention: 3
 fsf_retention: 3
 ```
 
-### ROCK Component Options
+### Component Options
 This is a critical section that provides boolean options to choose what components of ROCK are **_installed_** and **_enabled_** during deployment.  
 
 ```yml
