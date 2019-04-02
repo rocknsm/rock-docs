@@ -15,18 +15,19 @@ open-source security distribution that prioritizes being:
 - **Scalable**  
 - **Secure**  
 
-Above all else, ROCK exists to _aid the analyst_ in the fight to find the
+Above all else, ROCK exists to __**aid the analyst**__ in the fight to find the
 adversary.
 <br>
 ---
 
 ## Quickstart
 
-If you're already familiar with building sensors you can jump straight into things in the [Quickstart Guide](./quickstart.md).
+If you're already familiar with building sensors you can jump straight into things in the
+[Quickstart Guide](./quickstart.md).
 
 ## Latest
 
-See the [releases](reference/latest.md) page for the latest info on ROCK 2.3.
+See the [Releases](reference/latest.md) page for the latest info on ROCK 2.4.
 
 
 ## Contents
