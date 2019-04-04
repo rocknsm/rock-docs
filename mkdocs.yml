@@ -61,8 +61,11 @@ nav:
     - Media: install/media.md
     - Installation: install/install.md
     #- Example VM Install: vm_install.md
-  - Configure: configure/index.md
-  - Deployment: deployment/index.md
+  - Configure:
+    - Setup TUI: configure/setup.md
+    - Deployment: configure/deployment.md
+    - Initial Access: configure/initial-access.md
+    - Config Reference: configure/reference.md
   - Usage:
     - Basic Operation: usage/index.md
     - Support: usage/support.md

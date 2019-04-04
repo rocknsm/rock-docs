@@ -39,7 +39,8 @@ ROCK works with both legacy BIOS and UEFI booting.  Once booted from the USB, yo
 The "Automated" option is intended to serve as a _**starting point**_ that allows you to get into things.  It uses the Centos Anaconda installer to make some of the harder decisions for users by skipping over many options to get you up and running. It makes a best guess at how to use resources -- most notably how to manage available disks.  
 
 Bottom line: think of this as a product quickstart mode, perfect for installing on a VM or other temporary hardware. It is _**not**_ for production sensor deployment.
-
+<br>
+<br>
 > **For the rest of this install guide we'll work through the more detail oriented "Custom Install of ROCK" option.**
 
 

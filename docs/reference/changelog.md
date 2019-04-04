@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.4 -- 2019-04-02
+
+- New: Text User Interface (TUI) for initial host setup  
+- New: ROCK manager utility  
+- New: Automated Testing Infrastructure  
+- Fixes: TODO closed issues  
+- Upgrade: Elastic 6.6 -> 6.7.1  
+- Upgrade: Suricata 4.1.1 -> 4.1.3  
+- Upgrade: Zookeeper 3.4.11 -> 3.4.13  
+
+
 ## 2.3 -- 2019-02-25
 
 - New: Add ability to do multi-host deployment of sensor + data tiers (#339)
@@ -46,8 +57,12 @@
 ## 2.1 -- 2018-08-23  
 
 <!--
-Feature X: description
-Bug X: description
-Optimization X: description
-Upgrade X: description
+New: description
+Fixes: description
+Change: description
+
+Feature: description
+Bug: description
+Optimization: description
+Upgrade: description
 -->

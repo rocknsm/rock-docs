@@ -1,55 +1,12 @@
-# Configuration
+<!-- ## Configuration File Overview -->
 
-After initial installation, your newly minted sensor will need to be configured
-for your environment.  This can be done by logging in locally, or remotely via `ssh`.
+The primary configuration file for RockNSM is found at `/etc/rocknsm/config.yml`.  
 
-> ROCK has been designed to require as little configuration as possible out of the
-box. This document covers much of gear turning available to advanced users, but
-please know up front that you can simply **[run the deploy script](../deployment/index.md)**
-and get a working sensor.  
+This file defines key information that drives the Ansible deployment playbook
+like network interface setup, cpu cores assignment, and much more.  There are a
+lot of options to tune here so take time to familiarize.  
 
-With that said, let's get into the 2 main configuration files found in `/etc/rocknsm/`.  
-
-
-## Hosts File
-
-The first file you may want to edit is `/etc/rocknsm/hosts.ini`. This
-file is an [Ansible inventory](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
-file that defines the target machines when running a playbook.  
-
-If you edit this file in a simple standalone sensor, you're essentially changing
-the hostname of your sensor.  
-
-<!-- This is also where you break out server roles for more complex multi-node
-deployments. If that fits your needs, see the multi-node clustering guide [here](#). -->
-
-```ini
-[rock]
-simplerockbuild.simplerock.lan ansible_host=127.0.0.1 ansible_connection=local
-
-[web]
-simplerockbuild.simplerock.lan ansible_host=127.0.0.1 ansible_connection=local
-
-[sensors:children]
-rock
-
-[bro:children]
-sensors
-...
-...
-...
-```
-
-As you can see in the above example, the default hostname is `simplerockbuild.simplerock.lan`.
-To customize this, simply replace _all_ simplerock entries with your own.  
-
-
-## Config File
-
-The next file ([/etc/rocknsm/config.yml](https://github.com/rocknsm/rock/blob/master/playbooks/templates/rock_config.yml.j2)) drives
-the Ansible playbook and contains key variables like network interface setup,
-cpu cores assignment, and much more.  There are a lot of options to tune here so
-take time to familiarize.  Let's break down this file into it's major sections:  
+> A template of this file in it's entirety can be found [[here on github]](https://github.com/rocknsm/rock/blob/master/playbooks/templates/rock_config.yml.j2), but for greater clarity let's break it down into it's major sections:  
 
 
 ### Network Interface
