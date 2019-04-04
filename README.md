@@ -9,18 +9,19 @@ This repository hosts the full documentation for [RockNSM](https://rocknsm.io), 
 
 
 ## Hosted Docs
-Enter the full documentation at [https://rocknsm.github.io/rock-docs/](https://rocknsm.github.io/rock-docs/).
+Enter the full documentation at: [https://rocknsm.github.io/rock-docs/](https://rocknsm.github.io/rock-docs/)
 
 
 ## Latest
-We are pleased to announce that ROCK 2.3 is here! The RockNSM team has been hard at work lately trying to get into a more regular cadence for releases. While RockNSM 2.2 was a relatively small release, 2.3 comes with a lot of changes. You can read the full details in the [releases page](https://rocknsm.github.io/rock-docs/reference/latest/), but here's a quick overview of some of the latest additions:
+We are pleased to announce that ROCK 2.4 is here! You can read the full details in the [Releases page](https://rocknsm.github.io/rock-docs/reference/latest/), but here's a quick overview of some of the latest additions:
 
-- [x] Support for Elastic 7 pre-release
-- [x] Bro 2.6, Suricata 4.2, Elastic 6.6, plus the latest JA3 and ET rules
-- [x] Query PCAP directly from Kibana via Docket
-- [x] Multi-node support 🙌
-- [x] Artifact restructuring
-- [x] 61 closed issues (including a lot of outdated items)
+- [x] Text User Interface (TUI) for initial host setup  
+- [x] ROCK manager utility  
+- [x] Automated Testing Infrastructure  
+- [x] Elastic 6.6 -> 6.7.1  
+- [x] Suricata 4.1.1 -> 4.1.3  
+- [x] Zookeeper 3.4.11 -> 3.4.13  
+- [x] **XX** closed issues  
 
 
 ## Video Guides
