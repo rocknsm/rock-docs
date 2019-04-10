@@ -62,10 +62,13 @@ nav:
     - Installation: install/install.md
     #- Example VM Install: vm_install.md
   - Configure:
-    - Setup TUI: configure/setup-tui.md
-    - Deployment: configure/deployment.md
+    - Rock Manager: configure/rock-manager.md
+    - Deployment: configure/setup-tui.md
     - Initial Access: configure/initial-access.md
     - Config Reference: configure/reference.md
+  - Deploy:
+    - Single Node: deploy/single-node.md
+    - Multi Node: deploy/multi-node.md
   - Usage:
     - Basic Operation: usage/index.md
     - Support: usage/support.md
