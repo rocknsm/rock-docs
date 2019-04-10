@@ -127,4 +127,5 @@ and then reboot.
 You can then accept the license agreement: `c`(ontinue) + `ENTER`  
 
 The `sshd` services is enabled at startup, so if you intend to complete the next
-steps remotely, note the management ip address now by running `ip a`.  
+steps remotely, note the management ip address now by running `ip a`. Your newly
+minted sensor is ready to be configured for your environment.
