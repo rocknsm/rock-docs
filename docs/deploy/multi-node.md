@@ -14,7 +14,9 @@ rock ssh-config
 
 ---
 
-Let's get started and deploy a single ROCK sensor.
+Now let's look at how to perform a ROCK deployment across multiple sensors.
+This is where we can break out server roles for more complex and distributed
+environment.
 
 ## Assumptions
 
@@ -44,87 +46,113 @@ will use `rock01` as the DM.
 Confirm that you can remotely connect to the DM:  
 `ssh admin@<DM-ip>`  
 
-Confirm that you can ping all other rock hosts:  
-`ping 172.16.1.237`
-`ping 172.16.1.239`
+Confirm that you can ping all other rock hosts.  For this example:  
+`ping 172.16.1.236  #localhost`  
+`ping 172.16.1.237`  
+`ping 172.16.1.239`  
+
 
 ### Edit Inventory File
 
-TODO
+A deployment is performed using an Ansible playbooks, and target systems are defined
+in an Ansible [inventory file](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html). In ROCK this file is located at `/etc/rocknsm/hosts.ini`.
 
-do this
+We need to add additional ROCK sensors to the following sections of the
+inventory file:  
 
-<p align="center">
-<img src="docs/img/#.png">
-</p>
-<br>
-
-
-### Step
-
-do this
-
-<p align="center">
-<img src="docs/img/#.png">
-</p>
-<br>
+* [rock]
+* [web]
+* [zookeeper]
+* [es_masters]
+* [es_data]
+* [es_ingest]
 
 
-### Step
+#### [rock]
 
-do this
+This group defines what nodes will be running ROCK services.
 
-<p align="center">
-<img src="docs/img/#.png">
-</p>
-<br>
-
-
-### Step
-
-do this
-
-<p align="center">
-<img src="docs/img/#.png">
-</p>
-<br>
+example:  
+```yml
+[rock]
+rock01.rock.lan ansible_host=127.0.0.1 ansible_connection=local
+rock02.rock.lan ansible_host=172.16.1.237
+rock03.rock.lan ansible_host=172.16.1.239
+```
 
 
-### Step
+#### [web]
 
-do this
+This group defines what node will be running web services.
 
-<p align="center">
-<img src="docs/img/#.png">
-</p>
-<br>
-
-
-## Multi-node Deployment
-
-aaaaa
-
-### Step
-
-do this
-
-<p align="center">
-<img src="docs/img/#.png">
-</p>
-<br>
+example:  
+```yml
+[web]
+rock03.rock.lan ansible_host=172.16.1.239
+```
 
 
-### Success
+#### [zookeeper]
 
-Once the deployment is completed with the components you chose, you'll be
-congratulated with a success banner. Congratulations!
+This group defines what node(s) will be running zookeeper.
 
-<p align="center">
-<img src="docs/img/install_banner.png">
-</p>
+example:  
+
+```yml
+[zookeeper]
+rock01.rock.lan ansible_host=127.0.0.1 ansible_connection=local
+```
 
 
+#### [es_masters]
 
+This group defines what node(s) will be running Elasticsearch, acting as
+master nodes.
+
+example:  
+
+```yml
+[es_masters]
+rock01.rock.lan ansible_host=127.0.0.1 ansible_connection=local
+rock02.rock.lan ansible_host=172.16.1.237
+rock03.rock.lan ansible_host=172.16.1.239
+```
+
+
+#### [es_data]
+
+This group defines what node(s) will be running Elasticsearch, acting as
+data nodes.
+
+example:  
+
+```yml
+[es_data]
+rock01.rock.lan ansible_host=127.0.0.1 ansible_connection=local
+rock02.rock.lan ansible_host=172.16.1.237
+rock03.rock.lan ansible_host=172.16.1.239
+```
+
+
+#### [es_ingest]
+
+This group defines what node(s) will be running Elasticsearch, acting as
+ingest nodes.
+
+example:  
+
+```yml
+[es_ingest]
+rock01.rock.lan ansible_host=127.0.0.1 ansible_connection=local
+rock02.rock.lan ansible_host=172.16.1.237
+rock03.rock.lan ansible_host=172.16.1.239
+```
+
+
+#### Example Inventory
+
+Above, we broke out every section. Let's take a look at a cumulative example of
+all the above sections in `host.ini` file for this demo:  
 
 ```yml
 [rock]
@@ -169,24 +197,22 @@ es_data
 es_ingest
 
 [es_masters]
+# This group should only ever contain exactly 1 or 3 nodes!
+#simplerockbuild.simplerock.lan ansible_host=127.0.0.1 ansible_connection=local
+# Multi-node example #
+#elasticsearch0[1:3].simplerock.lan
 rock01.rock.lan ansible_host=127.0.0.1 ansible_connection=local
 rock02.rock.lan ansible_host=172.16.1.237
 rock03.rock.lan ansible_host=172.16.1.239
-
-# This group should only ever contain exactly 1 or 3 nodes!
-#simplerockbuild.simplerock.lan ansible_host=127.0.0.1 ansible_connection=local
-
-# Multi-node example #
-#elasticsearch0[1:3].simplerock.lan
 
 [es_data]
 #simplerockbuild.simplerock.lan ansible_host=127.0.0.1 ansible_connection=local
 # Multi-node example #
 #elasticsearch0[1:4].simplerock.lan
-
 rock01.rock.lan ansible_host=127.0.0.1 ansible_connection=local
 rock02.rock.lan ansible_host=172.16.1.237
 rock03.rock.lan ansible_host=172.16.1.239
+
 [es_ingest]
 #simplerockbuild.simplerock.lan ansible_host=127.0.0.1 ansible_connection=local
 # Multi-node example #
@@ -194,6 +220,7 @@ rock03.rock.lan ansible_host=172.16.1.239
 rock01.rock.lan ansible_host=127.0.0.1 ansible_connection=local
 rock02.rock.lan ansible_host=172.16.1.237
 rock03.rock.lan ansible_host=172.16.1.239
+
 [elasticsearch:vars]
 # Disable all node roles by default
 node_master=false
@@ -220,37 +247,66 @@ sensors
 ```
 
 
+## Multi-node Deployment
+
+After the inventory file entries are finalized, we're finally ready to deploy!
+As mentioned, there are two main options for running a deployment:  
+
+1. `deploy-offline` - uses local packages ( located in /srv )
+1. `deploy-online` - uses upstream repo packages
+
+Select the deployment method that fits your situation. In our example we'll
+choose an offline install. To kick things off run: `sudo rock deploy-offline`  
+
+
+### Success
+
+Once the deployment is completed with the components you chose, you'll be
+congratulated with a success banner. Congratulations!
+
+<p align="center">
+<img src="../../img/install_banner.png">
+</p>
 
 
 
-## Hosts File
 
-The first file you may want to edit is `/etc/rocknsm/hosts.ini`. This
-file is an [Ansible inventory](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
-file that defines the target machines when running a playbook.  
 
-If you edit this file in a simple standalone sensor, you're essentially changing
-the hostname of your sensor.  
+<!-- ### Step
 
-<!-- This is also where you break out server roles for more complex multi-node
-deployments. If that fits your needs, see the multi-node clustering guide [here](#). -->
+do this
 
-```ini
-[rock]
-simplerockbuild.simplerock.lan ansible_host=127.0.0.1 ansible_connection=local
+<p align="center">
+<img src="docs/img/#.png">
+</p>
+<br>
 
-[web]
-simplerockbuild.simplerock.lan ansible_host=127.0.0.1 ansible_connection=local
 
-[sensors:children]
-rock
+### Step
 
-[bro:children]
-sensors
-...
-...
-...
-```
+do this
 
-As you can see in the above example, the default hostname is `simplerockbuild.simplerock.lan`.
-To customize this, simply replace _all_ simplerock entries with your own.  
+<p align="center">
+<img src="docs/img/#.png">
+</p>
+<br>
+
+
+### Step
+
+do this
+
+<p align="center">
+<img src="docs/img/#.png">
+</p>
+<br>
+
+
+### Step
+
+do this
+
+<p align="center">
+<img src="docs/img/#.png">
+</p>
+<br> -->
