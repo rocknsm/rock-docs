@@ -1,19 +1,3 @@
-FOR PLACEMENT:
-
-select one as the rock "deployment manager" DM
-edit inventory file on DM
-  vim /etc/rocknsm/hosts.ini
-  add ip of all rock flock members under the [rock] group
-  can be resolvable hostname or ip
-add one rock node to the `[web]` group ex. rock03
-add all rock nodes to es-{masters,data,ingest}
-
-SSH-CONFIG
-rock ssh-config
-  this adds auth keys and sudoers file
-
----
-
 Now let's look at how to perform a ROCK deployment across multiple sensors.
 This is where we can break out server roles for more complex and distributed
 environment.
@@ -29,7 +13,7 @@ ROCK nodes using the [latest ISO](https://mirror.rocknsm.io/isos/stable/).
     * `rock01.rock.lan - 172.16.1.23X`  
     * `rock02.rock.lan - 172.16.1.23X`  
     * `rock03.rock.lan - 172.16.1.23X`  
-1. `admin` account created at install
+1. `admin` account created at install (same username for all nodes)
 
 
 ## Multi-node Configuration
@@ -247,10 +231,22 @@ sensors
 ```
 
 
+### SSH Config
+
+After the inventory file entries are finalized, it's time to configure ssh in
+order for Ansible to communicate to all nodes during deployment. The ssh-config
+command will perform the following on all other nodes in the inventory:  
+
+* add an authorized keys entry
+* add the user created at install to the sudoers file
+
+To configure ssh run: `sudo rock ssh-config`  
+
+
 ## Multi-node Deployment
 
-After the inventory file entries are finalized, we're finally ready to deploy!
-As mentioned, there are two main options for running a deployment:  
+Now, we're finally ready to deploy! As mentioned, there are two main options
+for running a deployment:  
 
 1. `deploy-offline` - uses local packages ( located in /srv )
 1. `deploy-online` - uses upstream repo packages
@@ -267,46 +263,3 @@ congratulated with a success banner. Congratulations!
 <p align="center">
 <img src="../../img/install_banner.png">
 </p>
-
-
-
-
-
-<!-- ### Step
-
-do this
-
-<p align="center">
-<img src="docs/img/#.png">
-</p>
-<br>
-
-
-### Step
-
-do this
-
-<p align="center">
-<img src="docs/img/#.png">
-</p>
-<br>
-
-
-### Step
-
-do this
-
-<p align="center">
-<img src="docs/img/#.png">
-</p>
-<br>
-
-
-### Step
-
-do this
-
-<p align="center">
-<img src="docs/img/#.png">
-</p>
-<br> -->
