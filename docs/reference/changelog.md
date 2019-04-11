@@ -5,7 +5,7 @@
 - New: Text User Interface (TUI) for initial host setup  
 - New: ROCK manager utility  
 - New: Automated Testing Infrastructure  
-- Fixes: TODO closed issues  
+- Fixes: 95 closed issues  
 - Upgrade: Elastic 6.6 -> 6.7.1  
 - Upgrade: Suricata 4.1.1 -> 4.1.3  
 - Upgrade: Zookeeper 3.4.11 -> 3.4.13  
