@@ -507,10 +507,70 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../../configure/" title="Configure" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
       Configure
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Configure
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../configure/rock-manager/" title="Rock Manager" class="md-nav__link">
+      Rock Manager
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../configure/setup-tui/" title="Setup TUI" class="md-nav__link">
+      Setup TUI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../configure/initial-access.md" title="Initial Access" class="md-nav__link">
+      Initial Access
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../configure/reference/" title="Config Reference" class="md-nav__link">
+      Config Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -519,10 +579,70 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Deploy
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Deploy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="../../deployment/" title="Deployment" class="md-nav__link">
-      Deployment
+    <a href="../../deploy/terminology/" title="Terminology" class="md-nav__link">
+      Terminology
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deploy/single-node/" title="Single Node" class="md-nav__link">
+      Single Node
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deploy/multi-node/" title="Multi Node" class="md-nav__link">
+      Multi Node
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deploy/initial-access/" title="Initial Access" class="md-nav__link">
+      Initial Access
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -1001,7 +1121,9 @@ interface and boot to your USB drive.  </p>
 </p></p>
 <h3 id="automated">Automated<a class="headerlink" href="#automated" title="Permanent link">&para;</a></h3>
 <p>The "Automated" option is intended to serve as a <em><strong>starting point</strong></em> that allows you to get into things.  It uses the Centos Anaconda installer to make some of the harder decisions for users by skipping over many options to get you up and running. It makes a best guess at how to use resources -- most notably how to manage available disks.  </p>
-<p>Bottom line: think of this as a product quickstart mode, perfect for installing on a VM or other temporary hardware. It is <em><strong>not</strong></em> for production sensor deployment.</p>
+<p>Bottom line: think of this as a product quickstart mode, perfect for installing on a VM or other temporary hardware. It is <em><strong>not</strong></em> for production sensor deployment.
+<br>
+<br></p>
 <blockquote>
 <p><strong>For the rest of this install guide we'll work through the more detail oriented "Custom Install of ROCK" option.</strong></p>
 </blockquote>
@@ -1122,7 +1244,8 @@ interface and boot to your USB drive.  </p>
 and then reboot.</p>
 <p>You can then accept the license agreement: <code>c</code>(ontinue) + <code>ENTER</code>  </p>
 <p>The <code>sshd</code> services is enabled at startup, so if you intend to complete the next
-steps remotely, note the management ip address now by running <code>ip a</code>.  </p>
+steps remotely, note the management ip address now by running <code>ip a</code>. Your newly
+minted sensor is ready to be configured for your environment.</p>
                 
                   
                 
@@ -1158,13 +1281,13 @@ steps remotely, note the management ip address now by running <code>ip a</code>.
           </a>
         
         
-          <a href="../../configure/" title="Configure" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../configure/rock-manager/" title="Rock Manager" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Configure
+                Rock Manager
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

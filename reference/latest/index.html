@@ -372,10 +372,70 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../../configure/" title="Configure" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
       Configure
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Configure
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../configure/rock-manager/" title="Rock Manager" class="md-nav__link">
+      Rock Manager
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../configure/setup-tui/" title="Setup TUI" class="md-nav__link">
+      Setup TUI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../configure/initial-access.md" title="Initial Access" class="md-nav__link">
+      Initial Access
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../configure/reference/" title="Config Reference" class="md-nav__link">
+      Config Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -384,10 +444,70 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Deploy
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Deploy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="../../deployment/" title="Deployment" class="md-nav__link">
-      Deployment
+    <a href="../../deploy/terminology/" title="Terminology" class="md-nav__link">
+      Terminology
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deploy/single-node/" title="Single Node" class="md-nav__link">
+      Single Node
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deploy/multi-node/" title="Multi Node" class="md-nav__link">
+      Multi Node
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../deploy/initial-access/" title="Initial Access" class="md-nav__link">
+      Initial Access
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -649,16 +769,16 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#release-23" title="Release 2.3" class="md-nav__link">
-    Release 2.3
+  <a href="#release-24" title="Release 2.4" class="md-nav__link">
+    Release 2.4
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#elastic-7-support" title="Elastic 7 Support" class="md-nav__link">
-    Elastic 7 Support
+  <a href="#elastic-7" title="Elastic 7" class="md-nav__link">
+    Elastic 7
   </a>
   
 </li>
@@ -673,13 +793,6 @@
           <li class="md-nav__item">
   <a href="#multi-node-support" title="Multi-node Support" class="md-nav__link">
     Multi-node Support
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#artifact-restructuring" title="Artifact Restructuring" class="md-nav__link">
-    Artifact Restructuring
   </a>
   
 </li>
@@ -793,16 +906,16 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#release-23" title="Release 2.3" class="md-nav__link">
-    Release 2.3
+  <a href="#release-24" title="Release 2.4" class="md-nav__link">
+    Release 2.4
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#elastic-7-support" title="Elastic 7 Support" class="md-nav__link">
-    Elastic 7 Support
+  <a href="#elastic-7" title="Elastic 7" class="md-nav__link">
+    Elastic 7
   </a>
   
 </li>
@@ -817,13 +930,6 @@
           <li class="md-nav__item">
   <a href="#multi-node-support" title="Multi-node Support" class="md-nav__link">
     Multi-node Support
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#artifact-restructuring" title="Artifact Restructuring" class="md-nav__link">
-    Artifact Restructuring
   </a>
   
 </li>
@@ -860,28 +966,45 @@
                 
                 
                 <h1 id="latest">Latest<a class="headerlink" href="#latest" title="Permanent link">&para;</a></h1>
-<h2 id="release-23">Release 2.3<a class="headerlink" href="#release-23" title="Permanent link">&para;</a></h2>
-<p>We are pleased to announce that ROCK 2.3 is here! The RockNSM team has been hard at work lately trying to get into a more regular cadence for releases. While RockNSM 2.2 was a relatively small release, 2.3 comes with a lot of changes. You can read the full details in the <a href="../changelog/">changelog</a>, but here's a quick overview of some of the latest additions:</p>
+<h2 id="release-24">Release 2.4<a class="headerlink" href="#release-24" title="Permanent link">&para;</a></h2>
+<p>We are pleased to announce that ROCK 2.4 is out! Check out the the full
+<a href="#">blog post</a> for the full details on version 2.4. Here's a quick overview of
+some of the latest additions:</p>
 <ul>
-<li>Support for Elastic 7 pre-release</li>
-<li>Bro 2.6, Suricata 4.2, Elastic 6.6, plus the latest JA3 and ET rules</li>
-<li>Query PCAP directly from Kibana via Docket</li>
-<li>Multi-node support 🙌</li>
-<li>Artifact restructuring</li>
-<li>61 closed issues (including a lot of outdated items)
-~</li>
+<li>NEW - Text UI (TUI) for initial host setup</li>
+<li>NEW - ROCK manager utility</li>
+<li>NEW - Automated Testing Infrastructure</li>
+<li>Feature selection improvements</li>
+<li>95 Closed Issues</li>
+<li>Package Updates:<ul>
+<li>Elastic 6.6 -&gt; 7.0</li>
+<li>Suricata 4.1.1 -&gt; 4.1.3</li>
+<li>Zookeeper 3.4.11 -&gt; 3.4.14</li>
+<li>Kafka 1.0.0 -&gt; 2.2.0</li>
+<li>Stenographer 0.1 -&gt; 0.2</li>
+<li>Unrar 5.5.2 -&gt; 5.7.3</li>
 </ul>
-<h4 id="elastic-7-support">Elastic 7 Support<a class="headerlink" href="#elastic-7-support" title="Permanent link">&para;</a></h4>
-<p>We have been performing some early testing with the pre-release versions of Elastic version <strong>7</strong>, and are excited to share that ROCK 2.3 includes support for running on the pre-release version if you would like to do some of your own testing. </p>
+</li>
+</ul>
+<h4 id="elastic-7">Elastic 7<a class="headerlink" href="#elastic-7" title="Permanent link">&para;</a></h4>
+<p><a href="https://www.elastic.co/blog/elastic-stack-7-0-0-released">Elastic 7.0</a> brings
+some nice new features such as, Index Lifecycle Management, redesigned Kibana
+UI, and a new cluster discovery mechanism.</p>
 <h4 id="package-updates">Package Updates<a class="headerlink" href="#package-updates" title="Permanent link">&para;</a></h4>
-<p>This update brings Bro to version 2.6.1, which enables additional protocol analyzers and a lot more event hooks. You can see the full list of changes <a href="https://docs.zeek.org/en/stable/install/release-notes.html#bro-2-6">here</a>. Suricata has been updated to 4.2 and includes the full Suricata protocol analyzer suite, which has some additional coverage for ICS/SCADA stuff beyond what Bro provides.   </p>
+<p>As mentioned above, this update brings Elastic to version 7, but also updates of
+Suricata, Zookeeper, Kafka, Stenographer, and others. You can see the full list of changes <a href="#">here</a>.</p>
 <h4 id="multi-node-support">Multi-node Support<a class="headerlink" href="#multi-node-support" title="Permanent link">&para;</a></h4>
-<p>This is a big change that we are very excited to release! When ROCK was originally conceived, its primary purpose was for Network Security Monitoring (NSM) practitioners to be able to hone their craft on a commodity home lab. While that is still a very relevant use case, we have seen a lot of demand for the ability to easily deploy ROCK into an enterprise environment in a scalable manner. Look for another blog in the near future to walk through the multi-node changes in more detail.  </p>
-<h4 id="artifact-restructuring">Artifact Restructuring<a class="headerlink" href="#artifact-restructuring" title="Permanent link">&para;</a></h4>
-<p>In recent versions of ROCK we stored most installation items under <code>/opt/rocknsm/rock</code>. With 2.3 this changes to the more appropriate POSIX compliant file paths. 
-See <a href="https://github.com/rocknsm/rock/pull/344">here</a> for more details.  </p>
+<p>This is a big change that we are very excited to release! When ROCK was
+originally conceived, its primary purpose was for Network Security Monitoring
+(NSM) practitioners to be able to hone their craft on a commodity home lab.
+While that is still a very relevant use case, we have seen a lot of demand for
+the ability to easily deploy ROCK into an enterprise environment in a scalable
+manner.</p>
 <h4 id="closed-issues">Closed Issues<a class="headerlink" href="#closed-issues" title="Permanent link">&para;</a></h4>
-<p>This comes back to having full-time staff that are able to dedicate time to the project. We are working hard to close out legacy issues, which will make new issues much easier to triage.</p>
+<p>We are continuing to burn through long-running issues with this release. There
+were also several new issues that slipped into 2.3 that have been addressed.
+Namely, we improved the way rolling restarts are handled for Elasticsearch and
+are continuing to make multinode deployments as smooth and hands-off as possible.</p>
                 
                   
                 
