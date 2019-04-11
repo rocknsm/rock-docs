@@ -13,20 +13,17 @@ and create a bootable disk using your favorite burning utility.
 
 ### Install Rock
 1. If you have a network connection available, plug it into the management port
-1. Select the Custom Install at initial boot
+1. Select the **Custom Install** at initial boot
 1. Configure disk partitions to suit your needs
 1. Create an administrative user
 1. Reboot and log back in as admin user
 
 
-### Configure ROCK
-1. Customize the hostname of the box in `/etc/rocknsm/hosts.ini`
-1. Review each major section of the config in `/etc/rocknsm/config.yml`
-
-
-### Deploy
-1. Kick off the Ansible deployment process by running `sudo deploy_rock.sh`
-1. Run `sudo generate_defaults.sh` should you mess up your config file
+### Configure & Deploy ROCK
+1. Familiarize with the updated ROCK commands / options by running $`rock`
+1. Run $`sudo rock setup`
+1. Follow each step of the setup TUI by the numbers
+1. Deploy your sensor by executing the last setup option "Run Installer"
 
 
 ---

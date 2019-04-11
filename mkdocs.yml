@@ -61,8 +61,16 @@ nav:
     - Media: install/media.md
     - Installation: install/install.md
     #- Example VM Install: vm_install.md
-  - Configure: configure/index.md
-  - Deployment: deployment/index.md
+  - Configure:
+    - Rock Manager: configure/rock-manager.md
+    - Setup TUI: configure/setup-tui.md
+    - Initial Access: configure/initial-access.md
+    - Config Reference: configure/reference.md
+  - Deploy:
+    - Terminology: deploy/terminology.md
+    - Single Node: deploy/single-node.md
+    - Multi Node: deploy/multi-node.md
+    - Initial Access: deploy/initial-access.md
   - Usage:
     - Basic Operation: usage/index.md
     - Support: usage/support.md
