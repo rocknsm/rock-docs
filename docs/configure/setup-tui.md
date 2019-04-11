@@ -9,7 +9,7 @@ new interface can be called by running either:
 
 
 <p align="center">
-<img src="docs/img/#.png">
+<img src="../../img/tui-start.png">
 </p>
 
 > The Setup TUI currently only supports configuring a deploying a single-node
