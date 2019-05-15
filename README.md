@@ -15,13 +15,13 @@ Enter the full documentation at: [https://rocknsm.github.io/rock-docs/](https://
 ## Latest
 We are pleased to announce that ROCK 2.4 is here! You can read the full details in the [Releases page](https://rocknsm.github.io/rock-docs/reference/latest/), but here's a quick overview of some of the latest additions:
 
-- [x] Text User Interface (TUI) for initial host setup  
-- [x] ROCK manager utility  
-- [x] Automated Testing Infrastructure  
-- [x] Elastic 6.6 -> 6.7.1  
-- [x] Suricata 4.1.1 -> 4.1.3  
-- [x] Zookeeper 3.4.11 -> 3.4.13  
-- [x] **XX** closed issues  
+- [x] New: Text User Interface (TUI) for initial host setup  
+- [x] New: ROCK manager utility  
+- [x] New: Automated Testing Infrastructure  
+- [x] Upgrade: Elastic 6.6 -> 7
+- [x] Upgrade: Suricata 4.1.1 -> 4.1.3  
+- [x] Upgrade: Zookeeper 3.4.11 -> 3.4.13  
+- [x] Fixes: 95 closed issues  
 
 
 ## Video Guides
