@@ -9,7 +9,7 @@ This repository hosts the full documentation for [RockNSM](https://rocknsm.io), 
 
 
 ## Hosted Docs
-Enter the full documentation at: [https://rocknsm.github.io/rock-docs/](https://rocknsm.github.io/rock-docs/)
+Enter the full documentation at: [https://docs.rocknsm.io/](https://docs.rocknsm.io/)
 
 
 ## Latest
