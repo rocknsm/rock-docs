@@ -39,3 +39,6 @@ site/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Virtual Environment - exclude local venv dir
+myenv/
