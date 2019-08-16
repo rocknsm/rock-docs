@@ -87,17 +87,17 @@ generally whenever possible).
 ## Python Virtual Environment Setup
 
 This step can be complete using several different methods, but this guide will
-stick with standard virtual environment process using the `venv` module that is
-baked into Python 3.
+stick with standard virtual environment process using the `virtualenv` tool
+that is baked into Python3.
 
 1. Create a virtual environment for the project (repo) folder:  
-  $ `pip3 -m venv .env`  
+  $ `virtualenv myenv`  
 
 2. Activate this new venv:  
-$ `source .env/bin/activate`  
+  $ `source myenv/bin/activate`  
 
 If successful, this will change your prompt by appending the venv name. It will
-look something like this: `(.env) user@host$`  
+look something like this: `(myenv) user@host$`  
 
 To later deactivate (jump out of) this virtualenv, simply run:  
   $ `deactivate`  
