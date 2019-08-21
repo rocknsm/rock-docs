@@ -7,8 +7,3 @@ For community support using ROCK, we encourage you to check out the fine members
 In the event that you identify an issue with the project, please feel free to log it using the [GitHub Issue tracker](https://github.com/rocknsm/rock/issues) for the project.
 
 Please be sure to include the contents of `/etc/rocknsm/rocknsm-buildstamp`.
-
-## Commercial Support
-If you are needing commercial support, either from a systems integration perspective, scaled deployment, or complex deployment scenarios, [Perched](https://www.perched.io) provides those services. Perched was formed by the creators and maintainers of the RockNSM project and is focused on helping teams deploy the platform.
-
-Additionally, Perched has a wide-range of training and education offerings for incident response, threat hunting, and intelligence analysis teams.
