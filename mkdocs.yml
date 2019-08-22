@@ -76,7 +76,7 @@ nav:
     - Support: usage/support.md
   - Services:
     - Overview: services/index.md
-    - Bro: services/bro.md
+    - Zeek: services/zeek.md
     - Stenographer: services/stenographer.md
     - Suricata: services/suricata.md
     - FSF: services/fsf.md
@@ -90,6 +90,6 @@ nav:
     - Latest Release: reference/latest.md
     - Tutorials and Videos: reference/tutorials.md
     - Changelog: reference/changelog.md
-    - Liscense: reference/liscense.md
+    - License: reference/license.md
     - Contribution: reference/contribution.md
     - Commercial Support: reference/support.md
