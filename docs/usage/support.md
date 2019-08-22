@@ -28,13 +28,13 @@ for beta testers!! Check your interface configuration!!
 
 * You allow management via SSH from any network (defined by `rock_mgmt_nets`)
 
-* You wish to use Bro, Suricata, Stenographer (disabled by default) and the
+* You wish to use Zeek, Suricata, Stenographer (disabled by default) and the
 whole data pipeline. (See `with_*` options)
 
 * If installed via ISO, you will perform an offline install, else we assume
 online (defined by `rock_online_install`)
 
-* Bro will use half of your CPU resources, up to 8 CPUs
+* Zeek will use half of your CPU resources, up to 8 CPUs
 
 We will continue to add more support information as the userbase grows.
 
@@ -42,11 +42,11 @@ We will continue to add more support information as the userbase grows.
 If you find the deployment is failing, the script can be run with very verbose
 output.  This example will write the output to a file for review:  
 
-    `DEBUG=1 ./deploy_rock.sh | tee /tmp/deploy_rock.log`
+`DEBUG=1 ./deploy_rock.sh | tee /tmp/deploy_rock.log`
 
 
 ## Log Timestamps
 
-UTC is generally preferred for logging data as the timestamps from anywhere in the world will have a proper order without calculating offsets. That said, Kibana will present the bro logs according to your timezone (as set in the browser). The bro logs themselves (i.e. in /data/bro/logs/) log in epoch time and will be written in UTC regardless of the system timezone.
+UTC is generally preferred for logging data as the timestamps from anywhere in the world will have a proper order without calculating offsets. That said, Kibana will present the zeek logs according to your timezone (as set in the browser). The logs themselves (i.e. in /data/bro/logs/) log in epoch time and will be written in UTC regardless of the system timezone.
 
-Bro includes a utility for parsing these on the command line called `bro-cut`. It can be used to print human-readable timestamps in either the local sensor timezone or UTC. You can also give it a custom format string to specify what you'd like displayed.
+Zeek includes a utility for parsing these on the command line called `bro-cut`. It can be used to print human-readable timestamps in either the local sensor timezone or UTC. You can also give it a custom format string to specify what you'd like displayed.
