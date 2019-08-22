@@ -16,7 +16,7 @@ FSF uses a client-server model and can watch for new extracted files in the
 
 ### Services
 
-FSF is deployed as a systemd unit, called **fsf**. Normal systemd procedures
+FSF is deployed as a systemd unit, called `fsf.service`. Normal systemd procedures
 apply here:
 
 ```

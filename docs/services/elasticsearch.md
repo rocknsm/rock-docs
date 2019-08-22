@@ -9,7 +9,7 @@ aggregations quickly and efficiently.
 ROCK sends all logs preformatted in JSON, complete with human readable timestamps.
 This does two things:
 
-1. Elasticsearch compression is effctively increased since there is not two
+1. Elasticsearch compression is effectively increased since there is not two
 copies of the data, raw and JSON.  
 1. The preformatted timestamps and JSON log data greatly increase the logging and
 error rate while increasing reliability of the logging infrastructure.
@@ -19,8 +19,8 @@ error rate while increasing reliability of the logging infrastructure.
 
 ### Service
 
-Elasticsearch is deployed as a systemd unit, called **elasticsearch**. Normal
-systemd procedures apply here:
+Elasticsearch is deployed as a systemd unit, called `elasticsearch.service`.
+Normal systemd procedures apply here:  
 
 ```
 sudo systemctl start elasticsearch
@@ -33,7 +33,7 @@ sudo systemctl restart elasticsearch
 
 Elasticsearch data can be accessed via a [Restful API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs.html)
 over port 9200. Kibana is the most common way this is done, but this can also be
-accomplished with `curl` commands, such as: `$ curl <sensorip>:9200/_cat/indices`.  
+accomplished with `curl` commands, such as: `$ curl <SENSORIP>:9200/_cat/indices`.  
 
 
 ## Directories

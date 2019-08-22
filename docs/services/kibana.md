@@ -18,7 +18,7 @@ created at install e.g. `/home/admin/KIBANA_CREDS.README`.
 
 ### Service
 
-Kibana is deployed as a systemd unit, called **kibana**. Normal
+Kibana is deployed as a systemd unit, called `kibana.service`. Normal
 systemd procedures apply here:
 
 ```

@@ -8,7 +8,7 @@ enrichment.
 
 #### Services
 
-Logstash is deployed as a systemd unit, called **logstash**. Normal systemd
+Logstash is deployed as a systemd unit, called `logstash.service`. Normal systemd
 procedures apply here:
 
 ```

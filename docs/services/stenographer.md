@@ -12,7 +12,7 @@ solutions:
 ## Management
 
 ### Systemd
-Stenographer is deployed as a systemd unit, called **stenographer**. Normal
+Stenographer is deployed as a systemd unit, called `stenographer.service`. Normal
 systemd procedures apply here:  
 
 ```shell
@@ -38,7 +38,7 @@ STENOGRAPHER@EM1:
 ```
 
 In order to restart all Stenographer processes, a wildcard can be used:  
-    `sudo sytemctl restart stenographer*`  
+`sudo sytemctl restart stenographer*`  
 
 
 ## Directories

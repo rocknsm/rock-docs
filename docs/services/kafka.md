@@ -8,14 +8,11 @@ Kafka solves the problem of having multiple data sources sending into the same
 pipeline. It acts as a staging area to allow [Logstash](./Logstash) to keep up
 with things.
 
-<!-- ## Basic Usage
-
-... -->
 
 ## Management
 
 #### Services
-Kafka is deployed as a systemd unit, called **kafka**. Normal systemd
+Kafka is deployed as a systemd unit, called `kafka.service`. Normal systemd
 procedures apply here:
 
 ```

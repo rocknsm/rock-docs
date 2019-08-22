@@ -23,8 +23,8 @@ the Kafka message queue:
 
 #### Service
 
-The filebeat service is configured and enabled on startup.  This can be verified
-with either:  
+FSF is deployed as a systemd unit, called `filebeat.service`. This service is
+configured and enabled on startup.  This can be verified with either:  
 
 `$ sudo rockctl status`  
 
