@@ -1,17 +1,20 @@
-# Bro
+# Zeek
+
+> Note: While "Zeek" is the new name of the project, directories,
+service files, and binaries still (for now) retain the "bro" name.  
 
 ## Overview
-Bro is used to provide network protocol analysis within ROCK. It is extremely
+Zeek (the artist formerly known as Bro) is used to provide network protocol analysis within ROCK. It is extremely
 customizable, and it is encouraged that you take advantage of this.
 
-When deploying custom Bro scripts, please be sure to store them under a
+When deploying custom Zeek scripts, please be sure to store them under a
 subdirectory of `/usr/share/bro/site/scripts/`. We can't guarantee that your
 customizations won't be overwritten by Ansible if you don't follow this pattern.
 
 ## Management
 
 ### Service
-Bro is deployed as a systemd unit, called **bro**. Normal systemd procedures
+Zeek is deployed as a systemd unit, called `bro.service`. Normal systemd procedures
 apply here:
 
 ```
@@ -38,6 +41,6 @@ group as such:
     * `/data/bro/logs/current/{stdout.log, stderr.log}`
 
 <br>
-**Note:** By default, Bro will write ASCII logs to the data path above AND write
+**Note:** By default, Zeek will write ASCII logs to the data path above AND write
  JSON directly to Kafka. In general, you will be accessing the Bro data from
  [Elasticsearch](elasticsearch.md) via [Kibana](kibana.md).  
