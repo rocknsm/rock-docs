@@ -59,9 +59,21 @@ Docket requires the following services to function:
 
 Current status can be checked with the following commands:  
 
-`sudo systemctl status lighttpd`  
+$ `sudo systemctl status lighttpd`  
 
-`sudo rockctl status`  
+$ `sudo rockctl status`  
+
+
+#### Changing Lighttpd Credentials
+
+For the diligent (paranoid), the credentials that were initially generated at
+installation can be changed with the following steps:  
+
+1. create a new shell variable, example: `USER_NAME=operator`
+2. append the new user to lighttpd config file:  
+$ `sudo sh -c "echo -n '$USER_NAME:' >> /etc/lighttpd/rock-htpasswd.user"`  
+3. generate new password for new user:  
+$ `sudo sh -c "openssl passwd -apr1 >> /etc/lighttpd/rock-htpasswd.user"`  
 
 
 ## Directories
