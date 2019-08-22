@@ -27,7 +27,7 @@ If you're already familiar with building sensors you can jump straight into thin
 
 ## Latest
 
-See the [Releases](reference/latest.md) page for the latest info on ROCK 2.4.
+See the [Releases](reference/latest.md) page for the latest info on ROCK 2.5.
 
 
 ## Contents
