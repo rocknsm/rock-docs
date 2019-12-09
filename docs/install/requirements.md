@@ -23,7 +23,7 @@ the IOPS the better.  Here's the bottom line:
 |   RESOURCE  |     RECOMMENDATION |
 | ----------- | ------------------ |
 | CPU         | **4+** physical cores |
-| Memory      | **8GB** RAM minimum, the more the better ) |
+| Memory      | **8GB** RAM minimum, the more the better :) |
 | Storage     | **256GB**, with 200+ of that dedicated to `/data`, SSD preferred |
 | Network     | **2 gigabit interfaces**, one for management and one for collection |
 
