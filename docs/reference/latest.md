@@ -26,7 +26,7 @@ FIX - various visualization issues in ROCK dashboard
 
 FIX - x509 certificate issues resolved
 
-UPDATE - All Elastic Stack components to [v7.3](https://www.elastic.co/blog/elasticsearch-7-3-0-released)
+UPDATE - All Elastic Stack components to [v7.5](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/es-release-notes.html)
 
 
 <!-- ## Release 2.4
