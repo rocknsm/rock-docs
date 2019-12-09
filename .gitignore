@@ -1,3 +1,7 @@
+# Generated Site #
+##################
+site/
+
 # Compiled source #
 ###################
 *.com
@@ -35,3 +39,6 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Virtual Environment - exclude local venv dir
+myenv/
