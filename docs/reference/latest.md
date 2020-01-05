@@ -1,6 +1,35 @@
 # Latest
 
-## Release 2.4
+## Release 2.5
+
+We are pleased to announce that ROCK 2.5 is out! Here's a quick overview of
+some of the latest additions:
+
+NEW - ROCK has move to the [ECS](https://github.com/elastic/ecs) standard
+
+  - legacy pipeline is still available (on ISO install)
+  - aliases are in place to assist backwards compatibility
+
+NEW - Out of the box support for XFS Disk Quotas
+
+  - puts quota on `/data` or falls back to `/`
+  - works for both automated and manual installs
+  - standalone playbook to setup quotas on installs other than ISO download (reboot req.)
+  - the amount of disk given to a service is enabled by weight
+
+NEW - Updated ROCK Dashboards
+
+  - available in ISO install
+  - incorporating Vega into dashboards
+
+FIX - various visualization issues in ROCK dashboard
+
+FIX - x509 certificate issues resolved
+
+UPDATE - All Elastic Stack components to [v7.5](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/es-release-notes.html)
+
+
+<!-- ## Release 2.4
 
 We are pleased to announce that ROCK 2.4 is out! Check out the the full
 [blog post](#) for the full details on version 2.4. Here's a quick overview of
@@ -44,4 +73,4 @@ manner.
 We are continuing to burn through long-running issues with this release. There
 were also several new issues that slipped into 2.3 that have been addressed.
 Namely, we improved the way rolling restarts are handled for Elasticsearch and
-are continuing to make multinode deployments as smooth and hands-off as possible.
+are continuing to make multinode deployments as smooth and hands-off as possible. -->

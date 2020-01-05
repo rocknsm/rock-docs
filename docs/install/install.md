@@ -108,6 +108,8 @@ Before beginning the install process it's best to connect the interface you've s
 <img src="../../img/network.png">
 </p>
 
+> Do not use a hostname that contains an underscore, for example `rock_2-5`. This will cause deployment failures!
+
 
 #### User Creation
 ROCK is configured with the root user disabled.  We recommend that you leave it that way.  Once you've kicked off the install, click **User Creation** at the next screen (shown above) and complete the required fields to set up a non-root admin user.  

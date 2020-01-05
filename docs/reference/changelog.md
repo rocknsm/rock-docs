@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.5 -- 2019-08-21
+
+- New: ROCK has move to the ECS standard
+- New: Out of the box support for XFS Disk Quotas
+- New: Updated ROCK Dashboards
+- Fix: Various visualization issues in ROCK dashboard
+- Fix: (x509) Certificate issues resolved
+- Update: Elastic Stack components to version 7.3
+
 ## 2.4 -- 2019-04-02
 
 - New: Text User Interface (TUI) for initial host setup  
