@@ -54,7 +54,7 @@ inventory file:
 
 #### [rock]
 
-This group defines what nodes will be running ROCK services.
+This group defines what nodes will be running ROCK services (Zeek, Suricata, Stenographer, Kafka, Zookeeper)
 
 example:  
 ```yml
@@ -67,7 +67,7 @@ rock03.rock.lan ansible_host=172.16.1.239
 
 #### [web]
 
-This group defines what node will be running web services.
+This group defines what node will be running web services (Kibana, Lighttpd, and Docket).
 
 example:  
 ```yml
@@ -78,7 +78,7 @@ rock03.rock.lan ansible_host=172.16.1.239
 
 #### [zookeeper]
 
-This group defines what node(s) will be running zookeeper.
+This group defines what node(s) will be running zookeeper (Kafka cluster manager).
 
 example:  
 
@@ -86,7 +86,6 @@ example:
 [zookeeper]
 rock01.rock.lan ansible_host=127.0.0.1 ansible_connection=local
 ```
-
 
 #### [es_masters]
 
@@ -102,7 +101,6 @@ rock02.rock.lan ansible_host=172.16.1.237
 rock03.rock.lan ansible_host=172.16.1.239
 ```
 
-
 #### [es_data]
 
 This group defines what node(s) will be running Elasticsearch, acting as
@@ -117,11 +115,10 @@ rock02.rock.lan ansible_host=172.16.1.237
 rock03.rock.lan ansible_host=172.16.1.239
 ```
 
-
 #### [es_ingest]
 
 This group defines what node(s) will be running Elasticsearch, acting as
-ingest nodes.
+ingest nodes. For ROCK deployments, generally, everything that is data node eligible is also ingest node eligible.
 
 example:  
 
@@ -132,12 +129,12 @@ rock02.rock.lan ansible_host=172.16.1.237
 rock03.rock.lan ansible_host=172.16.1.239
 ```
 
-
 #### Example Inventory
 
 Above, we broke out every section. Let's take a look at a cumulative example of
 all the above sections in `host.ini` file for this demo:  
 
+Simple example inventory:
 ```yml
 [rock]
 rock01.rock.lan ansible_host=127.0.0.1 ansible_connection=local
@@ -230,6 +227,113 @@ web
 sensors
 ```
 
+If you have a bit of a more complex use-case, here's a more extensive example that has:
+
+* 3 Elasticsearch master nodes
+* 4 Elasticsearch data nodes
+* 1 Elasticsearch coordinating node
+* 1 Logstash node
+* 2 ROCK sensors
+
+We also added a few more sections, `[Logstash]` and `[Elasticsearch]`. We did this because we're breaking Logstash out into it's own server, as well as adding a coordinating node that will just be part of Elasticsearch, but not a data, ingest, or master node.
+
+```yml
+# Define all of our Ansible_hosts up front
+es-master-0.rock.lan ansible_host=192.168.1.5
+es-master-1.rock.lan ansible_host=192.168.1.6
+es-master-2.rock.lan ansible_host=192.168.1.7
+es-data-0.rock.lan ansible_host=192.168.1.8
+es-data-1.rock.lan ansible_host=192.168.1.9
+es-data-2.rock.lan ansible_host=192.168.1.10
+es-data-3.rock.lan ansible_host=192.168.1.11
+es-coord-0.rock.lan ansible_host=192.168.1.12
+ls-pipeline-0.rock.lan ansible_host=192.168.1.13
+rock-0.rock.lan ansible_host=192.168.1.14
+rock-1.rock.lan ansible_host=192.168.1.15
+
+[rock]
+rock-0.rock.lan
+rock-1.rock.lan
+
+[web]
+es-coord-0.rock.lan
+
+[lighttpd:children]
+web
+
+[sensors:children]
+rock
+
+[zeek:children]
+sensors
+
+[fsf:children]
+sensors
+
+[kafka:children]
+sensors
+
+[stenographer:children]
+sensors
+
+[suricata:children]
+sensors
+
+[filebeat:children]
+fsf
+suricata
+
+[zookeeper]
+rock-0.rock.lan
+
+[elasticsearch:children]
+es_masters
+es_data
+es_ingest
+
+[elasticsearch]
+es-coord-0.rock.lan
+
+[es_masters]
+# This group should only ever contain exactly 1 or 3 nodes!
+# Multi-node example #
+#elasticsearch0[1:3].simplerock.lan
+es-master-[0:2].rock.lan
+
+[es_data]
+# Multi-node example #
+#elasticsearch0[1:4].simplerock.lan
+es-data-[0:3].rock.lan
+
+[es_ingest]
+# Multi-node example #
+#elasticsearch0[1:4].simplerock.lan
+es-data-[0:3].rock.lan
+
+[elasticsearch:vars]
+# Disable all node roles by default
+node_master=false
+node_data=false
+node_ingest=false
+
+[es_masters:vars]
+node_master=true
+
+[es_data:vars]
+node_data=true
+
+[es_ingest:vars]
+node_ingest=true
+
+[docket:children]
+web
+
+[kibana:children]
+web
+
+[logstash]
+ls-pipeline-0.rock.lan
+```
 
 ### SSH Config
 
@@ -242,18 +346,20 @@ command will perform the following on all other nodes in the inventory:
 
 To configure ssh run: `sudo rock ssh-config`  
 
+### Update ROCK Configuration File
+
+There are a few last steps, both are in `/etc/rocknsm/config.yml`
+
+1. If you are doing an offline installation, you need to change `rock_online_install: True` to `rock_online_install: False`.
+1. If you are going to have 2 different sensor components, you need to manually define your Zookeeper host by adding `kafka_zookeeper_host: Zookeeper IP` to the configuration file. It isn't necessary where it is placed.
 
 ## Multi-node Deployment
 
-Now, we're finally ready to deploy! As mentioned, there are two main options
-for running a deployment:  
+Now, we're finally ready to deploy!
 
-1. `deploy-offline` - uses local packages ( located in /srv )
-1. `deploy-online` - uses upstream repo packages
-
-Select the deployment method that fits your situation. In our example we'll
-choose an offline install. To kick things off run: `sudo rock deploy-offline`  
-
+```
+sudo rock deploy
+```
 
 ### Success
 
