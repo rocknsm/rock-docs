@@ -10,6 +10,8 @@ created at installation e.g. `/home/admin`.
 
 To get into the Kibana interface:  
 
+*Note: we are aware of a new change with macOS Catalina and the Chrome browser that requires SSL certificates are signed with a CA. We're working on the issue and will update the SSL proxy process soon. Until then, Safari and Firefox work. Windows is not affected.*
+
 1. Copy the passphrase in `~/KIBANA_CREDS.README`  
 2. Point your browser to Kibana:   
     * `https://<SENSORIP>`
