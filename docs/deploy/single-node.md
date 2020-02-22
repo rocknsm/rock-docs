@@ -140,3 +140,5 @@ congratulated with a success banner. Congratulations!
 </p>
 <br>
 <br>
+
+We strongly recommend giving all of the services a fresh stop/start with `sudo rockctl restart`.
