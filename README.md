@@ -13,16 +13,17 @@ Enter the full documentation at: [https://docs.rocknsm.io/](https://docs.rocknsm
 
 
 ## Latest
-We are pleased to announce that ROCK 2.4 is here! You can read the full details in the [Releases page](https://rocknsm.github.io/rock-docs/reference/latest/), but here's a quick overview of some of the latest additions:
+We are pleased to announce that ROCK 2.5 is here! You can read the full details in the [Releases page](https://rocknsm.github.io/rock-docs/reference/latest/), but here's a quick overview of some of the latest additions:
 
-- [x] New: Text User Interface (TUI) for initial host setup  
-- [x] New: ROCK manager utility  
-- [x] New: Automated Testing Infrastructure  
-- [x] Upgrade: Elastic 6.6 -> 7
-- [x] Upgrade: Suricata 4.1.1 -> 4.1.3  
-- [x] Upgrade: Zookeeper 3.4.11 -> 3.4.13  
-- [x] Fixes: 95 closed issues  
-
+ 
+- [x] New: ROCK has move to the ECS standard  
+- [x] New: Out of the box support for XFS Disk Quotas  
+- [x] New: Updated ROCK Dashboards  
+- [x] Fix: Various visualization issues in ROCK dashboard  
+- [x] Fix: (x509) Certificate issues resolved  
+- [x] Update: Elastic Stack components to version 7.6
+- [x] Update: Zeek to version 3  
+- [x] Update: Zeek to version 5 
 
 ## Video Guides
 There are several video walkthroughs in the [Tutorials Section](https://rocknsm.github.io/rock-docs/reference/tutorials/).

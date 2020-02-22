@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.5 -- 2019-08-21
+## 2.5 -- 2020-02-21
 
 - New: ROCK has move to the ECS standard  
 - New: Out of the box support for XFS Disk Quotas  
