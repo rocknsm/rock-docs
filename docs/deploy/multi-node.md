@@ -369,3 +369,5 @@ congratulated with a success banner. Congratulations!
 <p align="center">
 <img src="../../img/install_banner.png">
 </p>
+
+We strongly recommend giving all of the services a fresh stop/start with `sudo rockctl restart`.
