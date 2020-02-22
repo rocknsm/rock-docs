@@ -116,47 +116,61 @@ fsf_retention: 3
 This is a critical section that provides boolean options to choose what components of ROCK are **_installed_** and **_enabled_** during deployment.  
 
 ```yml
-# The following "with_" statements define what components of RockNSM are
-# installed when running the deploy script:
+rock_services:
+  - name: bro
+    quota_weight: 1
+    installed: True
+    enabled: True
 
-with_stenographer: True
-with_docket: True
-with_bro: True
-with_suricata: True
-with_snort: True
-with_suricata_update: True
-with_logstash: True
-with_elasticsearch: True
-with_kibana: True
-with_zookeeper: True
-with_kafka: True
-with_lighttpd: True
-with_fsf: True
+  - name: stenographer
+    quota_weight: 8
+    installed: True
+    enabled: True
 
-# The following "enable_" statements define what RockNSM component services
-# are enabled (start automatically on system boot):
+  - name: docket
+    quota_weight: 0
+    installed: True
+    enabled: True
 
-enable_stenographer: True
-enable_docket: True
-enable_bro: True
-enable_suricata: True
-enable_snort: True
-enable_suricata_update: True
-enable_logstash: True
-enable_elasticsearch: True
-enable_kibana: True
-enable_zookeeper: True
-enable_kafka: True
-enable_lighttpd: True
-enable_fsf: True
+  - name: suricata
+    quota_weight: 2
+    installed: True
+    enabled: True
+
+  - name: elasticsearch
+    quota_weight: 4
+    installed: True
+    enabled: True
+
+  - name: kibana
+    quota_weight: 0
+    installed: True
+    enabled: True
+
+  - name: zookeeper
+    quota_weight: 0
+    installed: True
+    enabled: True
+
+  - name: kafka
+    quota_weight: 4
+    installed: True
+    enabled: True
+
+  - name: lighttpd
+    quota_weight: 0
+    installed: True
+    enabled: True
+
+  - name: fsf
+    quota_weight: 1
+    installed: True
+    enabled: True
+
+  - name: filebeat
+    quota_weight: 0
+    installed: True
+    enabled: True
 ```
 
-A good example for changing this section would involve [Stenographer](../services/stenographer.md). Collecting raw PCAP is resource and _**storage intensive**_.  You're machine may not be able to handle that and if you just wanted to focus on network logs, then you would set both options in the config file to **disable** installing and enabling Stenographer:  
-
-```yml
-with_stenographer: False
-  ...
-  ...
-  ...
-enable_stenographer: False
-```
+A good example for changing this section would involve [Stenographer](../services/stenographer.md). Collecting raw PCAP is resource and _**storage intensive**_.  You're machine may not be able to handle that and if you just wanted to focus on network logs, then you would set both options in the config file to **disable** installing and enabling Stenographer.
