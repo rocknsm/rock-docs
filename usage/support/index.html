@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.1">
     
     
       
@@ -44,7 +44,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.982221ab.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.3020aac5.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+      <script src="../../assets/javascripts/modernizr.01ccdecf.js"></script>
     
     
       
@@ -416,18 +416,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../configure/initial-access.md" title="Initial Access" class="md-nav__link">
-      Initial Access
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../configure/reference/" title="Config Reference" class="md-nav__link">
       Config Reference
     </a>
@@ -577,6 +565,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#suricata-service-fails-to-start" title="Suricata Service Fails to Start" class="md-nav__link">
+    Suricata Service Fails to Start
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#autodetect-assumptions" title="Autodetect Assumptions" class="md-nav__link">
     Autodetect Assumptions
   </a>
@@ -650,8 +645,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../services/bro/" title="Bro" class="md-nav__link">
-      Bro
+    <a href="../../services/zeek/" title="Zeek" class="md-nav__link">
+      Zeek
     </a>
   </li>
 
@@ -830,8 +825,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../reference/liscense/" title="Liscense" class="md-nav__link">
-      Liscense
+    <a href="../../reference/license/" title="License" class="md-nav__link">
+      License
     </a>
   </li>
 
@@ -886,6 +881,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#suricata-service-fails-to-start" title="Suricata Service Fails to Start" class="md-nav__link">
+    Suricata Service Fails to Start
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#autodetect-assumptions" title="Autodetect Assumptions" class="md-nav__link">
     Autodetect Assumptions
   </a>
@@ -927,6 +929,93 @@
                 
                 <h1 id="support-guide">Support Guide<a class="headerlink" href="#support-guide" title="Permanent link">&para;</a></h1>
 <p>This section aims to smooth out the most frequent issues new users will run into.</p>
+<h3 id="suricata-service-fails-to-start">Suricata Service Fails to Start<a class="headerlink" href="#suricata-service-fails-to-start" title="Permanent link">&para;</a></h3>
+<p>This can occur after successful installation of the ROCK sensor.</p>
+<p>To identify if this is an issue, run <code>sudo rockctl status</code> and you'll see</p>
+<div class="codehilite"><pre><span></span>SURICATA:
+    Active: failed (Result: exit-code) since Mon 2020-01-06 01:00:57 UTC; 40min ago
+</pre></div>
+
+
+<p>To validate, run run <code>sudo journalctl -u suricata</code> and look for the <code>MemoryDenyWriteExecute</code>, meaning Suricata is using more RAM than is available. We need to tamp 'er down.</p>
+<div class="codehilite"><pre><span></span>sudo journalctl -u suricata
+-- Logs begin at Sun 2020-01-05 22:14:04 UTC, end at Mon 2020-01-06 01:42:58 UTC. --
+Jan 05 22:57:54 rock-1.rock.lan systemd[1]: [/usr/lib/systemd/system/suricata.service:17] Unknown lvalue &#39;MemoryDenyWriteExecute&#39; in section &#39;Service&#39;
+Jan 05 22:57:54 rock-1.rock.lan systemd[1]: [/usr/lib/systemd/system/suricata.service:18] Unknown lvalue &#39;LockPersonality&#39; in section &#39;Service&#39;
+Jan 05 22:57:54 rock-1.rock.lan systemd[1]: [/usr/lib/systemd/system/suricata.service:19] Unknown lvalue &#39;ProtectControlGroups&#39; in section &#39;Service&#39;
+Jan 05 22:57:54 rock-1.rock.lan systemd[1]: [/usr/lib/systemd/system/suricata.service:20] Unknown lvalue &#39;ProtectKernelModules&#39; in section &#39;Service&#39;
+Jan 05 22:58:05 rock-1.rock.lan systemd[1]: Started Suricata Intrusion Detection Service.
+</pre></div>
+
+
+<p>To fix this issue, identify the non-management interface that is connected by using <code>ip link</code> and looking for the interface that has <code>BROADCAST</code> and <code>state UP</code>. In this example, <code>ens192f1</code> is <code>UP</code> (<code>ens193</code> is the management interface).</p>
+<div class="codehilite"><pre><span></span>ip link
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: ens193: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 00:50:56:9f:c1:4e brd ff:ff:ff:ff:ff:ff
+3: ens192f0: &lt;NO-CARRIER,BROADCAST,MULTICAST,PROMISC,UP&gt; mtu 1500 qdisc mq state DOWN mode DEFAULT group default qlen 1000
+    link/ether f8:f2:1e:34:0f:40 brd ff:ff:ff:ff:ff:ff
+4: ens192f1: &lt;BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether f8:f2:1e:34:0f:41 brd ff:ff:ff:ff:ff:ff
+5: ens256f0: &lt;NO-CARRIER,BROADCAST,MULTICAST,PROMISC,UP&gt; mtu 1500 qdisc mq state DOWN mode DEFAULT group default qlen 1000
+    link/ether f8:f2:1e:34:0a:80 brd ff:ff:ff:ff:ff:ff
+6: ens256f1: &lt;NO-CARRIER,BROADCAST,MULTICAST,PROMISC,UP&gt; mtu 1500 qdisc mq state DOWN mode DEFAULT group default qlen 1000
+    link/ether f8:f2:1e:34:0a:81 brd ff:ff:ff:ff:ff:ff
+</pre></div>
+
+
+<p><code>sudo vi /etc/suricata/rocknsm-overrides.yaml</code> and comment out everything under the <code>af-packet</code> heading with the exception of the connected non-management interface and setting the <code>threads</code> from <code>auto</code> to <code>12</code> (in our example, but you may want to use a different number based on your environment). Example:</p>
+<div class="codehilite"><pre><span></span>af-packet:
+#  - interface: ens192f0
+#    #threads: auto
+#    cluster-id: 99
+#    cluster-type: cluster_flow
+#    defrag: true
+#    use-mmap: true
+#    mmap-locked: true
+#    #rollover: true
+#    tpacket-v3: true
+#    use-emergency-flush: true
+  - interface: ens192f1
+    threads: 12
+    cluster-id: 98
+    cluster-type: cluster_flow
+    defrag: true
+    use-mmap: true
+    mmap-locked: true
+    #rollover: true
+    tpacket-v3: true
+    use-emergency-flush: true
+#  - interface: ens256f1
+#    #threads: auto
+#    cluster-id: 97
+#    cluster-type: cluster_flow
+#    defrag: true
+#    use-mmap: true
+#    mmap-locked: true
+#    #rollover: true
+#    tpacket-v3: true
+#    use-emergency-flush: true
+#  - interface: ens256f0
+#    #threads: auto
+#    cluster-id: 96
+#    cluster-type: cluster_flow
+#    defrag: true
+#    use-mmap: true
+#    mmap-locked: true
+#    #rollover: true
+#    tpacket-v3: true
+#    use-emergency-flush: true
+</pre></div>
+
+
+<p>Afterwards, restart <code>sudo rockctl status</code> and verify everything is started:</p>
+<div class="codehilite"><pre><span></span>SURICATA:
+    Active: active (running) since Mon 2020-01-06 01:55:37 UTC; 1min 28s ago
+</pre></div>
+
+
 <h2 id="autodetect-assumptions">Autodetect Assumptions<a class="headerlink" href="#autodetect-assumptions" title="Permanent link">&para;</a></h2>
 <p>When writing the scripts to generate default values, we had to make some
 assumptions. The defaults are generated according to these assumptions and
@@ -959,7 +1048,7 @@ for beta testers!! Check your interface configuration!!</p>
 <p>You allow management via SSH from any network (defined by <code>rock_mgmt_nets</code>)</p>
 </li>
 <li>
-<p>You wish to use Bro, Suricata, Stenographer (disabled by default) and the
+<p>You wish to use Zeek, Suricata, Stenographer (disabled by default) and the
 whole data pipeline. (See <code>with_*</code> options)</p>
 </li>
 <li>
@@ -967,20 +1056,17 @@ whole data pipeline. (See <code>with_*</code> options)</p>
 online (defined by <code>rock_online_install</code>)</p>
 </li>
 <li>
-<p>Bro will use half of your CPU resources, up to 8 CPUs</p>
+<p>Zeek will use half of your CPU resources, up to 8 CPUs</p>
 </li>
 </ul>
 <p>We will continue to add more support information as the userbase grows.</p>
 <h2 id="deployment-script">Deployment Script<a class="headerlink" href="#deployment-script" title="Permanent link">&para;</a></h2>
 <p>If you find the deployment is failing, the script can be run with very verbose
 output.  This example will write the output to a file for review:  </p>
-<div class="codehilite"><pre><span></span>`DEBUG=1 ./deploy_rock.sh | tee /tmp/deploy_rock.log`
-</pre></div>
-
-
+<p><code>DEBUG=1 ./deploy_rock.sh | tee /tmp/deploy_rock.log</code></p>
 <h2 id="log-timestamps">Log Timestamps<a class="headerlink" href="#log-timestamps" title="Permanent link">&para;</a></h2>
-<p>UTC is generally preferred for logging data as the timestamps from anywhere in the world will have a proper order without calculating offsets. That said, Kibana will present the bro logs according to your timezone (as set in the browser). The bro logs themselves (i.e. in /data/bro/logs/) log in epoch time and will be written in UTC regardless of the system timezone.</p>
-<p>Bro includes a utility for parsing these on the command line called <code>bro-cut</code>. It can be used to print human-readable timestamps in either the local sensor timezone or UTC. You can also give it a custom format string to specify what you'd like displayed.</p>
+<p>UTC is generally preferred for logging data as the timestamps from anywhere in the world will have a proper order without calculating offsets. That said, Kibana will present the zeek logs according to your timezone (as set in the browser). The logs themselves (i.e. in /data/bro/logs/) log in epoch time and will be written in UTC regardless of the system timezone.</p>
+<p>Zeek includes a utility for parsing these on the command line called <code>bro-cut</code>. It can be used to print human-readable timestamps in either the local sensor timezone or UTC. You can also give it a custom format string to specify what you'd like displayed.</p>
                 
                   
                 
@@ -1063,7 +1149,7 @@ output.  This example will write the output to a file for review:  </p>
       
     </div>
     
-      <script src="../../assets/javascripts/application.b806dc00.js"></script>
+      <script src="../../assets/javascripts/application.dc02f8ce.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       

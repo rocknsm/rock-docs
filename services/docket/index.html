@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.1">
     
     
       
@@ -44,7 +44,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.982221ab.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.3020aac5.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+      <script src="../../assets/javascripts/modernizr.01ccdecf.js"></script>
     
     
       
@@ -416,18 +416,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../configure/initial-access.md" title="Initial Access" class="md-nav__link">
-      Initial Access
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../configure/reference/" title="Config Reference" class="md-nav__link">
       Config Reference
     </a>
@@ -598,8 +586,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../bro/" title="Bro" class="md-nav__link">
-      Bro
+    <a href="../zeek/" title="Zeek" class="md-nav__link">
+      Zeek
     </a>
   </li>
 
@@ -781,6 +769,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#changing-lighttpd-credentials" title="Changing Lighttpd Credentials" class="md-nav__link">
+    Changing Lighttpd Credentials
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -890,8 +885,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../reference/liscense/" title="Liscense" class="md-nav__link">
-      Liscense
+    <a href="../../reference/license/" title="License" class="md-nav__link">
+      License
     </a>
   </li>
 
@@ -994,6 +989,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#changing-lighttpd-credentials" title="Changing Lighttpd Credentials" class="md-nav__link">
+    Changing Lighttpd Credentials
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1089,8 +1091,18 @@ https://[sensorip]/app/docket/
 <li><code>stenographer@&lt;int&gt;</code> - process for each monitor interface</li>
 </ul>
 <p>Current status can be checked with the following commands:  </p>
-<p><code>sudo systemctl status lighttpd</code>  </p>
-<p><code>sudo rockctl status</code>  </p>
+<p>$ <code>sudo systemctl status lighttpd</code>  </p>
+<p>$ <code>sudo rockctl status</code>  </p>
+<h4 id="changing-lighttpd-credentials">Changing Lighttpd Credentials<a class="headerlink" href="#changing-lighttpd-credentials" title="Permanent link">&para;</a></h4>
+<p>For the diligent (paranoid), the credentials that were initially generated at
+installation can be changed with the following steps:  </p>
+<ol>
+<li>create a new shell variable, example: <code>USER_NAME=operator</code></li>
+<li>append the new user to lighttpd config file:<br />
+$ <code>sudo sh -c "echo -n '$USER_NAME:' &gt;&gt; /etc/lighttpd/rock-htpasswd.user"</code>  </li>
+<li>generate new password for new user:<br />
+$ <code>sudo sh -c "openssl passwd -apr1 &gt;&gt; /etc/lighttpd/rock-htpasswd.user"</code>  </li>
+</ol>
 <h2 id="directories">Directories<a class="headerlink" href="#directories" title="Permanent link">&para;</a></h2>
 <p>Here are some important filesystem paths that will be useful for any necessary
 troubleshooting efforts:  </p>
@@ -1182,7 +1194,7 @@ troubleshooting efforts:  </p>
       
     </div>
     
-      <script src="../../assets/javascripts/application.b806dc00.js"></script>
+      <script src="../../assets/javascripts/application.dc02f8ce.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       

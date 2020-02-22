@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.1">
     
     
       
@@ -44,7 +44,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.982221ab.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.3020aac5.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+      <script src="../../assets/javascripts/modernizr.01ccdecf.js"></script>
     
     
       
@@ -416,18 +416,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../configure/initial-access.md" title="Initial Access" class="md-nav__link">
-      Initial Access
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../configure/reference/" title="Config Reference" class="md-nav__link">
       Config Reference
     </a>
@@ -598,8 +586,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../bro/" title="Bro" class="md-nav__link">
-      Bro
+    <a href="../zeek/" title="Zeek" class="md-nav__link">
+      Zeek
     </a>
   </li>
 
@@ -843,8 +831,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../reference/liscense/" title="Liscense" class="md-nav__link">
-      Liscense
+    <a href="../../reference/license/" title="License" class="md-nav__link">
+      License
     </a>
   </li>
 
@@ -958,13 +946,9 @@ message queue.</p>
 <p>Kafka solves the problem of having multiple data sources sending into the same
 pipeline. It acts as a staging area to allow <a href="./Logstash">Logstash</a> to keep up
 with things.</p>
-<!-- ## Basic Usage
-
-... -->
-
 <h2 id="management">Management<a class="headerlink" href="#management" title="Permanent link">&para;</a></h2>
 <h4 id="services">Services<a class="headerlink" href="#services" title="Permanent link">&para;</a></h4>
-<p>Kafka is deployed as a systemd unit, called <strong>kafka</strong>. Normal systemd
+<p>Kafka is deployed as a systemd unit, called <code>kafka.service</code>. Normal systemd
 procedures apply here:</p>
 <div class="codehilite"><pre><span></span>sudo systemctl start kafka
 sudo systemctl status kafka
@@ -1058,7 +1042,7 @@ sudo systemctl restart kafka
       
     </div>
     
-      <script src="../../assets/javascripts/application.b806dc00.js"></script>
+      <script src="../../assets/javascripts/application.dc02f8ce.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       

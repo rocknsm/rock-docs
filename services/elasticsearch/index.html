@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.1">
     
     
       
@@ -44,7 +44,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.982221ab.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.3020aac5.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+      <script src="../../assets/javascripts/modernizr.01ccdecf.js"></script>
     
     
       
@@ -416,18 +416,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../configure/initial-access.md" title="Initial Access" class="md-nav__link">
-      Initial Access
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../configure/reference/" title="Config Reference" class="md-nav__link">
       Config Reference
     </a>
@@ -598,8 +586,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../bro/" title="Bro" class="md-nav__link">
-      Bro
+    <a href="../zeek/" title="Zeek" class="md-nav__link">
+      Zeek
     </a>
   </li>
 
@@ -850,8 +838,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../reference/liscense/" title="Liscense" class="md-nav__link">
-      Liscense
+    <a href="../../reference/license/" title="License" class="md-nav__link">
+      License
     </a>
   </li>
 
@@ -974,15 +962,15 @@ aggregations quickly and efficiently.</p>
 <p>ROCK sends all logs preformatted in JSON, complete with human readable timestamps.
 This does two things:</p>
 <ol>
-<li>Elasticsearch compression is effctively increased since there is not two
+<li>Elasticsearch compression is effectively increased since there is not two
 copies of the data, raw and JSON.  </li>
 <li>The preformatted timestamps and JSON log data greatly increase the logging and
 error rate while increasing reliability of the logging infrastructure.</li>
 </ol>
 <h2 id="management">Management<a class="headerlink" href="#management" title="Permanent link">&para;</a></h2>
 <h3 id="service">Service<a class="headerlink" href="#service" title="Permanent link">&para;</a></h3>
-<p>Elasticsearch is deployed as a systemd unit, called <strong>elasticsearch</strong>. Normal
-systemd procedures apply here:</p>
+<p>Elasticsearch is deployed as a systemd unit, called <code>elasticsearch.service</code>.
+Normal systemd procedures apply here:  </p>
 <div class="codehilite"><pre><span></span>sudo systemctl start elasticsearch
 sudo systemctl status elasticsearch
 sudo systemctl stop elasticsearch
@@ -993,7 +981,7 @@ sudo systemctl restart elasticsearch
 <h3 id="api-access">API Access<a class="headerlink" href="#api-access" title="Permanent link">&para;</a></h3>
 <p>Elasticsearch data can be accessed via a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs.html">Restful API</a>
 over port 9200. Kibana is the most common way this is done, but this can also be
-accomplished with <code>curl</code> commands, such as: <code>$ curl &lt;sensorip&gt;:9200/_cat/indices</code>.  </p>
+accomplished with <code>curl</code> commands, such as: <code>$ curl &lt;SENSORIP&gt;:9200/_cat/indices</code>.  </p>
 <h2 id="directories">Directories<a class="headerlink" href="#directories" title="Permanent link">&para;</a></h2>
 <ul>
 <li>home:<ul>
@@ -1091,7 +1079,7 @@ accomplished with <code>curl</code> commands, such as: <code>$ curl &lt;sensorip
       
     </div>
     
-      <script src="../../assets/javascripts/application.b806dc00.js"></script>
+      <script src="../../assets/javascripts/application.dc02f8ce.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       

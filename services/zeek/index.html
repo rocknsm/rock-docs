@@ -36,15 +36,15 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.1">
     
     
       
-        <title>Bro - RockNSM</title>
+        <title>Zeek - RockNSM</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.982221ab.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.3020aac5.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+      <script src="../../assets/javascripts/modernizr.01ccdecf.js"></script>
     
     
       
@@ -106,7 +106,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#bro" tabindex="1" class="md-skip">
+      <a href="#zeek" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -131,7 +131,7 @@
               RockNSM
             </span>
             <span class="md-header-nav__topic">
-              Bro
+              Zeek
             </span>
           
         </div>
@@ -416,18 +416,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../configure/initial-access.md" title="Initial Access" class="md-nav__link">
-      Initial Access
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../configure/reference/" title="Config Reference" class="md-nav__link">
       Config Reference
     </a>
@@ -607,11 +595,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Bro
+        Zeek
       </label>
     
-    <a href="./" title="Bro" class="md-nav__link md-nav__link--active">
-      Bro
+    <a href="./" title="Zeek" class="md-nav__link md-nav__link--active">
+      Zeek
     </a>
     
       
@@ -843,8 +831,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../reference/liscense/" title="Liscense" class="md-nav__link">
-      Liscense
+    <a href="../../reference/license/" title="License" class="md-nav__link">
+      License
     </a>
   </li>
 
@@ -948,19 +936,23 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rocknsm/rock-docs/edit/master/docs/services/bro.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/rocknsm/rock-docs/edit/master/docs/services/zeek.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="bro">Bro<a class="headerlink" href="#bro" title="Permanent link">&para;</a></h1>
+                <h1 id="zeek">Zeek<a class="headerlink" href="#zeek" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Note: While "Zeek" is the new name of the project, directories,
+service files, and binaries still (for now) retain the "bro" name.  </p>
+</blockquote>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Bro is used to provide network protocol analysis within ROCK. It is extremely
+<p>Zeek (the artist formerly known as Bro) is used to provide network protocol analysis within ROCK. It is extremely
 customizable, and it is encouraged that you take advantage of this.</p>
-<p>When deploying custom Bro scripts, please be sure to store them under a
+<p>When deploying custom Zeek scripts, please be sure to store them under a
 subdirectory of <code>/usr/share/bro/site/scripts/</code>. We can't guarantee that your
 customizations won't be overwritten by Ansible if you don't follow this pattern.</p>
 <h2 id="management">Management<a class="headerlink" href="#management" title="Permanent link">&para;</a></h2>
 <h3 id="service">Service<a class="headerlink" href="#service" title="Permanent link">&para;</a></h3>
-<p>Bro is deployed as a systemd unit, called <strong>bro</strong>. Normal systemd procedures
+<p>Zeek is deployed as a systemd unit, called <code>bro.service</code>. Normal systemd procedures
 apply here:</p>
 <div class="codehilite"><pre><span></span>sudo systemctl start bro
 sudo systemctl status bro
@@ -990,7 +982,7 @@ group as such:  </p>
 </li>
 </ul>
 <p><br>
-<strong>Note:</strong> By default, Bro will write ASCII logs to the data path above AND write
+<strong>Note:</strong> By default, Zeek will write ASCII logs to the data path above AND write
  JSON directly to Kafka. In general, you will be accessing the Bro data from
  <a href="../elasticsearch/">Elasticsearch</a> via <a href="../kibana/">Kibana</a>.  </p>
                 
@@ -1075,7 +1067,7 @@ group as such:  </p>
       
     </div>
     
-      <script src="../../assets/javascripts/application.b806dc00.js"></script>
+      <script src="../../assets/javascripts/application.dc02f8ce.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       

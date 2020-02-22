@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.1">
     
     
       
@@ -44,7 +44,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.982221ab.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.3020aac5.css">
       
         <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+      <script src="../assets/javascripts/modernizr.01ccdecf.js"></script>
     
     
       
@@ -416,18 +416,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../configure/initial-access.md" title="Initial Access" class="md-nav__link">
-      Initial Access
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../configure/reference/" title="Config Reference" class="md-nav__link">
       Config Reference
     </a>
@@ -613,6 +601,40 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#managing-all-services" title="Managing All Services" class="md-nav__link">
+    Managing All Services
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rockctl" title="rockctl" class="md-nav__link">
+    rockctl
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rock" title="rock" class="md-nav__link">
+    rock
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-single-services" title="Managing Single Services" class="md-nav__link">
+    Managing Single Services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#published-urls-and-ports" title="Published URLs and Ports" class="md-nav__link">
     Published URLs and Ports
   </a>
@@ -639,13 +661,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#rockctl" title="Rockctl" class="md-nav__link">
-    Rockctl
-  </a>
-  
-</li>
-      
       
       
       
@@ -663,8 +678,8 @@
 
 
   <li class="md-nav__item">
-    <a href="bro/" title="Bro" class="md-nav__link">
-      Bro
+    <a href="zeek/" title="Zeek" class="md-nav__link">
+      Zeek
     </a>
   </li>
 
@@ -843,8 +858,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../reference/liscense/" title="Liscense" class="md-nav__link">
-      Liscense
+    <a href="../reference/license/" title="License" class="md-nav__link">
+      License
     </a>
   </li>
 
@@ -899,6 +914,40 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#managing-all-services" title="Managing All Services" class="md-nav__link">
+    Managing All Services
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rockctl" title="rockctl" class="md-nav__link">
+    rockctl
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rock" title="rock" class="md-nav__link">
+    rock
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-single-services" title="Managing Single Services" class="md-nav__link">
+    Managing Single Services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#published-urls-and-ports" title="Published URLs and Ports" class="md-nav__link">
     Published URLs and Ports
   </a>
@@ -925,13 +974,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#rockctl" title="Rockctl" class="md-nav__link">
-    Rockctl
-  </a>
-  
-</li>
-      
       
       
       
@@ -952,9 +994,77 @@
                 
                 
                 <h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h1>
-<p>ROCK uses a collection of open-source applications as described in this Services
-section. This portion of the guide covers basic administration of each part of
-RockNSM.</p>
+<p>ROCK uses a collection of open-source applications as described in this
+"Services" section. This portion of the documentation covers the basic
+administration of each of the major components of RockNSM.  </p>
+<h2 id="managing-all-services">Managing All Services<a class="headerlink" href="#managing-all-services" title="Permanent link">&para;</a></h2>
+<p>If you know Linux operating systems that use systemd, the you'll be familiar
+with the command <code>systemctl</code> to manage services. ROCK provides two separate
+scripts that provide similar functionality, depending upon your deployment
+scenario.  </p>
+<ol>
+<li>
+<p>$ <code>rockctl</code> - service manage for a <strong>single-node</strong> instance</p>
+</li>
+<li>
+<p>$ <code>rock</code> - service manage for a <strong>multi-node</strong> instance</p>
+</li>
+</ol>
+<h3 id="rockctl">rockctl<a class="headerlink" href="#rockctl" title="Permanent link">&para;</a></h3>
+<p>The <code>rockctl</code> command is a Bash script that calls systemd to action all
+ROCK services. Use this tool when you're connected to a specific sensor and
+need to take action on the sensor services as a group. <code>rockctl</code> can be used
+to perform the following operations:  </p>
+<div class="codehilite"><pre><span></span>$ sudo rockctl  status          <span class="c1"># Report status for all ROCK services on this host</span>
+                stop            <span class="c1"># Stop all ROCK services on this host</span>
+                start           <span class="c1"># Start all ROCK services on this host</span>
+                restart         <span class="c1"># Restart all ROCK services on this host</span>
+                reset-failed    <span class="c1"># Reset failed status all ROCK services on this host</span>
+                                <span class="c1"># Useful for services like stenographer that start and exit</span>
+</pre></div>
+
+
+<h3 id="rock">rock<a class="headerlink" href="#rock" title="Permanent link">&para;</a></h3>
+<p>The <code>rock</code> command is a Bash script that uses Ansible to action services across
+all sensors across all sensors that are part of a multi-node deployment.  </p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>admin@rock ~<span class="o">]</span>$ rock
+
+Commands:
+setup               Launch TUI to configure this host <span class="k">for</span> deployment
+tui                 Alias <span class="k">for</span> setup
+ssh-config          Configure hosts in inventory to use key-based auth <span class="o">(</span>multinode<span class="o">)</span>
+deploy              Deploy selected ROCK components
+deploy-offline      Same as deploy --offline <span class="o">(</span>Default ISO behavior<span class="o">)</span>
+deploy-online       Same as deploy --online
+stop                Stop all ROCK services
+start               Start all ROCK services
+restart             Restart all ROCK services
+status              Report status <span class="k">for</span> all ROCK services
+genconfig           Generate default configuration based on current system
+destroy             Destroy all ROCK data: indexes, logs, PCAP, i.e. EVERYTHING
+                      NOTE: Will not remove any services, just the data
+
+Options:
+--config, -c &lt;config_yaml&gt;         Specify full path to configuration overrides
+--extra, -e &lt;ansible variables&gt;    Set additional variables as <span class="nv">key</span><span class="o">=</span>value or YAML/JSON passed to ansible-playbook
+--help, -h                         Show this usage information
+--inventory, -i &lt;inventory_path&gt;   Specify path to Ansible inventory file
+--limit &lt;host&gt;                     Specify host to run plays
+--list-hosts                       Outputs a list of matching hosts<span class="p">;</span> does not execute anything <span class="k">else</span>
+--list-tags                        List all available tags
+--list-tasks                       List all tasks that would be executed
+--offline, -o                      Deploy ROCK using only <span class="nb">local</span> repos <span class="o">(</span>Default ISO behavior<span class="o">)</span>
+--online, -O                       Deploy ROCK using online repos
+--playbook, -p &lt;playbook_path&gt;     Specify path to Ansible playbook file
+--skip-tags &lt;tags&gt;                 Only run plays and tasks whose tags <span class="k">do</span> not match these values
+--tags, -t &lt;tags&gt;                  Only run plays and tasks tagged with these values
+--verbose, -v                      Increase verbosity of ansible-playbook
+</pre></div>
+
+
+<h2 id="managing-single-services">Managing Single Services<a class="headerlink" href="#managing-single-services" title="Permanent link">&para;</a></h2>
+<p>When you need to take action on a singular service (a la carte), use <code>systemctl</code>
+ as you would</p>
 <h2 id="published-urls-and-ports">Published URLs and Ports<a class="headerlink" href="#published-urls-and-ports" title="Permanent link">&para;</a></h2>
 <p>ROCK uses the <code>lighttpd</code> webserver to perform vhost redirects to it's web
 interfaces. It's configured to listen for (IPV4 only) connections over
@@ -969,42 +1079,6 @@ port <code>443</code> for the following:  </p>
 <li>Elasticsearch: <code>:9200</code></li>
 <li>Kibana: <code>:5601</code></li>
 </ul>
-<h2 id="rockctl">Rockctl<a class="headerlink" href="#rockctl" title="Permanent link">&para;</a></h2>
-<p>If you're generally familiar with systemd you'll know that the command used to
-manage services on modern systems is <code>systemctl</code>.  </p>
-<p>With ROCK we've provided a wrapper to control services called <code>rockctl</code>. Rockctl
-can be used to perform the following operations:  </p>
-<div class="codehilite"><pre><span></span>$ sudo rockctl  status          <span class="c1"># display status of ROCK services</span>
-                start           <span class="c1"># start all ROCK services</span>
-                stop            <span class="c1"># stop all ROCK services</span>
-                reset-failed    <span class="c1"># clear the failed states of services</span>
-</pre></div>
-
-
-<p>Here is an example output of <code>rockctl status</code>:  </p>
-<div class="codehilite"><pre><span></span><span class="o">[</span>admin@rock ~<span class="o">]</span>$ sudo rockctl status
-
-ZOOKEEPER:
-   Active: active <span class="o">(</span>running<span class="o">)</span> since Mon <span class="m">2019</span>-01-28 <span class="m">21</span>:35:55 UTC<span class="p">;</span> <span class="m">1</span> weeks <span class="m">0</span> days ago
-KAFKA:
-   Active: active <span class="o">(</span>running<span class="o">)</span> since Mon <span class="m">2019</span>-01-28 <span class="m">21</span>:35:55 UTC<span class="p">;</span> <span class="m">1</span> weeks <span class="m">0</span> days ago
-BRO:
-   Active: active <span class="o">(</span>running<span class="o">)</span> since Mon <span class="m">2019</span>-01-28 <span class="m">21</span>:44:36 UTC<span class="p">;</span> <span class="m">1</span> weeks <span class="m">0</span> days ago
-SURICATA:
-   Active: active <span class="o">(</span>running<span class="o">)</span> since Mon <span class="m">2019</span>-01-28 <span class="m">21</span>:40:21 UTC<span class="p">;</span> <span class="m">1</span> weeks <span class="m">0</span> days ago
-FILEBEAT:
-   Active: active <span class="o">(</span>running<span class="o">)</span> since Mon <span class="m">2019</span>-01-28 <span class="m">21</span>:36:26 UTC<span class="p">;</span> <span class="m">1</span> weeks <span class="m">0</span> days ago
-ELASTICSEARCH:
-   Active: active <span class="o">(</span>running<span class="o">)</span> since Mon <span class="m">2019</span>-01-28 <span class="m">21</span>:35:57 UTC<span class="p">;</span> <span class="m">1</span> weeks <span class="m">0</span> days ago
-LOGSTASH:
-   Active: active <span class="o">(</span>running<span class="o">)</span> since Mon <span class="m">2019</span>-01-28 <span class="m">21</span>:36:26 UTC<span class="p">;</span> <span class="m">1</span> weeks <span class="m">0</span> days ago
-KIBANA:
-   Active: active <span class="o">(</span>running<span class="o">)</span> since Mon <span class="m">2019</span>-01-28 <span class="m">21</span>:36:10 UTC<span class="p">;</span> <span class="m">1</span> weeks <span class="m">0</span> days ago
-STENOGRAPHER:
-   Active: active <span class="o">(</span>exited<span class="o">)</span> since Mon <span class="m">2019</span>-01-28 <span class="m">22</span>:51:47 UTC<span class="p">;</span> <span class="m">1</span> weeks <span class="m">0</span> days ago
-STENOGRAPHER@EM1:
-   Active: active <span class="o">(</span>running<span class="o">)</span> since Mon <span class="m">2019</span>-01-28 <span class="m">22</span>:51:47 UTC<span class="p">;</span> <span class="m">1</span> weeks <span class="m">0</span> days ago
-</pre></div>
                 
                   
                 
@@ -1040,13 +1114,13 @@ STENOGRAPHER@EM1:
           </a>
         
         
-          <a href="bro/" title="Bro" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="zeek/" title="Zeek" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Bro
+                Zeek
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -1087,7 +1161,7 @@ STENOGRAPHER@EM1:
       
     </div>
     
-      <script src="../assets/javascripts/application.b806dc00.js"></script>
+      <script src="../assets/javascripts/application.dc02f8ce.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
       

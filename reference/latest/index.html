@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.1">
     
     
       
@@ -44,7 +44,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.982221ab.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.3020aac5.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+      <script src="../../assets/javascripts/modernizr.01ccdecf.js"></script>
     
     
       
@@ -416,18 +416,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../configure/initial-access.md" title="Initial Access" class="md-nav__link">
-      Initial Access
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../configure/reference/" title="Config Reference" class="md-nav__link">
       Config Reference
     </a>
@@ -596,8 +584,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../services/bro/" title="Bro" class="md-nav__link">
-      Bro
+    <a href="../../services/zeek/" title="Zeek" class="md-nav__link">
+      Zeek
     </a>
   </li>
 
@@ -769,43 +757,9 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#release-24" title="Release 2.4" class="md-nav__link">
-    Release 2.4
+  <a href="#release-25" title="Release 2.5" class="md-nav__link">
+    Release 2.5
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#elastic-7" title="Elastic 7" class="md-nav__link">
-    Elastic 7
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#package-updates" title="Package Updates" class="md-nav__link">
-    Package Updates
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multi-node-support" title="Multi-node Support" class="md-nav__link">
-    Multi-node Support
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#closed-issues" title="Closed Issues" class="md-nav__link">
-    Closed Issues
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -850,8 +804,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../liscense/" title="Liscense" class="md-nav__link">
-      Liscense
+    <a href="../license/" title="License" class="md-nav__link">
+      License
     </a>
   </li>
 
@@ -906,43 +860,9 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#release-24" title="Release 2.4" class="md-nav__link">
-    Release 2.4
+  <a href="#release-25" title="Release 2.5" class="md-nav__link">
+    Release 2.5
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#elastic-7" title="Elastic 7" class="md-nav__link">
-    Elastic 7
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#package-updates" title="Package Updates" class="md-nav__link">
-    Package Updates
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multi-node-support" title="Multi-node Support" class="md-nav__link">
-    Multi-node Support
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#closed-issues" title="Closed Issues" class="md-nav__link">
-    Closed Issues
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -966,45 +886,31 @@
                 
                 
                 <h1 id="latest">Latest<a class="headerlink" href="#latest" title="Permanent link">&para;</a></h1>
-<h2 id="release-24">Release 2.4<a class="headerlink" href="#release-24" title="Permanent link">&para;</a></h2>
-<p>We are pleased to announce that ROCK 2.4 is out! Check out the the full
-<a href="#">blog post</a> for the full details on version 2.4. Here's a quick overview of
+<h2 id="release-25">Release 2.5<a class="headerlink" href="#release-25" title="Permanent link">&para;</a></h2>
+<p>We are pleased to announce that ROCK 2.5 is out! Here's a quick overview of
 some of the latest additions:</p>
+<p>NEW - ROCK has move to the <a href="https://github.com/elastic/ecs">ECS</a> standard!  </p>
 <ul>
-<li>NEW - Text UI (TUI) for initial host setup</li>
-<li>NEW - ROCK manager utility</li>
-<li>NEW - Automated Testing Infrastructure</li>
-<li>Feature selection improvements</li>
-<li>95 Closed Issues</li>
-<li>Package Updates:<ul>
-<li>Elastic 6.6 -&gt; 7.0</li>
-<li>Suricata 4.1.1 -&gt; 4.1.3</li>
-<li>Zookeeper 3.4.11 -&gt; 3.4.14</li>
-<li>Kafka 1.0.0 -&gt; 2.2.0</li>
-<li>Stenographer 0.1 -&gt; 0.2</li>
-<li>Unrar 5.5.2 -&gt; 5.7.3</li>
+<li>legacy pipeline is still available (on ISO install)  </li>
+<li>aliases are in place to assist backwards compatibility  </li>
 </ul>
-</li>
+<p>NEW - Out of the box support for XFS Disk Quotas  </p>
+<ul>
+<li>puts quota on <code>/data</code> or falls back to <code>/</code>  </li>
+<li>works for both automated and manual installs  </li>
+<li>standalone playbook to setup quotas on installs other than ISO download (reboot req.)  </li>
+<li>the amount of disk given to a service is enabled by weight  </li>
 </ul>
-<h4 id="elastic-7">Elastic 7<a class="headerlink" href="#elastic-7" title="Permanent link">&para;</a></h4>
-<p><a href="https://www.elastic.co/blog/elastic-stack-7-0-0-released">Elastic 7.0</a> brings
-some nice new features such as, Index Lifecycle Management, redesigned Kibana
-UI, and a new cluster discovery mechanism.</p>
-<h4 id="package-updates">Package Updates<a class="headerlink" href="#package-updates" title="Permanent link">&para;</a></h4>
-<p>As mentioned above, this update brings Elastic to version 7, but also updates of
-Suricata, Zookeeper, Kafka, Stenographer, and others. You can see the full list of changes <a href="#">here</a>.</p>
-<h4 id="multi-node-support">Multi-node Support<a class="headerlink" href="#multi-node-support" title="Permanent link">&para;</a></h4>
-<p>This is a big change that we are very excited to release! When ROCK was
-originally conceived, its primary purpose was for Network Security Monitoring
-(NSM) practitioners to be able to hone their craft on a commodity home lab.
-While that is still a very relevant use case, we have seen a lot of demand for
-the ability to easily deploy ROCK into an enterprise environment in a scalable
-manner.</p>
-<h4 id="closed-issues">Closed Issues<a class="headerlink" href="#closed-issues" title="Permanent link">&para;</a></h4>
-<p>We are continuing to burn through long-running issues with this release. There
-were also several new issues that slipped into 2.3 that have been addressed.
-Namely, we improved the way rolling restarts are handled for Elasticsearch and
-are continuing to make multinode deployments as smooth and hands-off as possible.</p>
+<p>NEW - Updated ROCK Dashboards  </p>
+<ul>
+<li>available in ISO install  </li>
+<li>incorporating Vega into dashboards  </li>
+</ul>
+<p>FIX - various visualization issues in ROCK dashboard  </p>
+<p>FIX - x509 certificate issues resolved  </p>
+<p>UPDATE - All Elastic Stack components to <a href="https://www.elastic.co/blog/elasticsearch-7-6-0-released">v7.6</a>  </p>
+<p>NEW - Updated Zeek to version 3  </p>
+<p>NEW - Updated Suricata to version 5  </p>
                 
                   
                 
@@ -1087,7 +993,7 @@ are continuing to make multinode deployments as smooth and hands-off as possible
       
     </div>
     
-      <script src="../../assets/javascripts/application.b806dc00.js"></script>
+      <script src="../../assets/javascripts/application.dc02f8ce.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       

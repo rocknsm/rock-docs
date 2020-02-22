@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.1">
     
     
       
@@ -44,7 +44,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.982221ab.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.3020aac5.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+      <script src="../../assets/javascripts/modernizr.01ccdecf.js"></script>
     
     
       
@@ -416,18 +416,6 @@
           
           
 
-
-  <li class="md-nav__item">
-    <a href="../initial-access.md" title="Initial Access" class="md-nav__link">
-      Initial Access
-    </a>
-  </li>
-
-        
-          
-          
-          
-
   
 
 
@@ -680,8 +668,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../services/bro/" title="Bro" class="md-nav__link">
-      Bro
+    <a href="../../services/zeek/" title="Zeek" class="md-nav__link">
+      Zeek
     </a>
   </li>
 
@@ -860,8 +848,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../reference/liscense/" title="Liscense" class="md-nav__link">
-      Liscense
+    <a href="../../reference/license/" title="License" class="md-nav__link">
+      License
     </a>
   </li>
 
@@ -1096,49 +1084,65 @@ fsf_retention: 3
 
 <h3 id="component-options">Component Options<a class="headerlink" href="#component-options" title="Permanent link">&para;</a></h3>
 <p>This is a critical section that provides boolean options to choose what components of ROCK are <strong><em>installed</em></strong> and <strong><em>enabled</em></strong> during deployment.  </p>
-<div class="codehilite"><pre><span></span># The following &quot;with_&quot; statements define what components of RockNSM are
-# installed when running the deploy script:
+<div class="codehilite"><pre><span></span>rock_services:
+  - name: bro
+    quota_weight: 1
+    installed: True
+    enabled: True
 
-with_stenographer: True
-with_docket: True
-with_bro: True
-with_suricata: True
-with_snort: True
-with_suricata_update: True
-with_logstash: True
-with_elasticsearch: True
-with_kibana: True
-with_zookeeper: True
-with_kafka: True
-with_lighttpd: True
-with_fsf: True
+  - name: stenographer
+    quota_weight: 8
+    installed: True
+    enabled: True
 
-# The following &quot;enable_&quot; statements define what RockNSM component services
-# are enabled (start automatically on system boot):
+  - name: docket
+    quota_weight: 0
+    installed: True
+    enabled: True
 
-enable_stenographer: True
-enable_docket: True
-enable_bro: True
-enable_suricata: True
-enable_snort: True
-enable_suricata_update: True
-enable_logstash: True
-enable_elasticsearch: True
-enable_kibana: True
-enable_zookeeper: True
-enable_kafka: True
-enable_lighttpd: True
-enable_fsf: True
+  - name: suricata
+    quota_weight: 2
+    installed: True
+    enabled: True
+
+  - name: elasticsearch
+    quota_weight: 4
+    installed: True
+    enabled: True
+
+  - name: kibana
+    quota_weight: 0
+    installed: True
+    enabled: True
+
+  - name: zookeeper
+    quota_weight: 0
+    installed: True
+    enabled: True
+
+  - name: kafka
+    quota_weight: 4
+    installed: True
+    enabled: True
+
+  - name: lighttpd
+    quota_weight: 0
+    installed: True
+    enabled: True
+
+  - name: fsf
+    quota_weight: 1
+    installed: True
+    enabled: True
+
+  - name: filebeat
+    quota_weight: 0
+    installed: True
+    enabled: True
 </pre></div>
 
 
-<p>A good example for changing this section would involve <a href="../../services/stenographer/">Stenographer</a>. Collecting raw PCAP is resource and <em><strong>storage intensive</strong></em>.  You're machine may not be able to handle that and if you just wanted to focus on network logs, then you would set both options in the config file to <strong>disable</strong> installing and enabling Stenographer:  </p>
-<div class="codehilite"><pre><span></span>with_stenographer: False
-  ...
-  ...
-  ...
-enable_stenographer: False
-</pre></div>
+<p>A good example for changing this section would involve <a href="../../services/stenographer/">Stenographer</a>. Collecting raw PCAP is resource and <em><strong>storage intensive</strong></em>.  You're machine may not be able to handle that and if you just wanted to focus on network logs, then you would set both options in the config file to <strong>disable</strong> installing and enabling Stenographer.</p>
                 
                   
                 
@@ -1221,7 +1225,7 @@ enable_stenographer: False
       
     </div>
     
-      <script src="../../assets/javascripts/application.b806dc00.js"></script>
+      <script src="../../assets/javascripts/application.dc02f8ce.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       

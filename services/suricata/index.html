@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.1">
     
     
       
@@ -44,7 +44,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.982221ab.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.3020aac5.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+      <script src="../../assets/javascripts/modernizr.01ccdecf.js"></script>
     
     
       
@@ -416,18 +416,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../configure/initial-access.md" title="Initial Access" class="md-nav__link">
-      Initial Access
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../configure/reference/" title="Config Reference" class="md-nav__link">
       Config Reference
     </a>
@@ -598,8 +586,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../bro/" title="Bro" class="md-nav__link">
-      Bro
+    <a href="../zeek/" title="Zeek" class="md-nav__link">
+      Zeek
     </a>
   </li>
 
@@ -649,43 +637,57 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" title="Overview" class="md-nav__link">
-    Overview
+  <a href="#service-management" title="Service Management" class="md-nav__link">
+    Service Management
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#management" title="Management" class="md-nav__link">
-    Management
+  <a href="#notable-files-directories" title="Notable Files / Directories" class="md-nav__link">
+    Notable Files / Directories
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-rules" title="Updating Rules" class="md-nav__link">
+    Updating Rules
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#updating-rules" title="Updating Rules" class="md-nav__link">
-    Updating Rules
+  <a href="#enabling-feeds" title="Enabling Feeds" class="md-nav__link">
+    Enabling Feeds
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#service" title="Service" class="md-nav__link">
-    Service
+  <a href="#manipulating-individual-rules" title="Manipulating Individual Rules" class="md-nav__link">
+    Manipulating Individual Rules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-rule-management" title="Local Rule Management" class="md-nav__link">
+    Local Rule Management
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automating-it" title="Automating It" class="md-nav__link">
+    Automating It
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#directories" title="Directories" class="md-nav__link">
-    Directories
-  </a>
   
 </li>
       
@@ -850,8 +852,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../reference/liscense/" title="Liscense" class="md-nav__link">
-      Liscense
+    <a href="../../reference/license/" title="License" class="md-nav__link">
+      License
     </a>
   </li>
 
@@ -906,43 +908,57 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" title="Overview" class="md-nav__link">
-    Overview
+  <a href="#service-management" title="Service Management" class="md-nav__link">
+    Service Management
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#management" title="Management" class="md-nav__link">
-    Management
+  <a href="#notable-files-directories" title="Notable Files / Directories" class="md-nav__link">
+    Notable Files / Directories
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-rules" title="Updating Rules" class="md-nav__link">
+    Updating Rules
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#updating-rules" title="Updating Rules" class="md-nav__link">
-    Updating Rules
+  <a href="#enabling-feeds" title="Enabling Feeds" class="md-nav__link">
+    Enabling Feeds
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#service" title="Service" class="md-nav__link">
-    Service
+  <a href="#manipulating-individual-rules" title="Manipulating Individual Rules" class="md-nav__link">
+    Manipulating Individual Rules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-rule-management" title="Local Rule Management" class="md-nav__link">
+    Local Rule Management
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automating-it" title="Automating It" class="md-nav__link">
+    Automating It
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#directories" title="Directories" class="md-nav__link">
-    Directories
-  </a>
   
 </li>
       
@@ -966,21 +982,21 @@
                 
                 
                 <h1 id="suricata">Suricata<a class="headerlink" href="#suricata" title="Permanent link">&para;</a></h1>
-<p><a href="https://suricata-ids.org/">Suricata</a> is IDS / Alerting solution in RockNSM.</p>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Intrusion Detection Systems (IDS) are a great way to quickly alert on known bad.
-Alerts are triggered when a packet matches a defined pattern or <em><strong>signature</strong></em>.</p>
-<h2 id="management">Management<a class="headerlink" href="#management" title="Permanent link">&para;</a></h2>
-<p>The Suricata service is configured and enabled on startup.</p>
-<h3 id="updating-rules">Updating Rules<a class="headerlink" href="#updating-rules" title="Permanent link">&para;</a></h3>
-<p>The newest versions of Suricata come with the <code>suricata-update</code> command to
-manange and update rulesets. The official documentation is found
-<a href="https://suricata.readthedocs.io/en/suricata-4.1.2/rule-management/suricata-update.html">here</a>.  </p>
-<p>Checkout a full writeup from one of RockNSM's authors about <a href="https://blog.perched.io/managing-suricata-on-rocknsm-2-3-6a9f8fe4d5f0">managing Suricata</a>.</p>
-<p>For more detailed information on the <code>suricata-update</code> command, you can also check out a detailed blog post over at <a href="https://blog.perched.io/managing-suricata-on-rocknsm-2-3-6a9f8fe4d5f0">Perched</a>.</p>
-<h3 id="service">Service<a class="headerlink" href="#service" title="Permanent link">&para;</a></h3>
-<p>Suricata is deployed as a systemd unit, called <strong>suricata</strong>. Normal systemd
-procedures apply here:</p>
+<p>Intrusion Detection Systems (IDS) are a great way to quickly alert on known
+bad. Alerts are triggered when a packet matches a defined pattern or
+<em><strong>signature</strong></em>.  </p>
+<p><a href="https://suricata-ids.org/">Suricata</a> is the IDS / Alerting tool of choice for
+RockNSM. It provides a lot of features not available in our previous option.
+Most importantly, Suricata offers:  </p>
+<ul>
+<li>multi-threading capability</li>
+<li>active development community and</li>
+<li>frequent feature additions &amp; project momentum</li>
+</ul>
+<h2 id="service-management">Service Management<a class="headerlink" href="#service-management" title="Permanent link">&para;</a></h2>
+<p>Suricata is deployed as a systemd unit called <code>suricata.service</code>. Normal systemd
+procedures apply here. It can also be managed using the <code>rockctl</code> command using
+the same syntax:  </p>
 <div class="codehilite"><pre><span></span>sudo systemctl start suricata
 sudo systemctl status suricata
 sudo systemctl stop suricata
@@ -988,9 +1004,135 @@ sudo systemctl restart suricata
 </pre></div>
 
 
-<p>It can also be managed using the <code>rockctl</code> command.</p>
-<h2 id="directories">Directories<a class="headerlink" href="#directories" title="Permanent link">&para;</a></h2>
-<p><code>/etc/suricata/</code> - configuration path</p>
+<p>The default ROCK configuration has the Suricata service enabled on startup.  </p>
+<h2 id="notable-files-directories">Notable Files / Directories<a class="headerlink" href="#notable-files-directories" title="Permanent link">&para;</a></h2>
+<p><code>/etc/suricata/</code> - main configuration path<br />
+<code>/var/lib/suricata/</code> - primary rule path</p>
+<h2 id="updating-rules">Updating Rules<a class="headerlink" href="#updating-rules" title="Permanent link">&para;</a></h2>
+<p>The newest versions of Suricata come with the <code>suricata-update</code> command to
+manange and update rulesets. The official documentation is found
+<a href="https://suricata.readthedocs.io/en/suricata-4.1.2/rule-management/suricata-update.html">here</a>.  </p>
+<h3 id="enabling-feeds">Enabling Feeds<a class="headerlink" href="#enabling-feeds" title="Permanent link">&para;</a></h3>
+<p>Suricata Update is a Python module and is automatically bundled with Suricata
+starting with version 4.1. While it does have documentation, it’s helpful to
+have a practical example. One of the awesome features with Suricata Update is
+it comes with a pre-configured list of signature feeds out of the box, both
+free and paid. It makes it very simple to enabled paid feeds.</p>
+<p>To view the list of available feeds, login to your RockNSM system and run:</p>
+<p>$ <code>sudo suricata-update list-sources</code>  </p>
+<p>This will return something similar to the following:</p>
+<div class="codehilite"><pre><span></span><span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">oisf/trafficid</span>
+  <span class="l l-Scalar l-Scalar-Plain">Vendor</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">OISF</span>
+  <span class="l l-Scalar l-Scalar-Plain">Summary</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Suricata Traffic ID ruleset</span>
+  <span class="l l-Scalar l-Scalar-Plain">License</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">MIT</span>
+<span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">et/open</span>
+  <span class="l l-Scalar l-Scalar-Plain">Vendor</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Proofpoint</span>
+  <span class="l l-Scalar l-Scalar-Plain">Summary</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Emerging Threats Open Ruleset</span>
+  <span class="l l-Scalar l-Scalar-Plain">License</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">MIT</span>
+<span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scwx/security</span>
+  <span class="l l-Scalar l-Scalar-Plain">Vendor</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Secureworks</span>
+  <span class="l l-Scalar l-Scalar-Plain">Summary</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Secureworks suricata-security ruleset.</span>
+  <span class="l l-Scalar l-Scalar-Plain">License</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Commercial</span>
+  <span class="l l-Scalar l-Scalar-Plain">Parameters</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">secret-code</span>
+  <span class="l l-Scalar l-Scalar-Plain">Subscription</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://www.secureworks.com/contact/ (Please reference CTU Countermeasures)</span>
+<span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scwx/malware</span>
+  <span class="l l-Scalar l-Scalar-Plain">Vendor</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Secureworks</span>
+  <span class="l l-Scalar l-Scalar-Plain">Summary</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Secureworks suricata-malware ruleset.</span>
+  <span class="l l-Scalar l-Scalar-Plain">License</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Commercial</span>
+  <span class="l l-Scalar l-Scalar-Plain">Parameters</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">secret-code</span>
+  <span class="l l-Scalar l-Scalar-Plain">Subscription</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://www.secureworks.com/contact/ (Please reference CTU Countermeasures)</span>
+<span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">et/pro</span>
+  <span class="l l-Scalar l-Scalar-Plain">Vendor</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Proofpoint</span>
+  <span class="l l-Scalar l-Scalar-Plain">Summary</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Emerging Threats Pro Ruleset</span>
+  <span class="l l-Scalar l-Scalar-Plain">License</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Commercial</span>
+  <span class="l l-Scalar l-Scalar-Plain">Replaces</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">et/open</span>
+  <span class="l l-Scalar l-Scalar-Plain">Parameters</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">secret-code</span>
+  <span class="l l-Scalar l-Scalar-Plain">Subscription</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://www.proofpoint.com/us/threat-insight/et-pro-ruleset</span>
+<span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ptresearch/attackdetection</span>
+  <span class="l l-Scalar l-Scalar-Plain">Vendor</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Positive Technologies</span>
+  <span class="l l-Scalar l-Scalar-Plain">Summary</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Positive Technologies Attack Detection Team ruleset</span>
+  <span class="l l-Scalar l-Scalar-Plain">License</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Custom</span>
+<span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sslbl/ssl-fp-blacklist</span>
+  <span class="l l-Scalar l-Scalar-Plain">Vendor</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Abuse.ch</span>
+  <span class="l l-Scalar l-Scalar-Plain">Summary</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Abuse.ch SSL Blacklist</span>
+  <span class="l l-Scalar l-Scalar-Plain">License</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Non-Commercial</span>
+<span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tgreen/hunting</span>
+  <span class="l l-Scalar l-Scalar-Plain">Vendor</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tgreen</span>
+  <span class="l l-Scalar l-Scalar-Plain">Summary</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Heuristic ruleset for hunting. Focus on anomaly detection and showcasing latest engine features, not performance.</span>
+  <span class="l l-Scalar l-Scalar-Plain">License</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">GPLv3</span>
+<span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">etnetera/aggressive</span>
+  <span class="l l-Scalar l-Scalar-Plain">Vendor</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Etnetera a.s.</span>
+  <span class="l l-Scalar l-Scalar-Plain">Summary</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Etnetera aggressive IP blacklist</span>
+  <span class="l l-Scalar l-Scalar-Plain">License</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">MIT</span>
+</pre></div>
+
+
+<p>Without any additional configuration, suricata-update will automatically pull in the et/open ruleset. You can disable this ruleset if you desire. Now, if you are a subscriber to et/pro or another included ruleset that requires an access code (sometimes referred to as an “oinkcode” in Snort parlance), you can pass that on the command line or suricata-update will prompt you.</p>
+<p><code>suricata-update enable-source et/pro secret-code=xxxxxxxxxxxxxxxx</code>  </p>
+<h3 id="manipulating-individual-rules">Manipulating Individual Rules<a class="headerlink" href="#manipulating-individual-rules" title="Permanent link">&para;</a></h3>
+<p>Often times, we want to turn off specific rules — maybe they’re too noisy for our network, or corporate policy doesn’t concern with browser extensions on BYOD systems. Again, <code>suricata-update</code> makes our life easy on our RockNSM sensors.  </p>
+<div class="codehilite"><pre><span></span><span class="c1"># Elevate to a root shell and go to Suricata dir</span>
+sudo -s
+<span class="nb">cd</span> /etc/suricata
+
+<span class="c1"># Generate default suricata-update configs</span>
+suricata-update --dump-sample-configs
+</pre></div>
+
+
+<p>This command will generate six default files:</p>
+<ol>
+<li><code>update.yaml</code> - the suricata-update config file</li>
+<li><code>enable.conf</code> - config to enable rules that are usually disabled</li>
+<li><code>disable.conf</code> - config to disable rules that are usually enabled</li>
+<li><code>modify.conf</code> - use regex to modify rules</li>
+<li><code>drop.conf</code> - change rules from alert to drop, not used in RockNSM</li>
+<li><code>threshold.in</code> - set thresholds to limit too-frequent firing of given alerts</li>
+</ol>
+<p>To disable the noisy rule above, we just need to specify its signature ID (e.g. alert.signature_id). Open disable.conf and add the following line:</p>
+<div class="codehilite"><pre><span></span># Disable invalid timestamp rule (sid: 2210044)
+    2210044
+</pre></div>
+
+
+<p>We could alternatively specify the rule using regular expressions:</p>
+<div class="codehilite"><pre><span></span># Disable all SURICATA STREAM alert rules
+    re:^alert.*SURICATA STREAM
+</pre></div>
+
+
+<p>Next, just run <code>suricata-update</code>. Note, you want to ensure that <code>suricata-update</code> runs as the same user as the <code>suricata</code> service. On RockNSM, this is the <code>suricata</code> system user. This should really only be necessary the first time <code>suricata-update</code> is run, to ensure that when Suricata runs it can read the rules. Near the end of the run, you’ll see a summary how many rules were loaded, disabled, enabled, modified, dropped, and some other stats.</p>
+<div class="codehilite"><pre><span></span>sudo -u suricata -g suricata suricata-update
+...
+27/2/2019 -- 00:08:39 - &lt;Info&gt; -- Loaded 29733 rules.
+27/2/2019 -- 00:08:40 - &lt;Info&gt; -- Disabled 68 rules.
+27/2/2019 -- 00:08:40 - &lt;Info&gt; -- Enabled 0 rules.
+27/2/2019 -- 00:08:40 - &lt;Info&gt; -- Modified 0 rules.
+27/2/2019 -- 00:08:40 - &lt;Info&gt; -- Dropped 0 rules.
+27/2/2019 -- 00:08:41 - &lt;Info&gt; -- Enabled 188 rules for flowbit dependencies.
+27/2/2019 -- 00:08:41 - &lt;Info&gt; -- Backing up current rules.
+27/2/2019 -- 00:08:45 - &lt;Info&gt; -- Writing rules to /var/lib/suricata/rules/suricata.rules: total: 29733; enabled: 22272; added: 4; removed 19; modified: 1215
+</pre></div>
+
+
+<p>You can sanity check that it worked by checking the output for the signature you disabled with grep. You could also search using the same regex as before! If you want to match the regex pattern, be sure to search for a line starting with a # followed by a single space, as this is how the rule is commented out. If the disable configuration worked, you’ll see the rule, but it will be commented out.</p>
+<div class="codehilite"><pre><span></span>sudo grep <span class="m">2210044</span> /var/lib/suricata/rules/suricata.rules
+<span class="c1"># alert tcp any any -&gt; any any (msg:&quot;SURICATA STREAM Packet with invalid timestamp&quot;; stream-event:pkt_invalid_timestamp; classtype:protocol-command-decode; sid:2210044; rev:2;)</span>
+</pre></div>
+
+
+<p>To check for a regex you could do this.</p>
+<div class="codehilite"><pre><span></span>sudo grep &#39;^# alert.*SURICATA STREAM&#39;
+/var/lib/suricata/rules/suricata.rules
+...
+(a whole bunch of rules match this)
+</pre></div>
+
+
+<h3 id="local-rule-management">Local Rule Management<a class="headerlink" href="#local-rule-management" title="Permanent link">&para;</a></h3>
+<p>Suricata Update lets you manage local rules using the same process above. In the <code>update.yaml</code> it defaults to loading all rules in the <code>/etc/suricata/rules</code> directory. You could add some local site-specific directory, as well. Suricata Update will parse each of these rules and apply the same operations that you configured, as detailed above.</p>
+<h3 id="automating-it">Automating It<a class="headerlink" href="#automating-it" title="Permanent link">&para;</a></h3>
+<p>RockNSM automatically will run your suricata-update process once per day. This is done using crond in <code>/etc/cron.d/rocknsm_suricata-update</code> every day at noon UTC (which is the default and recommended RockNSM sensor time zone).  </p>
                 
                   
                 
@@ -1073,7 +1215,7 @@ sudo systemctl restart suricata
       
     </div>
     
-      <script src="../../assets/javascripts/application.b806dc00.js"></script>
+      <script src="../../assets/javascripts/application.dc02f8ce.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
