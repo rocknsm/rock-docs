@@ -5,6 +5,7 @@
 We are pleased to announce that ROCK 2.5 is out! Here's a quick overview of
 some of the latest additions:
 
+
 NEW - ROCK has move to the [ECS](https://github.com/elastic/ecs) standard!  
 
   - legacy pipeline is still available (on ISO install)  

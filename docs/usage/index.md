@@ -4,6 +4,13 @@
 
 ### Kibana - `https://localhost`
 
+---
+:warning: We are aware of an issue with macOS Catalina and the most current version of Chrome browser that prevents Chrome from allowing self-signed TLS certificates. We are looking for an answer and will update when we find that. This does not affect Safari or Firefox or other operating systems.
+
+As a workaround, you can [manually add and Always Trust](https://support.apple.com/guide/keychain-access/change-the-trust-settings-of-a-certificate-kyca11871/mac) the RockNSM TLS certificate to your macOS keychain via Keychain Access and restart Chrome.
+
+---
+
 The generated credentials are in the home directory of the user created at install:  
 <br>
 `~/KIBANA_CREDS.README`  

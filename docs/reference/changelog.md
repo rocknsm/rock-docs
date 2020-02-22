@@ -11,6 +11,7 @@
 - Update: Zeek to version 3  
 - Update: Zeek to version 5  
 
+
 ## 2.4 -- 2019-04-02
 
 - New: Text User Interface (TUI) for initial host setup  
