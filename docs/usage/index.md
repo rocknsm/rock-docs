@@ -21,6 +21,31 @@ Docket - web interface for pulling PCAP from the sensor (must be enabled in conf
 <br>
 > localhost **or** IP of the management interface of the box  
 
+## Update Suricata
+Updating the IDS rules is paramount.
+
+We'll use `suricata-update`, which is bundled with Suricata that takes a bunch of rule files and merges them into one rule that is stored in `/var/lib/suricata/rules/suricata.rules`.
+
+### Online Sensor
+```
+sudo -u suricata suricata-update
+```
+
+### Offline Sensor
+Since the sensor is offline, we can't use `suricata-update` to download the rules for us, so we'll download the most recent Emerging Threats rules and update locally.
+
+From a system that has Internet access
+```
+curl -OL https://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
+scp emerging.rules.tar.gz user@sensorIP:
+```
+Now connect to the sensors and update locally.
+```
+ssh user@sensorIP
+tar zxf emerging.rules.tar.gz
+sudo suricata-update --local rules/
+rm -r rules emerging.rules.tar.gz
+```
 
 ## Functions Checks
 
