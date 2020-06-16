@@ -108,7 +108,7 @@ Before beginning the install process it's best to connect the interface you've s
 <img src="../../img/network.png">
 </p>
 
-> Do not use a hostname that contains an underscore, for example `rock_2-5`. This will cause deployment failures!
+> Do not use a hostname that contains an underscore or dots, for example `rock_2-5` or `rock-2.6.0`. This will cause deployment failures!
 
 
 #### User Creation
