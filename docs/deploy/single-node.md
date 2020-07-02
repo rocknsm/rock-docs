@@ -57,7 +57,7 @@ For this example we'll use DHCP.
 ### Set Hostname
 
 The next set allows you to set the local hostname. For this example we'll call
-this box `rock01.rock.lan`.  
+this box `rock01.rock.lan`.  We have seen issues where naming a system with just numbers and dots causes ID conflicts with Kafka, meaning data cannot get into ROCK. We're not entirely sure what causes that, but hostnames like `2.6.0` seem to cause that...so, avoid names like that if you can.
 
 <p align="center">
 <img src="../../img/set-hostname.png">
