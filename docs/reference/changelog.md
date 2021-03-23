@@ -2,25 +2,25 @@
 
 ## 2.5 -- 2020-02-21
 
-- New: ROCK has move to the ECS standard  
-- New: Out of the box support for XFS Disk Quotas  
-- New: Updated ROCK Dashboards  
-- Fix: Various visualization issues in ROCK dashboard  
-- Fix: (x509) Certificate issues resolved  
+- New: ROCK has moved to the ECS standard
+- New: Out of the box support for XFS Disk Quotas
+- New: Updated ROCK Dashboards
+- Fix: Various visualization issues in ROCK dashboard
+- Fix: (x509) Certificate issues resolved
 - Update: Elastic Stack components to version 7.6
-- Update: Zeek to version 3  
-- Update: Zeek to version 5  
+- Update: Zeek to version 3
+- Update: Zeek to version 5
 
 
 ## 2.4 -- 2019-04-02
 
-- New: Text User Interface (TUI) for initial host setup  
-- New: ROCK manager utility  
-- New: Automated Testing Infrastructure  
-- Fixes: 95 closed issues  
-- Upgrade: Elastic 6.6 -> 6.7.1  
-- Upgrade: Suricata 4.1.1 -> 4.1.3  
-- Upgrade: Zookeeper 3.4.11 -> 3.4.13  
+- New: Text User Interface (TUI) for initial host setup
+- New: ROCK manager utility
+- New: Automated Testing Infrastructure
+- Fixes: 95 closed issues
+- Upgrade: Elastic 6.6 -> 6.7.1
+- Upgrade: Suricata 4.1.1 -> 4.1.3
+- Upgrade: Zookeeper 3.4.11 -> 3.4.13
 
 
 ## 2.3 -- 2019-02-25
@@ -39,34 +39,34 @@
 - Change: Move RockNSM install paths to filesystem hierarchy standard locations (#344)
 
 
-## 2.2 -- 2018-10-26  
+## 2.2 -- 2018-10-26
 
-- Feature: rockctl command to quickly check or change services  
-- Feature: Docket, a REST API and web UI to query multiple stenographer instances, now using TCP port 443  
-- Optimization: Kibana is now running on TCP port 443  
-- Feature: Added Suricata-Update to manage Suricata signatures  
-- Feature: GPG signing of packages and repo metadata  
-- Feature: Added functional tests using testinfra  
-- Feature: Initial support of Elastic Common Schema  
-- Feature: Elastic new Features  
-  - Canvas  
-  - Elastic Maps Service  
-- Feature: Include full Elasticstack (with permission) including features formerly known as X-Pack:  
-  - Graph  
-  - Machine Learning  
-  - Reporting  
-  - Security  
-  - Monitoring  
-  - Alerting  
-  - Elasticsearch SQL  
-- Optimization: Elastic dashboards, mappings, and Logstash config moved to module-like construct  
-- Upgrade: CentOS is updated to 7.5 (1804)  
-- Upgrade: Elastic Stack is updated to 6.4.2  
-- Upgrade: Suricata is updated to 4.0.5  
-- Upgrade: Bro is updated to 2.5.4  
+- Feature: rockctl command to quickly check or change services
+- Feature: Docket, a REST API and web UI to query multiple stenographer instances, now using TCP port 443
+- Optimization: Kibana is now running on TCP port 443
+- Feature: Added Suricata-Update to manage Suricata signatures
+- Feature: GPG signing of packages and repo metadata
+- Feature: Added functional tests using testinfra
+- Feature: Initial support of Elastic Common Schema
+- Feature: Elastic new Features
+  - Canvas
+  - Elastic Maps Service
+- Feature: Include full Elasticstack (with permission) including features formerly known as X-Pack:
+  - Graph
+  - Machine Learning
+  - Reporting
+  - Security
+  - Monitoring
+  - Alerting
+  - Elasticsearch SQL
+- Optimization: Elastic dashboards, mappings, and Logstash config moved to module-like construct
+- Upgrade: CentOS is updated to 7.5 (1804)
+- Upgrade: Elastic Stack is updated to 6.4.2
+- Upgrade: Suricata is updated to 4.0.5
+- Upgrade: Bro is updated to 2.5.4
 
 
-## 2.1 -- 2018-08-23  
+## 2.1 -- 2018-08-23
 
 <!--
 New: description

@@ -1,10 +1,10 @@
 # Install Media
 
-If there’s one thing that should be carried away from the installation section, it's this:  
+If there’s one thing that should be carried away from the installation section, it's this:
 
 RockNSM has been designed to be used as a security distribution, not a package or a suite of tools. It’s built from the ground up and the ONLY SUPPORTED INSTALL IS THE OFFICIAL ISO.
 
-Yes, one can clone the project and run the Ansible on some bespoke CentOS build, and you may have great success... but you've **voided the warranty**.  Providing a clean product that makes supporting submitted issues is important to us.  The ISO addresses most use cases.
+Yes, one can clone the project and run the Ansible components on some bespoke CentOS build, and you may have great success... but you've **voided the warranty**.  Providing a clean product that makes supporting submitted issues is important to us.  The ISO addresses most use cases.
 
 
 ## Download
@@ -14,24 +14,24 @@ The lastest ROCK build is available at [download.rocknsm.io](https://download.ro
 
 ## Applying the ISO
 
-Now it's time to create a bootable USB drive with the fresh ROCK build.  Let's look at few options.   
+Now it's time to create a bootable USB drive with the fresh ROCK build.  Let's look at few options.
 
 ### Linux
 
 #### CLI
 
-If you live in the terminal, use `dd` to apply the image.  These instructions are for using a RHEL based system.  If you're in a different environment, google is your friend.  
+If you live in the terminal, use `dd` to apply the image.  These instructions are for using a RHEL based system.  If you're in a different environment, google is your friend.
 
 > **CAUTION** when using these commands by **ENSURING** you're writing to the correct disk / partition!
 
-1. once you've inserted a USB get the drive ID:  
-`lsblk`  
+1. once you've inserted a USB get the drive ID:
+`lsblk`
 
-2. unmount the target drive so you can write to it:  
-`umount /dev/disk#`  
+2. unmount the target drive so you can write to it:
+`umount /dev/disk#`
 
-3. write the image to drive:  
-`sudo dd bs=8M if=path/to/rockiso of=/dev/disk#`  
+3. write the image to drive:
+`sudo dd bs=8M if=path/to/rockiso of=/dev/disk#`
 
 #### GUI
 
@@ -51,14 +51,14 @@ For the terminal, we'll once again use `dd`, but with a few differences from the
 
 > **CAUTION** when using these commands by **ENSURING** you're writing to the correct disk / partition!
 
-1. once you've inserted a USB get the drive ID:  
-`diskutil list`  
+1. once you've inserted a USB get the drive ID:
+`diskutil list`
 
-2. unmount the target drive so you can write to it:  
-`diskutil unmount /dev/disk#`  
+2. unmount the target drive so you can write to it:
+`diskutil unmount /dev/disk#`
 
-3. write the image to drive:  
-`sudo dd bs=8m if=path/to/rockiso of=/dev/disk#`  
+3. write the image to drive:
+`sudo dd bs=8m if=path/to/rockiso of=/dev/disk#`
 
 #### GUI
 
