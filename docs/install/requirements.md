@@ -1,20 +1,20 @@
 # Requirements
 
-Installation of ROCK can be broken down into three main steps:  
+Installation of ROCK can be broken down into three main steps:
 
 1. Install
 1. Configure
 1. Deploy
 
-Before that, let's cover what you're going to need before starting.  
+Before that, let's cover what you're going to need before starting.
 
 
 ## Sensor Hardware
 
-The analysis of live network data is a resource intensive task, so the higher
-the IOPS the better.  Here's the bottom line:
+The analysis of live network data is a resource-intensive task, so the higher
+the IOPS, the better.  Here's the bottom line:
 
-> **If you throw hardware at ROCK it will use it, and use it well.**
+> **If you throw hardware at ROCK, it will use it, and use it well.**
 
 
 ### Minimum Specs
@@ -40,7 +40,7 @@ the IOPS the better.  Here's the bottom line:
 ROCK is first and foremost a _**passive**_ network sensor and is designed with
 the assumption that there may not be a network connection available during
 install. There's some built-in flexibility with deploying ROCK, and this will
-be clarified more in then next sections.  
+be clarified more in then next sections.
 <br>
 <br>
 

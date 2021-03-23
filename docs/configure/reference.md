@@ -1,18 +1,18 @@
 <!-- ## Configuration File Overview -->
 
-The primary configuration file for RockNSM is found at `/etc/rocknsm/config.yml`.  
+The primary configuration file for RockNSM is found at `/etc/rocknsm/config.yml`.
 
 This file defines key information that drives the Ansible deployment playbook
 like network interface setup, cpu cores assignment, and much more.  There are a
-lot of options to tune here so take time to familiarize.  
+lot of options to tune here so take time to familiarize.
 
-> A template of this file in it's entirety can be found [[here on github]](https://github.com/rocknsm/rock/blob/master/playbooks/templates/rock_config.yml.j2), but for greater clarity let's break it down into it's major sections:  
+> A template of this file in it's entirety can be found [[here on github]](https://github.com/rocknsm/rock/blob/master/playbooks/templates/rock_config.yml.j2), but for greater clarity let's break it down into it's major sections:
 
 
 ### Network Interface
 As mentioned previously, ROCK takes the interface with an ip address / gateway and will use that as the _management_ NIC. `config.yml` displays the remaining interfaces that will be used to **MONITOR** traffic.
 
-Let's run through a basic example:  
+Let's run through a basic example:
 ```
 [admin@rock ~]$ ip a
 
@@ -25,8 +25,8 @@ Let's run through a basic example:
     link/ether ...
 ```
 
-The demo box above has 2 NICs:  
-1. `enp0s3` - is plugged in for install and deployment with an ip address from local dhcp. This will be used to **manage** the sensor  
+The demo box above has 2 NICs:
+1. `enp0s3` - is plugged in for install and deployment with an ip address from local dhcp. This will be used to **manage** the sensor
 2. `enp0s4` - will be unused (not connected) during install and deployment and be listed as a `rock_monif` in the config file
 
 The config file shows the other interface (`enp0s3`) is listed as MONITOR interface.
@@ -61,7 +61,7 @@ es_mem: 5
 
 ### Installation Source
 We've taken into consideration that your sensor won't always have internet
-access.  Currently the default value is set to `rock_online_install: True`:  
+access.  Currently the default value is set to `rock_online_install: True`:
 
 ```yml
   # The primary installation variable defines the ROCK installation method:
@@ -74,9 +74,9 @@ access.  Currently the default value is set to `rock_online_install: True`:
 ```
 
 #### Online
-Does your sensor has access to [upstream](https://imgs.xkcd.com/comics/the_cloud.png)
+Does your sensor have access to [upstream](https://imgs.xkcd.com/comics/the_cloud.png)
 online repositories? If so, then make sure that this value is set to
-`rock_online_install: True`.  
+`rock_online_install: True`.
 
 
 #### Offline
@@ -84,11 +84,11 @@ If you are in an offline environment, then set it to `rock_online_install: False
 Ansible will deploy using the locally cached files found in `/srv/rocknsm`.
 
 <br>
-> Note: In our next release the default behavior will be changed to an offline
+> Note: In our next release, the default behavior will be changed to an offline
 install (reference [Issue #376](https://github.com/rocknsm/rock/issues/376))
 
 ### Data Retention
-This section controls how long NSM data stay on the sensor:  
+This section controls how long NSM data stays on the sensor:
 ```yml
 # Set the interval in which Elasticsearch indexes are closed:
 elastic_close_interval: 15
@@ -113,7 +113,7 @@ fsf_retention: 3
 ```
 
 ### Component Options
-This is a critical section that provides boolean options to choose what components of ROCK are **_installed_** and **_enabled_** during deployment.  
+This is a critical section that provides boolean options to choose what components of ROCK are **_installed_** and **_enabled_** during deployment.
 
 ```yml
 rock_services:
@@ -173,4 +173,4 @@ rock_services:
     enabled: True
 ```
 
-A good example for changing this section would involve [Stenographer](../services/stenographer.md). Collecting raw PCAP is resource and _**storage intensive**_.  You're machine may not be able to handle that and if you just wanted to focus on network logs, then you would set both options in the config file to **disable** installing and enabling Stenographer.
+A good example for changing this section would involve [Stenographer](../services/stenographer.md). Collecting raw PCAP is resource and _**storage intensive**_.  Your machine may not be able to handle that, and if you just wanted to focus on network logs, then you would set both options in the config file to **disable** installing and enabling Stenographer.
