@@ -60,7 +60,7 @@ nav:
     - Requirements: install/requirements.md
     - Media: install/media.md
     - Installation: install/install.md
-    #- Example VM Install: vm_install.md
+    - Example VM Install: install/vm_installation.md
   - Configure:
     - Rock Manager: configure/rock-manager.md
     - Setup TUI: configure/setup-tui.md
