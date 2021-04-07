@@ -15,7 +15,8 @@ To aid in the installation, make sure that you have the [latest ISO](https://mir
 
 
 ## Disable FIPS to allow Deployment on all components
-> **If** your STIG enabled FIPS you will need to disable it on certain machines. The machines that contain Bro/Zeek, Docket, and Stenographer will need to be disabled.
+> **If** your STIG enabled [FIPS 140-2](https://csrc.nist.gov/publications/detail/fips/140/2/final), you will need to disable it on certain machines. The machines that contain Bro/Zeek, Docket, and Stenographer will need to disable FIPS.
+
 
 
 Remove the dracut-fips* packages:
