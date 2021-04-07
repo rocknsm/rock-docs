@@ -37,7 +37,8 @@ Run Grubby
 sudo grubby --update-kernel=ALL --remove-args=fips=1
 ```
 
-Carefully up date the grub config file setting fips=0
+Carefully update the grub config file setting fips=0
+
   ```
 sudo vi /etc/default/grub
 ```
