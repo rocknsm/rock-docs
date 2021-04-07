@@ -159,7 +159,8 @@ Reload the firewall config
 sudo firewall-cmd --reload
 ```
 
-Check the Suricata `threads` per interface. This is so Suricata doesn't compete with bro for cpu threads. if you are listening on multiple interfaces then you will have to set threads for all of them.
+Check the Suricata `threads` per interface. This is so Suricata doesn't compete with Zeek for CPU threads. If you are listening on multiple interfaces, then you will have to set threads for all of them.
+
 
 ```yml
 %YAML 1.1
