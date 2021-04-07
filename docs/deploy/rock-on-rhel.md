@@ -11,7 +11,8 @@ It should reply back with something like this:
 ```
 The system has been registered with id: 7d133d55-876f-4f47-83eb-0ee931cb0a97
 ```
-To aid in the installation make sure that you have the [latest ISO](https://mirror.rocknsm.io/isos/stable/) downloaded on the machine via `scp` or some other avenue.
+To aid in the installation, make sure that you have the [latest ISO](https://mirror.rocknsm.io/isos/stable/) downloaded on the machine via `scp` or some other avenue.
+
 
 ## Disable FIPS to allow Deployment on all components
 > **If** your STIG enabled FIPS you will need to disable it on certain machines. The machines that contain Bro/Zeek, Docket, and Stenographer will need to be disabled.
