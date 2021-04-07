@@ -17,7 +17,8 @@ To aid in the installation make sure that you have the [latest ISO](https://mirr
 > **If** your STIG enabled FIPS you will need to disable it on certain machines. The machines that contain Bro/Zeek, Docket, and Stenographer will need to be disabled.
 
 
-Remove the dracut-fips* packages
+Remove the dracut-fips* packages:
+
  ```
 sudo yum remove dracut-fips\*
 ```
