@@ -1,5 +1,5 @@
 # Rock on RHEL
-We are ofthen asked how deploy rock on RHEL. This should work for both a single node deployment and a multi-node deployment.
+We are often asked how deploy rock on RHEL. This should work for both a single node deployment and a multi-node deployment.
 
 Install RHEL using the same guidelines outlined in [Install Section](docs\install\install.md) of the documentation.
 
