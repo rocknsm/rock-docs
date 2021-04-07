@@ -126,7 +126,8 @@ Options:
 --verbose, -v                      Increase verbosity of ansible-playbook
 ```
 
-Change Directory into `usr/share/rock/bin` if you are not already there
+Change directory into `/usr/share/rock/bin` if you are not already there.
+
 
 Run `sudo ./rock ssh-config` to setup ssh on all the host you will use for the deployment. It uses the host from the previously created `hosts.ini` if you have a multinode deployment
 
